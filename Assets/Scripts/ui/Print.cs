@@ -35,13 +35,11 @@ public class Print : MonoBehaviour
     public void ButtonAction()
     {
         isButtonPressed = true;
-        Debug.Log("Button pressed");
     }
 
     public void ButtonReleaseAction()
     {
         isButtonPressed = false;
-        Debug.Log("Button released");
     }
 
 
