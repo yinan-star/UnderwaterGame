@@ -5946,8 +5946,8 @@ MonoBehaviour:
   dialogue:
     name: Overseer
     sentences:
-    - Deepo, you are the SynthPrintor. You will collect garbage from the sea and
-      convert it into power to create wonders.
+    - Deepo, you are the PrintBot. You will collect garbage from the sea and convert
+      it into power to create wonders.
 --- !u!1 &2108836662
 GameObject:
   m_ObjectHideFlags: 0
