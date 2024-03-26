@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 4619bb8e36bf5a946963025e769a48ab
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Futura LT Book
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 211363432dae014449d56cc14f083c5d, type: 3}
+  - {fileID: 12800000, guid: e437a29fb4d875c40b2525d0e619caf2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
