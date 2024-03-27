@@ -7,7 +7,13 @@ public class Print : MonoBehaviour
     public Animator animator;
     private string currentAnimation = "";
     private bool isButtonPressed = false;
-  
+    private bool isPrintedAllowed = false;
+
+    private SelectPrintoManager selectPrintoManager; //拿已经选择要打印的物体数据
+    public PrintedColorObjectsDatabase printoColorData;//拿打印出来的物体数据
+    public GameObject shadowOfPrinto;//关掉剪影
+
+
     void Update()
     {
         //if (Input.GetKey(KeyCode.Space))
@@ -19,8 +25,16 @@ public class Print : MonoBehaviour
         //{
         //    animator.speed = 0;
         //}
-        if (isButtonPressed)
-        {         
+
+        selectPrintoManager = FindObjectOfType<SelectPrintoManager>();
+        if(selectPrintoManager != null)
+        {
+            CheckPrinto();//检查要打印的物体是否匹配
+        }
+        
+        if (isButtonPressed && isPrintedAllowed)
+        {
+
             ChangeAnimationState("PufferFishPrint");
             animator.speed = 1;
         }
@@ -28,6 +42,7 @@ public class Print : MonoBehaviour
         {
             animator.speed = 0;
         }
+
         GetAnimationProgress();
 
     }
@@ -42,7 +57,6 @@ public class Print : MonoBehaviour
         isButtonPressed = false;
     }
 
-
     void ChangeAnimationState(string animation)
     {
         if (currentAnimation != animation) //current != target
@@ -51,6 +65,25 @@ public class Print : MonoBehaviour
             animator.Play(animation);
         }
     }
+    public void CheckPrinto()
+    {
+        int selectedPrinto = selectPrintoManager.selectedPrinto;//拿选择要打的索引值
+        for (int i = 0; i < printoColorData.PrintoColorCount; i++)//拿打印出来的物体的所有索引值
+        {
+            // 检查当前索引值是否与 selectedPrinto 相同
+            if (i == selectedPrinto)
+            {
+                isPrintedAllowed = true;
+            }
+
+        }
+
+    }
+
+    public void DestroyShadowOfPrinto()
+    {
+        shadowOfPrinto.SetActive(false);
+    }
 
     public float GetAnimationProgress()
     {
@@ -58,5 +91,5 @@ public class Print : MonoBehaviour
         return animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
     }
 
-    
+ 
 }

@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     
     public GameObject SelectionUI;
     public GameObject BuildUI;
+    public GameObject shadowOfPrinto;
     public int healthThreshold = 6;
     private bool isPopupDisplayed = false;
 
@@ -20,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
         BuildUI.SetActive(false);
         SelectionUI.SetActive(false);
         findClosest = GetComponent<FindClosest>();
+        shadowOfPrinto.SetActive(false);
              
 
     }

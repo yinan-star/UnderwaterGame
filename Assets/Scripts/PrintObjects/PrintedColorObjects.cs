@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [System.Serializable]
-public class PrintedObjects
+public class PrintedColorObjects
 {
-    public Sprite printedSprite;
+    public Sprite printedColorSprite;
 }
