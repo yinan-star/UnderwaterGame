@@ -22,6 +22,7 @@ public class RandomMovement : MonoBehaviour
    
     void Update()
     {
+        //Rigidbody. move
         //Move
         transform.position = Vector2.MoveTowards(transform.position, wayPoint, speed * Time.deltaTime);
 

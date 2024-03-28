@@ -13,20 +13,30 @@ public class Print : MonoBehaviour
     public PrintedColorObjectsDatabase printoColorData;//拿打印出来的物体数据
     public GameObject shadowOfPrinto;//关掉剪影
 
+   
+
+    //private void OnMouseOver()
+    //{
+        
+    //}
+
 
     void Update()
     {
-        //if (Input.GetKey(KeyCode.Space))
-        //{
-        //    ChangeAnimationState("PufferFishPrint");
-        //    animator.speed = 1;
-        //}     
-        //else
-        //{
-        //    animator.speed = 0;
-        //}
+        //Input.mousePosition
 
-        selectPrintoManager = FindObjectOfType<SelectPrintoManager>();
+    //Input.GetMouseButton(0)
+    //if (Input.GetKey(KeyCode.Space))
+    //{
+    //    ChangeAnimationState("PufferFishPrint");
+    //    animator.speed = 1;
+    //}     
+    //else
+    //{
+    //    animator.speed = 0;
+    //}
+
+    selectPrintoManager = FindObjectOfType<SelectPrintoManager>();
         if(selectPrintoManager != null)
         {
             CheckPrinto();//检查要打印的物体是否匹配
