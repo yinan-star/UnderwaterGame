@@ -9,16 +9,20 @@ public class Spawn : MonoBehaviour
     void Start()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width,Screen.height,Camera.main.transform.position.z));
-        foreach (GameObject spawnObject in spawnObjects)
-        {
-            Vector2 randomPosition = GetRandomPosition();
-            Instantiate(spawnObject, randomPosition, Quaternion.identity);
-        }
+        SpawnObjects();
     }
 
     void Update()
     {
         
+    }
+    public void SpawnObjects()
+    {
+        foreach (GameObject spawnObject in spawnObjects)
+        {
+            Vector2 randomPosition = GetRandomPosition();
+            Instantiate(spawnObject, randomPosition, Quaternion.identity);
+        }
     }
     Vector2 GetRandomPosition()
     {

@@ -13,16 +13,14 @@ public class PlayerHealth : MonoBehaviour
     public GameObject BuildUI;
     public GameObject shadowOfPrinto;
     public int healthThreshold = 6;
-    private bool isPopupDisplayed = false;
-
-    void Awake()
+    public bool healthChecked = false; // 检查健康值的标志
+    void Start()
     {
-        Debug.Log("BuildUI.SetActive(false); is called in Awake() method.");
         BuildUI.SetActive(false);
         SelectionUI.SetActive(false);
         findClosest = GetComponent<FindClosest>();
         shadowOfPrinto.SetActive(false);
-             
+                 
 
     }
 
@@ -34,14 +32,22 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = findClosest.debrisCount;
             healthBar.SetHealth(currentHealth);     
         }
+        CheckHealthThreshold();
 
-        //达到6个垃圾弹UI
-        if (currentHealth >= healthThreshold && !isPopupDisplayed)
-        {         
-            isPopupDisplayed = true;
-            SelectionUI.SetActive(true);
-        }
     }
-  
+    public void CheckHealthThreshold()
+    {
+        if (currentHealth >= healthThreshold && currentHealth % healthThreshold == 0 && !healthChecked)
+        {
+            SelectionUI.SetActive(true);
+            healthChecked = true;//已经检查过阈值了，不需要每帧检查了
+        }
+        if(!(currentHealth % healthThreshold == 0))
+        {
+            healthChecked = false;
+        }
+       
+    }
+
 
 }

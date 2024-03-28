@@ -8,6 +8,9 @@ public class BuildButtonEnd : MonoBehaviour
     public GameObject currentUIPanel; // 当前按钮界面
     private RandomMovement randomMovement; // 随机漫游脚本 
     private const string printedObjectsTag = "printedObjects";// 通过标签更改 spriteMask 的交互方式
+    private Spawn spawnScript;
+    private bool hasSpawnedObjects = false;
+  
 
     void Start()
     {
@@ -15,8 +18,10 @@ public class BuildButtonEnd : MonoBehaviour
         spriteProgress = GetComponent<SpriteProgress>();//获取该游戏对象身上的其他脚本
        
         randomMovement = FindObjectOfType<RandomMovement>();//找挂有 randomMovement 脚本
-       
 
+        spawnScript = FindObjectOfType<Spawn>();//请求Spwan脚本
+
+       
     }
 
     void Update()
@@ -31,6 +36,13 @@ public class BuildButtonEnd : MonoBehaviour
             }
 
             SetMaskInteraction(SpriteMaskInteraction.None);//SpriteMask的交互
+
+            if (!hasSpawnedObjects && spawnScript != null)
+            {
+                spawnScript.SpawnObjects();// 请求生成物体的方法
+                hasSpawnedObjects = true; // 标记已生成
+      
+            }
         }
         else
         {
