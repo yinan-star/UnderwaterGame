@@ -6,65 +6,70 @@ public class Print : MonoBehaviour
 {
     public Animator animator;
     private string currentAnimation = "";
-    private bool isButtonPressed = false;
-    private bool isPrintedAllowed = false;
+    public bool isBuildButtonPressed = false;
 
-    private SelectPrintoManager selectPrintoManager; //拿已经选择要打印的物体数据
-    public PrintedColorObjectsDatabase printoColorData;//拿打印出来的物体数据
     public GameObject shadowOfPrinto;//关掉剪影
 
-   
-
+    private bool isCreatureButtonPressed = false;
     //private void OnMouseOver()
     //{
         
     //}
 
-
     void Update()
     {
         //Input.mousePosition
 
-    //Input.GetMouseButton(0)
-    //if (Input.GetKey(KeyCode.Space))
-    //{
-    //    ChangeAnimationState("PufferFishPrint");
-    //    animator.speed = 1;
-    //}     
-    //else
-    //{
-    //    animator.speed = 0;
-    //}
-
-    selectPrintoManager = FindObjectOfType<SelectPrintoManager>();
-        if(selectPrintoManager != null)
-        {
-            CheckPrinto();//检查要打印的物体是否匹配
-        }
+        //Input.GetMouseButton(0)
+        //if (Input.GetKey(KeyCode.Space))
+        //{
+        //    ChangeAnimationState("PufferFishPrint");
+        //    animator.speed = 1;
+        //}     
+        //else
+        //{
+        //    animator.speed = 0;
+        //}
+      
         
-        if (isButtonPressed && isPrintedAllowed)
+        if (isBuildButtonPressed)//&& isPrintedAllowed
         {
 
             ChangeAnimationState("PufferFishPrint");
-            animator.speed = 1;
+            animator.speed = 1;         
         }
         else
         {
             animator.speed = 0;
         }
 
-        GetAnimationProgress();
+        GetAnimationProgress();      
+        RestartAnimation();
 
     }
 
-    public void ButtonAction()
+
+    public void ButtonAction()//BuildButtonAction
     {
-        isButtonPressed = true;
+        isBuildButtonPressed = true;
     }
 
-    public void ButtonReleaseAction()
+
+    public void CreatureButtonAction()
     {
-        isButtonPressed = false;
+        isCreatureButtonPressed = true;
+    }
+
+    public void RestartAnimation()
+    {
+
+        if (isCreatureButtonPressed)//只有在点击CreatureButton,才重置动画
+        {
+            animator.CrossFadeInFixedTime(currentAnimation, 0f);
+        }
+        // 将动画调整到指定的进度（0）
+        isCreatureButtonPressed = false; // 重置按钮状态
+
     }
 
     void ChangeAnimationState(string animation)
@@ -74,20 +79,6 @@ public class Print : MonoBehaviour
             currentAnimation = animation;
             animator.Play(animation);
         }
-    }
-    public void CheckPrinto()
-    {
-        int selectedPrinto = selectPrintoManager.selectedPrinto;//拿选择要打的索引值
-        for (int i = 0; i < printoColorData.PrintoColorCount; i++)//拿打印出来的物体的所有索引值
-        {
-            // 检查当前索引值是否与 selectedPrinto 相同
-            if (i == selectedPrinto)
-            {
-                isPrintedAllowed = true;
-            }
-
-        }
-
     }
 
     public void DestroyShadowOfPrinto()

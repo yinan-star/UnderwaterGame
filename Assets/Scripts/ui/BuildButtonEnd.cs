@@ -5,82 +5,77 @@ using UnityEngine;
 public class BuildButtonEnd : MonoBehaviour
 {
     public SpriteProgress spriteProgress;
-    public GameObject currentUIPanel; // 当前按钮界面
-    private RandomMovement randomMovement; // 随机漫游脚本 
-    private const string printedObjectsTag = "printedObjects";// 通过标签更改 spriteMask 的交互方式
+    public GameObject BuildPanel; // 当前按钮界面   
     private Spawn spawnScript;
-    private bool hasSpawnedObjects = false;
-  
+    private bool hasSpawnedObjects = false; 
+    public bool buildPanelClosed = false; // 标志是否已经关闭了 BuildPanel
+    private Print printScript;
+    private CreatureSpawn creatureSpawn;
 
     void Start()
     {
 
         spriteProgress = GetComponent<SpriteProgress>();//获取该游戏对象身上的其他脚本
-       
-        randomMovement = FindObjectOfType<RandomMovement>();//找挂有 randomMovement 脚本
+        printScript = GetComponent<Print>();//获取Print脚本   
+        spawnScript = FindObjectOfType<Spawn>();//请求垃圾Spwan脚本
+        creatureSpawn = FindObjectOfType<CreatureSpawn>();
 
-        spawnScript = FindObjectOfType<Spawn>();//请求Spwan脚本
 
-       
+
     }
 
-    void Update()
+    private void Update()
     {
+        CheckRandomMovement();
         if (spriteProgress.currentFill >= 1.5f)
-        {
-            currentUIPanel.SetActive(false);//UI界面
-
-            if (randomMovement != null)//随机移动
-            {
-                randomMovement.enabled = true;
-            }
-
-            SetMaskInteraction(SpriteMaskInteraction.None);//SpriteMask的交互
-
+        {                
             if (!hasSpawnedObjects && spawnScript != null)
             {
-                spawnScript.SpawnObjects();// 请求生成物体的方法
-                hasSpawnedObjects = true; // 标记已生成
-      
+                spawnScript.SpawnObjects();// 请求生成垃圾的方法
+                hasSpawnedObjects = true; // 标记已生成    
             }
+
+            if (!buildPanelClosed)
+            {
+                // 关闭 UI 界面
+                BuildPanel.SetActive(false);
+                buildPanelClosed = true; // 当关掉BuildPanel时标记已关闭
+                printScript.isBuildButtonPressed = false;//关闭BuildPanel的时候重置Build按钮状态
+            }
+
         }
         else
-        {
-            if (randomMovement != null)
-            {
-                randomMovement.enabled = false;           
-            }
-
-            SetMaskInteraction(SpriteMaskInteraction.VisibleInsideMask);
-        }   
+        {           
+            hasSpawnedObjects = false; // 标记没生成  
+            buildPanelClosed = false;
+        }
     }
-    
-    private void SetMaskInteraction(SpriteMaskInteraction interaction)
+    private void CheckRandomMovement()
     {
-        GameObject[] printedObjects = GameObject.FindGameObjectsWithTag(printedObjectsTag); //获取所有带有 printedObjects 标签的游戏对象数组
-        foreach (GameObject obj in printedObjects)
+        if (creatureSpawn.spawnedCreature != null)
         {
-            //获取其 SpriteRenderer 组件
-            SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
-            if (spriteRenderer != null)
+            RandomMovement randomMovement = creatureSpawn.spawnedCreature.GetComponent<RandomMovement>();
+            SpriteRenderer spriteRenderer = creatureSpawn.spawnedCreature.GetComponent<SpriteRenderer>();
+            Vector3 scale = spriteRenderer.transform.localScale;
+            if (!creatureSpawn.randomMovementEnabled) // 只有当RandomMovement未被启用时才执行以下代码
             {
-                spriteRenderer.maskInteraction = interaction;//将传入的 interaction 参数给该游戏对象的 maskInteraction 属性
-            }
-
-            // 获取其 BoxCollider2D 组件
-            BoxCollider2D boxCollider = obj.GetComponent<BoxCollider2D>();
-            if (boxCollider != null)
-            {
-                // 根据交互方式设置 BoxCollider2D 的启用状态
-                if (interaction == SpriteMaskInteraction.None)
+                if (randomMovement != null && spriteProgress.currentFill >= 1.5f)
                 {
-                    boxCollider.enabled = true; 
+                    randomMovement.enabled = true;
+                    creatureSpawn.randomMovementEnabled = true; // 标记RandomMovement已被启用
+                    spriteRenderer.maskInteraction = SpriteMaskInteraction.None;//SpriteMask的交互                   
+
                 }
                 else
                 {
-                    boxCollider.enabled = false; 
+                    randomMovement.enabled = false;
+                    spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;//SpriteMask的交互
                 }
+               
             }
-        }
+               
+        }       
+
     }
+
 }

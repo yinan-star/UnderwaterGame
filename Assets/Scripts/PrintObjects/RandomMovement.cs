@@ -4,30 +4,36 @@ using UnityEngine;
 public class RandomMovement : MonoBehaviour
 {
     [SerializeField]
-    float speed;
+    float minSpeed; // 最小速度
+    [SerializeField]
+    float maxSpeed; // 最大速度
     [SerializeField]
     float range;
     [SerializeField]
     float maxDistance;
+    
 
     Vector2 wayPoint;//随机路点
-    Vector3 initialScale;
+    Vector3 initialScale;//翻转用
 
     void Start()
     {
-        initialScale = transform.localScale; 
+        initialScale = transform.localScale;
         SetNewDestination();
+       
     }
 
    
     void Update()
     {
-        //Rigidbody. move
+        // RandomSpeed
+        float currentSpeed = Random.Range(minSpeed, maxSpeed);
+       
         //Move
-        transform.position = Vector2.MoveTowards(transform.position, wayPoint, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, wayPoint, currentSpeed * Time.deltaTime);
 
         // Flip
-        if (transform.position.x < wayPoint.x)
+        if (transform.position.x > wayPoint.x)
             transform.localScale = initialScale;
         else
             transform.localScale = new Vector3(-initialScale.x, initialScale.y, initialScale.z);

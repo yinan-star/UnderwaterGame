@@ -9,6 +9,7 @@ public class CreatureButtonClick : MonoBehaviour
     private PlayerHealth playerHealth; // 引用 PlayerHealth 组件
     public GameObject shadowOfPufferFish;//弹出剪影物体
 
+ 
     void Awake()
     {
   
@@ -19,6 +20,7 @@ public class CreatureButtonClick : MonoBehaviour
 
         // 获取 PlayerHealth 组件
         playerHealth = FindObjectOfType<PlayerHealth>();
+
     }
 
     void OpenNewUIPanel()
@@ -27,10 +29,13 @@ public class CreatureButtonClick : MonoBehaviour
         {
             playerHealth.SelectionUI.SetActive(false);
         }
+
         buildUIPanel.SetActive(true);
+       
     }
     public void ActivePufferFish()
     {
         shadowOfPufferFish.SetActive(true);
     }
+  
 }

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8cf2721a2c532f4a9d251310b8983a4, type: 3}
+  m_Name: New Arch Database
+  m_EditorClassIdentifier: 
+  arch:
+  - archSprite: {fileID: 21300000, guid: 6ad07683c2f4a484e8bf52c9fa6c4bda, type: 3}
+  - archSprite: {fileID: 21300000, guid: b8d42453370bb124c86cb6786750108e, type: 3}
+  - archSprite: {fileID: 21300000, guid: 1276f0c593c6b8f47ae1fd96054d41e2, type: 3}
