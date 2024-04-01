@@ -5,20 +5,22 @@ using UnityEngine;
 public class BuildButtonEnd : MonoBehaviour
 {
     public SpriteProgress spriteProgress;
-    public GameObject BuildPanel; // µ±Ç°°´Å¥½çÃæ   
+    public GameObject BuildPanel; // ï¿½ï¿½Ç°ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½   
     private Spawn spawnScript;
-    private bool hasSpawnedObjects = false; 
-    public bool buildPanelClosed = false; // ±êÖ¾ÊÇ·ñÒÑ¾­¹Ø±ÕÁË BuildPanel
+    private bool hasSpawnedObjects = false;
+    public bool buildPanelClosed = false; // ï¿½ï¿½Ö¾ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ BuildPanel
     private Print printScript;
     private CreatureSpawn creatureSpawn;
+    private ArchSpawn archSpawn;
 
     void Start()
     {
 
-        spriteProgress = GetComponent<SpriteProgress>();//»ñÈ¡¸ÃÓÎÏ·¶ÔÏóÉíÉÏµÄÆäËû½Å±¾
-        printScript = GetComponent<Print>();//»ñÈ¡Print½Å±¾   
-        spawnScript = FindObjectOfType<Spawn>();//ÇëÇóÀ¬»øSpwan½Å±¾
+        spriteProgress = GetComponent<SpriteProgress>();//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½
+        printScript = GetComponent<Print>();//ï¿½ï¿½È¡Printï¿½Å±ï¿½   
+        spawnScript = FindObjectOfType<Spawn>();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Spwanï¿½Å±ï¿½
         creatureSpawn = FindObjectOfType<CreatureSpawn>();
+        archSpawn = FindObjectOfType<ArchSpawn>();
 
 
 
@@ -27,26 +29,27 @@ public class BuildButtonEnd : MonoBehaviour
     private void Update()
     {
         CheckRandomMovement();
+        CheckRigidBody();
         if (spriteProgress.currentFill >= 1.5f)
-        {                
+        {
             if (!hasSpawnedObjects && spawnScript != null)
             {
-                spawnScript.SpawnObjects();// ÇëÇóÉú³ÉÀ¬»øµÄ·½·¨
-                hasSpawnedObjects = true; // ±ê¼ÇÒÑÉú³É    
+                spawnScript.SpawnObjects();// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+                hasSpawnedObjects = true; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    
             }
 
             if (!buildPanelClosed)
             {
-                // ¹Ø±Õ UI ½çÃæ
+                // ï¿½Ø±ï¿½ UI ï¿½ï¿½ï¿½ï¿½
                 BuildPanel.SetActive(false);
-                buildPanelClosed = true; // µ±¹ØµôBuildPanelÊ±±ê¼ÇÒÑ¹Ø±Õ
-                printScript.isBuildButtonPressed = false;//¹Ø±ÕBuildPanelµÄÊ±ºòÖØÖÃBuild°´Å¥×´Ì¬
+                buildPanelClosed = true; // ï¿½ï¿½ï¿½Øµï¿½BuildPanelÊ±ï¿½ï¿½ï¿½ï¿½Ñ¹Ø±ï¿½
+                printScript.isBuildButtonPressed = false;//ï¿½Ø±ï¿½BuildPanelï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Buildï¿½ï¿½Å¥×´Ì¬
             }
 
         }
         else
-        {           
-            hasSpawnedObjects = false; // ±ê¼ÇÃ»Éú³É  
+        {
+            hasSpawnedObjects = false; // ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½  
             buildPanelClosed = false;
         }
     }
@@ -56,26 +59,68 @@ public class BuildButtonEnd : MonoBehaviour
         {
             RandomMovement randomMovement = creatureSpawn.spawnedCreature.GetComponent<RandomMovement>();
             SpriteRenderer spriteRenderer = creatureSpawn.spawnedCreature.GetComponent<SpriteRenderer>();
-            Vector3 scale = spriteRenderer.transform.localScale;
-            if (!creatureSpawn.randomMovementEnabled) // Ö»ÓĞµ±RandomMovementÎ´±»ÆôÓÃÊ±²ÅÖ´ĞĞÒÔÏÂ´úÂë
+            // Vector3 scale = spriteRenderer.transform.localScale;
+            if (!creatureSpawn.randomMovementEnabled) // Ö»ï¿½Ğµï¿½RandomMovementÎ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½ï¿½ï¿½
             {
                 if (randomMovement != null && spriteProgress.currentFill >= 1.5f)
                 {
                     randomMovement.enabled = true;
-                    creatureSpawn.randomMovementEnabled = true; // ±ê¼ÇRandomMovementÒÑ±»ÆôÓÃ
-                    spriteRenderer.maskInteraction = SpriteMaskInteraction.None;//SpriteMaskµÄ½»»¥                   
+                    creatureSpawn.randomMovementEnabled = true; // ï¿½ï¿½ï¿½RandomMovementï¿½Ñ±ï¿½ï¿½ï¿½ï¿½ï¿½
+                    spriteRenderer.maskInteraction = SpriteMaskInteraction.None;//SpriteMaskï¿½Ä½ï¿½ï¿½ï¿½                   
 
                 }
                 else
                 {
                     randomMovement.enabled = false;
-                    spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;//SpriteMaskµÄ½»»¥
+                    spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;//SpriteMaskï¿½Ä½ï¿½ï¿½ï¿½
                 }
-               
-            }
-               
-        }       
 
+            }
+
+        }
+
+    }
+    private void CheckRigidBody()
+    {
+        if (archSpawn.spawnedArch != null)
+        {
+            Rigidbody2D rigidBody = archSpawn.spawnedArch.GetComponent<Rigidbody2D>();
+
+            Transform[] children = archSpawn.spawnedArch.GetComponentsInChildren<Transform>();// è·å–æ‰€æœ‰å­å¯¹è±¡
+
+            if (!archSpawn.rigidBodyEnabled)
+            {
+                if (rigidBody != null && spriteProgress.currentFill >= 1.5f)
+                {
+                    rigidBody.gravityScale = 1f; // å¯ç”¨é‡åŠ›
+                    archSpawn.rigidBodyEnabled = true;
+
+                    foreach (Transform child in children)
+                    {
+                        SpriteRenderer spriteRenderer = child.GetComponent<SpriteRenderer>();
+                        if (spriteRenderer != null)
+                        {
+                            spriteRenderer.maskInteraction = SpriteMaskInteraction.None;
+                        }
+                    }
+                    
+                }
+                else
+                {
+                    rigidBody.gravityScale = 0f; // ç¦ç”¨é‡åŠ›
+
+                    foreach (Transform child in children)
+                    {
+                        SpriteRenderer spriteRenderer = child.GetComponent<SpriteRenderer>();
+                        if (spriteRenderer != null)
+                        {
+                            spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+                        }
+                    }                  
+                }
+            }
+
+        }
     }
 
 }

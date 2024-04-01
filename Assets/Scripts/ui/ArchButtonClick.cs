@@ -20,7 +20,7 @@ public class ArchButtonClick : MonoBehaviour
 
     }
 
-    void OpenNewUIPanel()
+    public void OpenNewUIPanel()
     {
         if (playerHealth != null)
         {

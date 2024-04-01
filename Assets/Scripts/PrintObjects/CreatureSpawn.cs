@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CreatureSpawn : MonoBehaviour
 {
-    public GameObject[] spawnCreatures;//ÓãµÄÊý×é
+    public GameObject[] spawnCreatures;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private SelectPrintoManager printoManager;
-    public GameObject spawnedCreature;
-    public bool randomMovementEnabled; // Ä¬ÈÏ¹Ø±Õ RandomMovement
+    public GameObject spawnedCreature; 
+    public bool randomMovementEnabled; // Ä¬ï¿½Ï¹Ø±ï¿½ RandomMovement
 
     void Update()
     {
@@ -19,16 +19,16 @@ public class CreatureSpawn : MonoBehaviour
 
         if (printoManager != null)
         {
-            int selectedPrintoIndex = printoManager.selectedPrinto; // »ñÈ¡Ñ¡ÔñµÄ´òÓ¡ÎïÌåµÄË÷Òý
-            GameObject selectedCreaturePrefab = spawnCreatures[selectedPrintoIndex];// °ÑË÷ÒýÖµ¸øÊý×éÕÒµ½Æ¥ÅäµÄPrefab¶ÔÏó
+            int selectedPrintoIndex = printoManager.selectedPrinto; // ï¿½ï¿½È¡Ñ¡ï¿½ï¿½Ä´ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            GameObject selectedCreaturePrefab = spawnCreatures[selectedPrintoIndex];// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½Æ¥ï¿½ï¿½ï¿½Prefabï¿½ï¿½ï¿½ï¿½
             if (selectedCreaturePrefab == null)
             {
                 Debug.LogError("Selected creature prefab is null.");
                 return;
             }
-            spawnedCreature = Instantiate(selectedCreaturePrefab, transform.position, Quaternion.identity);// Éú³É¸Ã¶ÔÏó
+            spawnedCreature = Instantiate(selectedCreaturePrefab, transform.position, Quaternion.identity);// ï¿½ï¿½ï¿½É¸Ã¶ï¿½ï¿½ï¿½
 
-            // ÉèÖÃÄ¬ÈÏ×´Ì¬Îª¹Ø±Õ RandomMovement
+            // ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½×´Ì¬Îªï¿½Ø±ï¿½ RandomMovement
             randomMovementEnabled = false;
         }
   

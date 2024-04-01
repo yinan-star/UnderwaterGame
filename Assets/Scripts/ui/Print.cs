@@ -8,9 +8,10 @@ public class Print : MonoBehaviour
     private string currentAnimation = "";
     public bool isBuildButtonPressed = false;
 
-    public GameObject shadowOfPrinto;//¹Øµô¼ôÓ°
+    public GameObject shadowOfPrinto;//ï¿½Øµï¿½ï¿½ï¿½Ó°
 
     private bool isCreatureButtonPressed = false;
+    private bool isArchButtonPressed = false;
     //private void OnMouseOver()
     //{
         
@@ -59,17 +60,21 @@ public class Print : MonoBehaviour
     {
         isCreatureButtonPressed = true;
     }
+    public void ArchButtonAction()
+    {
+        isArchButtonPressed = true;
+    }
 
     public void RestartAnimation()
     {
 
-        if (isCreatureButtonPressed)//Ö»ÓÐÔÚµã»÷CreatureButton,²ÅÖØÖÃ¶¯»­
+        if (isCreatureButtonPressed || isArchButtonPressed)//Ö»ï¿½ï¿½ï¿½Úµï¿½ï¿½CreatureButton,ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½
         {
             animator.CrossFadeInFixedTime(currentAnimation, 0f);
         }
-        // ½«¶¯»­µ÷Õûµ½Ö¸¶¨µÄ½ø¶È£¨0£©
-        isCreatureButtonPressed = false; // ÖØÖÃ°´Å¥×´Ì¬
-
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä½ï¿½ï¿½È£ï¿½0ï¿½ï¿½
+        isCreatureButtonPressed = false; // ï¿½ï¿½ï¿½Ã°ï¿½Å¥×´Ì¬
+        isArchButtonPressed = false;
     }
 
     void ChangeAnimationState(string animation)
