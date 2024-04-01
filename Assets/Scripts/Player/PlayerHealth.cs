@@ -12,21 +12,23 @@ public class PlayerHealth : MonoBehaviour
     public GameObject SelectionUI;
     public GameObject BuildUI;
     public GameObject shadowOfPrinto;
+    public GameObject shadowOfArch;
     public int healthThreshold = 6;
-    public bool healthChecked = false; // ¼ì²é½¡¿µÖµµÄ±êÖ¾
+    public bool healthChecked = false; // ï¿½ï¿½é½¡ï¿½ï¿½Öµï¿½Ä±ï¿½Ö¾
     void Start()
     {
         BuildUI.SetActive(false);
         SelectionUI.SetActive(false);
         findClosest = GetComponent<FindClosest>();
         shadowOfPrinto.SetActive(false);
+        shadowOfArch.SetActive(false);
                  
 
     }
 
     void Update()
     {
-        //ÕÒµ½À¬»øµÄÖµ¸øHealthBar
+        //ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½HealthBar
         if (findClosest != null)
         {
             currentHealth = findClosest.debrisCount;
@@ -40,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth >= healthThreshold && currentHealth % healthThreshold == 0 && !healthChecked)
         {
             SelectionUI.SetActive(true);
-            healthChecked = true;//ÒÑ¾­¼ì²é¹ýãÐÖµÁË£¬²»ÐèÒªÃ¿Ö¡¼ì²éÁË
+            healthChecked = true;//ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÃ¿Ö¡ï¿½ï¿½ï¿½ï¿½ï¿½
         }
         if(!(currentHealth % healthThreshold == 0))
         {
