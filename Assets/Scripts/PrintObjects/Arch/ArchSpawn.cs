@@ -9,6 +9,7 @@ public class ArchSpawn : MonoBehaviour
     public GameObject spawnedArch; //存当前Instantiate的建筑,在别的脚本里掉
     public bool rigidBodyEnabled; //生成物体的时候他的rigidBody2D要默认是关的
 
+
     void Update()
     {
         archManager = FindObjectOfType<ArchManager>();   
@@ -27,7 +28,7 @@ public class ArchSpawn : MonoBehaviour
                 Debug.LogError("Selected creature prefab is null.");
                 return;
             }
-            spawnedArch = Instantiate(selectedArchPrefab, this.transform);// ���ɸö���
+            spawnedArch = Instantiate(selectedArchPrefab, selectedArchPrefab.transform.position, Quaternion.identity);// ���ɸö���
 
             rigidBodyEnabled = false;
 

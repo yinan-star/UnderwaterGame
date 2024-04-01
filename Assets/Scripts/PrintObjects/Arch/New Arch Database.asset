@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arch:
   - archSprite: {fileID: 21300000, guid: 6ad07683c2f4a484e8bf52c9fa6c4bda, type: 3}
-  - archSprite: {fileID: 21300000, guid: b8d42453370bb124c86cb6786750108e, type: 3}
   - archSprite: {fileID: 21300000, guid: 1276f0c593c6b8f47ae1fd96054d41e2, type: 3}
+  - archSprite: {fileID: 21300000, guid: b8d42453370bb124c86cb6786750108e, type: 3}

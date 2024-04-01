@@ -2030,9 +2030,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnArchs:
-  - {fileID: 6414682579708785704, guid: 4a6e23c4d2ee5413a9a57024bc156acb, type: 3}
-  - {fileID: 2914156630499008729, guid: 7cbb22c095fcd4af0a623f02de20ec7a, type: 3}
-  - {fileID: 9102436236578006314, guid: c66f2c52e964e494b90fbcbdf699069a, type: 3}
+  - {fileID: 3692928413739619906, guid: bc85c31b4553641438f29cfdabacdf9f, type: 3}
+  - {fileID: 2168608469184583504, guid: 37ed5098ee86a554e8b933e3fe00ec46, type: 3}
+  - {fileID: 4150442082036291106, guid: 1a387cc6fa1316d4f9738836c7d5cda6, type: 3}
   spawnedArch: {fileID: 0}
   rigidBodyEnabled: 0
 --- !u!4 &871109107
@@ -2043,7 +2043,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871109105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.22, y: -0.01, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3353,7 +3353,7 @@ GameObject:
   - component: {fileID: 1196802250}
   m_Layer: 6
   m_Name: bg
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4055,6 +4055,7 @@ MonoBehaviour:
   spriteProgress: {fileID: 1265246850}
   BuildPanel: {fileID: 6950882}
   buildPanelClosed: 0
+  shadowOfArch: {fileID: 167312430}
 --- !u!212 &1265246852
 SpriteRenderer:
   m_ObjectHideFlags: 0

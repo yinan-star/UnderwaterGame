@@ -13,6 +13,8 @@ public class BuildButtonEnd : MonoBehaviour
     private CreatureSpawn creatureSpawn;
     private ArchSpawn archSpawn;
 
+    public GameObject shadowOfArch;
+
     void Start()
     {
 
@@ -93,6 +95,7 @@ public class BuildButtonEnd : MonoBehaviour
                 if (rigidBody != null && spriteProgress.currentFill >= 1.5f)
                 {
                     rigidBody.gravityScale = 1f; // 启用重力
+                    shadowOfArch.SetActive(false);
                     archSpawn.rigidBodyEnabled = true;
 
                     foreach (Transform child in children)
