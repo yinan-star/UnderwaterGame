@@ -6,33 +6,34 @@ public class ArchButtonClick : MonoBehaviour
 {
     public GameObject buildUIPanel; // �µ� UI ����
     private PlayerHealth playerHealth; // ���� PlayerHealth ���
+    public GameObject selectionUI;
     public GameObject shadowOfArch;//������Ӱ����
 
  
     void Awake()
     {
   
-        Button button = GetComponent<Button>();
-        button.onClick.AddListener(OpenNewUIPanel);
+        // Button button = GetComponent<Button>();
+        // button.onClick.AddListener(OpenNewUIPanel);
 
         // ��ȡ PlayerHealth ���
-        playerHealth = FindObjectOfType<PlayerHealth>();
+        // playerHealth = FindObjectOfType<PlayerHealth>();
 
     }
 
     public void OpenNewUIPanel()
-    {
-        if (playerHealth != null)
-        {
-            playerHealth.SelectionUI.SetActive(false);
-        }
-
+    {   
         buildUIPanel.SetActive(true);
        
     }
     public void ActiveShadowOfArch()
     {
         shadowOfArch.SetActive(true);
+    }
+    public void CloseSelectionUI()//关掉选择界面
+    {
+        selectionUI.SetActive(false);
+
     }
   
 }

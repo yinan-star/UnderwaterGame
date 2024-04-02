@@ -13,7 +13,7 @@ public class CreatureButtonClick : MonoBehaviour
     void Awake()
     {
   
-        //buildUIPanel.SetActive(false);
+        // //buildUIPanel.SetActive(false);
         Button button = GetComponent<Button>();
         button.onClick.AddListener(OpenNewUIPanel);
         shadowOfPufferFish.SetActive(false);
@@ -23,7 +23,7 @@ public class CreatureButtonClick : MonoBehaviour
 
     }
 
-    void OpenNewUIPanel()
+    public void OpenNewUIPanel()
     {
         if (playerHealth != null)
         {
