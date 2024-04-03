@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArchManager : MonoBehaviour
+public class ShadowArchManager : MonoBehaviour
 {
     public ArchDatabase archData;
     public SpriteRenderer selectedArchSprite;
@@ -15,7 +15,7 @@ public class ArchManager : MonoBehaviour
     }
     public void NextPrinto()
     {
-        selectedArch = (selectedArch + 1) % archData.ArchCount;//取余，达到数组的长度时重新回到 0
+        selectedArch = (selectedArch + 1) % archData.ArchCount;
         UpdatePrinto(selectedArch);
     }
 
@@ -31,6 +31,6 @@ public class ArchManager : MonoBehaviour
     private void UpdatePrinto(int selectedArch)
     {
         Arch arch = archData.GetArch(selectedArch);
-        selectedArchSprite.sprite = arch.archSprite;//从database里获取被选择物体的信息
+        selectedArchSprite.sprite = arch.archSprite;
     }
 }

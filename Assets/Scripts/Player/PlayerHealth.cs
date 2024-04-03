@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     
     public GameObject SelectionUI;
     public GameObject shadowOfPrinto;
-    public GameObject shadowOfArch;
+    // public GameObject shadowOfArch;
     public int healthThreshold = 6;
     public bool healthChecked = false;
     public GameObject[] ArchPointbuttons; // 三个要显示的按钮
@@ -23,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
         SelectionUI.SetActive(false);
         findClosest = GetComponent<FindClosest>();
         shadowOfPrinto.SetActive(false);
-        shadowOfArch.SetActive(false);
+        // shadowOfArch.SetActive(false);
         foreach (GameObject button in ArchPointbuttons)
         {
             button.SetActive(false);//游戏开始是关着的

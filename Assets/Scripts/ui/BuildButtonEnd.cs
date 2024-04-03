@@ -5,15 +5,19 @@ using UnityEngine;
 public class BuildButtonEnd : MonoBehaviour
 {
     public SpriteProgress spriteProgress;
-    public GameObject BuildPanel; // ��ǰ��ť����   
+    public GameObject BuildPanel;  
     private Spawn spawnScript;
     private bool hasSpawnedObjects = false;
-    public bool buildPanelClosed = false; // ��־�Ƿ��Ѿ��ر��� BuildPanel
+    public bool buildPanelClosed = false; 
     private Print printScript;
     private CreatureSpawn creatureSpawn;
     private ArchSpawn archSpawn;
 
     public GameObject shadowOfArch;
+
+    //拿BuildPanel
+    private UIInstantiateManager uIInstantiateManager;
+    private GameObject buildPanelClone;
 
     void Start()
     {
@@ -24,6 +28,8 @@ public class BuildButtonEnd : MonoBehaviour
         creatureSpawn = FindObjectOfType<CreatureSpawn>();
         archSpawn = FindObjectOfType<ArchSpawn>();
 
+        //拿生成BuildPanel的脚本
+        uIInstantiateManager = FindObjectOfType<UIInstantiateManager>();
 
 
     }
@@ -34,24 +40,27 @@ public class BuildButtonEnd : MonoBehaviour
         CheckRigidBody();
         if (spriteProgress.currentFill >= 1.5f)
         {
-            if (!hasSpawnedObjects && spawnScript != null)
+            if (!hasSpawnedObjects && spawnScript != null)//Instantiate垃圾
             {
-                spawnScript.SpawnObjects();// �������������ķ���
-                hasSpawnedObjects = true; // ���������    
+                spawnScript.SpawnObjects();
+                hasSpawnedObjects = true;
             }
 
-            if (!buildPanelClosed)
+            if (!buildPanelClosed && uIInstantiateManager != null)//如果没有关掉BuildPanel,就关掉
             {
-                // �ر� UI ����
-                BuildPanel.SetActive(false);
-                buildPanelClosed = true; // ���ص�BuildPanelʱ����ѹر�
-                printScript.isBuildButtonPressed = false;//�ر�BuildPanel��ʱ������Build��ť״̬
+                buildPanelClone = uIInstantiateManager.buildPanelClone;//新生成的BuildPanel
+                if (buildPanelClone != null)
+                {
+                    buildPanelClone.SetActive(false);
+                    buildPanelClosed = true;
+                    printScript.isBuildButtonPressed = false;//重置成没按Build
+                }
             }
 
         }
         else
         {
-            hasSpawnedObjects = false; // ���û����  
+            hasSpawnedObjects = false;
             buildPanelClosed = false;
         }
     }
@@ -62,19 +71,19 @@ public class BuildButtonEnd : MonoBehaviour
             RandomMovement randomMovement = creatureSpawn.spawnedCreature.GetComponent<RandomMovement>();
             SpriteRenderer spriteRenderer = creatureSpawn.spawnedCreature.GetComponent<SpriteRenderer>();
             // Vector3 scale = spriteRenderer.transform.localScale;
-            if (!creatureSpawn.randomMovementEnabled) // ֻ�е�RandomMovementδ������ʱ��ִ�����´���
+            if (!creatureSpawn.randomMovementEnabled) 
             {
                 if (randomMovement != null && spriteProgress.currentFill >= 1.5f)
                 {
                     randomMovement.enabled = true;
-                    creatureSpawn.randomMovementEnabled = true; // ���RandomMovement�ѱ�����
-                    spriteRenderer.maskInteraction = SpriteMaskInteraction.None;//SpriteMask�Ľ���                   
+                    creatureSpawn.randomMovementEnabled = true; 
+                    spriteRenderer.maskInteraction = SpriteMaskInteraction.None;                  
 
                 }
                 else
                 {
                     randomMovement.enabled = false;
-                    spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;//SpriteMask�Ľ���
+                    spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
                 }
 
             }
@@ -82,7 +91,7 @@ public class BuildButtonEnd : MonoBehaviour
         }
 
     }
-    private void CheckRigidBody()
+    private void CheckRigidBody()//检查arch身上的重力
     {
         if (archSpawn.spawnedArch != null)
         {
@@ -95,8 +104,8 @@ public class BuildButtonEnd : MonoBehaviour
                 if (rigidBody != null && spriteProgress.currentFill >= 1.5f)
                 {
                     rigidBody.gravityScale = 1f; // 启用重力
-                    shadowOfArch.SetActive(false);
-                    archSpawn.rigidBodyEnabled = true;
+                    shadowOfArch.SetActive(false);//要替换成ShadowOfArchClone,Clone的那一个,关掉
+                    archSpawn.rigidBodyEnabled = true;//要替换词Clone的ArchSpawn的刚体,打开.
 
                     foreach (Transform child in children)
                     {
@@ -106,7 +115,7 @@ public class BuildButtonEnd : MonoBehaviour
                             spriteRenderer.maskInteraction = SpriteMaskInteraction.None;
                         }
                     }
-                    
+
                 }
                 else
                 {
@@ -119,7 +128,7 @@ public class BuildButtonEnd : MonoBehaviour
                         {
                             spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
                         }
-                    }                  
+                    }
                 }
             }
 

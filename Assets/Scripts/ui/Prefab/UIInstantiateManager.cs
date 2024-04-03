@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIInstantiateManager : MonoBehaviour
 {
+    //BuildUI Instantiate
     [SerializeField] private GameObject buildPanel;
     public GameObject buildPanelClone;
     public Transform[] transforms;
@@ -13,6 +14,7 @@ public class UIInstantiateManager : MonoBehaviour
     private void Start()
     {
         // buildPanelClone = Instantiate(buildPanel, this.transform);//在canvas的位置生成新的Build.
+        buildPanelClone = null;//假设他就是null
     }
     public void SpawnBuildPanel01()
     {
