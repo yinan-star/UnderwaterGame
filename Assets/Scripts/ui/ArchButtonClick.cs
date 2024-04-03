@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ArchButtonClick : MonoBehaviour
 {
-    public GameObject buildUIPanel; // �µ� UI ����
-    private PlayerHealth playerHealth; // ���� PlayerHealth ���
+    //public GameObject buildUIPanel02; 
+    //public GameObject buildUIPanel03; 
+    //public GameObject buildUIPanel01; 
+    //private PlayerHealth playerHealth; // ���� PlayerHealth ���
     public GameObject selectionUI;
-    public GameObject shadowOfArch;//������Ӱ����
+    
 
  
     void Awake()
@@ -21,15 +23,7 @@ public class ArchButtonClick : MonoBehaviour
 
     }
 
-    public void OpenNewUIPanel()
-    {   
-        buildUIPanel.SetActive(true);
-       
-    }
-    public void ActiveShadowOfArch()
-    {
-        shadowOfArch.SetActive(true);
-    }
+   
     public void CloseSelectionUI()//关掉选择界面
     {
         selectionUI.SetActive(false);

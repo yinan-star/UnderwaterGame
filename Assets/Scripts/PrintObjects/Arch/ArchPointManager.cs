@@ -5,14 +5,6 @@ using UnityEngine;
 public class ArchPointManager : MonoBehaviour
 {
     public GameObject[] ArchPointbuttons; // 三个要显示的按钮
-    void Start()
-    {
-        foreach (GameObject button in ArchPointbuttons)
-        {
-            button.SetActive(false);//游戏开始是关着的
-        }
-    }
-
     void Update()
     {
         

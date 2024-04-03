@@ -7,8 +7,9 @@ public class SpriteProgress : MonoBehaviour
     private Print build;
     //private CreatureButtonClick buttonClick;
 
-    [SerializeField]
+    //private SpawnBuildPanel buildPanelSpawn;
     private BuildCircle buildCircle;
+    private UIInstantiateManager uIInstantiateManager;
 
     public float currentFill;
     //private bool isCreatrueButtonClicked = false; // 保存按钮是否被点击的状态
@@ -16,7 +17,12 @@ public class SpriteProgress : MonoBehaviour
     {
         build = GetComponent<Print>();
         //buttonClick = FindObjectOfType<CreatureButtonClick>(); // 获取 CreatureButtonClick 组件
-    
+        //buildPanelSpawn = FindObjectOfType<SpawnBuildPanel>();//获取SpawnBuildPanel脚本
+        //buildCircle = buildPanelSpawn.buildPanel.GetComponent<BuildCircle>();//从预制体里面拿buildCirclr脚本
+        GameObject buildPanelClone = uIInstantiateManager.buildPanelClone;
+        buildCircle = buildPanelClone.GetComponent<BuildCircle>();
+
+
     }
 
     void Update()
