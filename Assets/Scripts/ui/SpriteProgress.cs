@@ -5,25 +5,39 @@ using UnityEngine;
 public class SpriteProgress : MonoBehaviour
 {
     private Print build;
-    //private CreatureButtonClick buttonClick;
-
-    //private SpawnBuildPanel buildPanelSpawn;
     private BuildCircle buildCircle;
     private UIInstantiateManager uIInstantiateManager;
 
+    private GameObject buildPanelClone;
+
     public float currentFill;
-    //private bool isCreatrueButtonClicked = false; // ±£´æ°´Å¥ÊÇ·ñ±»µã»÷µÄ×´Ì¬
+
     void Start()
     {
         build = GetComponent<Print>();
-        //buttonClick = FindObjectOfType<CreatureButtonClick>(); // »ñÈ¡ CreatureButtonClick ×é¼ş
-        //buildPanelSpawn = FindObjectOfType<SpawnBuildPanel>();//»ñÈ¡SpawnBuildPanel½Å±¾
-        //buildCircle = buildPanelSpawn.buildPanel.GetComponent<BuildCircle>();//´ÓÔ¤ÖÆÌåÀïÃæÄÃbuildCirclr½Å±¾
-        GameObject buildPanelClone = uIInstantiateManager.buildPanelClone;
-        buildCircle = buildPanelClone.GetComponent<BuildCircle>();
+        uIInstantiateManager = FindObjectOfType<UIInstantiateManager>();
+        // ç¡®ä¿ uIInstantiateManager ä¸ä¸º nullï¼Œå¹¶ä¸” buildPanelClone å·²ç»è¢«åˆå§‹åŒ–
+        if (uIInstantiateManager != null)
+        {
+            buildPanelClone = uIInstantiateManager.buildPanelClone;//æ–°ç”Ÿæˆçš„BuildPanel
+            if (buildPanelClone != null)
+            {
+                buildCircle = buildPanelClone.GetComponent<BuildCircle>();//æ‹¿BuildPanelèº«ä¸Šçš„BuildCircleè„šæœ¬
+            }
+        }
 
 
     }
+    // public void CheckIsSpawnedBuildPanel()
+    // {
+    //     // åœ¨æ­¤å¤„æ£€æŸ¥ buildPanelClone æ˜¯å¦å·²ç»ç”Ÿæˆ
+    //     if (uIInstantiateManager != null && uIInstantiateManager.buildPanelClone != null)
+    //     {
+    //         buildPanelClone = uIInstantiateManager.buildPanelClone;
+    //         buildCircle = buildPanelClone.GetComponent<BuildCircle>();
+    //     }
+
+    // }
 
     void Update()
     {
@@ -38,15 +52,14 @@ public class SpriteProgress : MonoBehaviour
             {
                 currentFill = progress;
             }
-            // ½«µ±Ç°¶¯»­µÄ½ø¶È¸³Öµ¸ø currentFill£¬ÓÃÓÚ¸üĞÂ½ø¶ÈÌõ             
             buildCircle.Fill(currentFill);
+
+
         }
     }
 
-    // ÉèÖÃ°´Å¥±»µã»÷µÄ×´Ì¬
-    //public void SetButtonClicked()
-    //{
-    //    isCreatrueButtonClicked = true;
-    //}
+
+
+
 
 }

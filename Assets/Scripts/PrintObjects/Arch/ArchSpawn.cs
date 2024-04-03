@@ -12,8 +12,7 @@ public class ArchSpawn : MonoBehaviour
 
     void Update()
     {
-        archManager = FindObjectOfType<ArchManager>();   
-        
+        archManager = FindObjectOfType<ArchManager>();          
     }
     public void SpawnSelectedArch()
     {      

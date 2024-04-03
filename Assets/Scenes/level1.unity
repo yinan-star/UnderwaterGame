@@ -163,7 +163,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.19, y: -0.41}
+  m_AnchoredPosition: {x: -2.2, y: 13.04}
   m_SizeDelta: {x: 749, y: 749}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6950884
@@ -1684,7 +1684,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9526479, y: 0.4824, z: -10}
+  m_LocalPosition: {x: -1.9526482, y: 0.4824, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2107,6 +2107,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &731170022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 731170023}
+  m_Layer: 0
+  m_Name: BuildPanelSpawnPoint03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &731170023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731170022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.05, y: -0.06960976, z: 0.006195261}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &742851611
 GameObject:
   m_ObjectHideFlags: 0
@@ -2929,7 +2960,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 1526262667
-  m_SortingOrder: 10
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &971828655
 RectTransform:
@@ -2944,16 +2975,16 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1248535472}
-  - {fileID: 1280410184}
   - {fileID: 1985311198}
+  - {fileID: 1280410184}
   - {fileID: 6950883}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -10.26, y: 0.2}
-  m_SizeDelta: {x: 45, y: 14}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 66.3, y: 14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &971828656
 MonoBehaviour:
@@ -2969,6 +3000,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildPanel: {fileID: 6950882}
   buildPanelClone: {fileID: 0}
+  transforms:
+  - {fileID: 1892294452}
+  - {fileID: 1774539797}
+  - {fileID: 731170023}
+  canvasTransform: {fileID: 971828655}
 --- !u!1 &998242793
 GameObject:
   m_ObjectHideFlags: 0
@@ -4424,7 +4460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -17.77, y: 3.08}
+  m_AnchoredPosition: {x: -26, y: 3.37}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1248535473
@@ -4471,9 +4507,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1248535476}
-        m_TargetAssemblyTypeName: ClickArchPoint, Assembly-CSharp
-        m_MethodName: OpenBuildPanel01
+      - m_Target: {fileID: 971828656}
+        m_TargetAssemblyTypeName: UIInstantiateManager, Assembly-CSharp
+        m_MethodName: SpawnBuildPanel01
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4557,9 +4593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc55a54199ad2041918d380906bce70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildUIPanel02: {fileID: 0}
-  buildUIPanel03: {fileID: 0}
-  buildUIPanel01: {fileID: 0}
   shadowOfArch: {fileID: 167312430}
 --- !u!1 &1253050232
 GameObject:
@@ -4933,7 +4966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteProgress: {fileID: 1265246850}
-  BuildPanel: {fileID: 0}
+  BuildPanel: {fileID: 6950882}
   buildPanelClosed: 0
   shadowOfArch: {fileID: 167312430}
 --- !u!212 &1265246852
@@ -5022,11 +5055,11 @@ RectTransform:
   - {fileID: 163869372}
   - {fileID: 962420953}
   m_Father: {fileID: 971828655}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.25, y: 5.74}
+  m_AnchoredPosition: {x: -2.5, y: 5.74}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1280410185
@@ -5073,9 +5106,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1248535476}
-        m_TargetAssemblyTypeName: ClickArchPoint, Assembly-CSharp
-        m_MethodName: OpenBuildPanel02
+      - m_Target: {fileID: 971828656}
+        m_TargetAssemblyTypeName: UIInstantiateManager, Assembly-CSharp
+        m_MethodName: SpawnBuildPanel03
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5960,7 +5993,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.081
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -5973,6 +6006,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737514612}
   m_CullTransparentMesh: 1
+--- !u!1 &1774539796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1774539797}
+  m_Layer: 0
+  m_Name: BuildPanelSpawnPoint02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1774539797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774539796}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.15, y: 2.49, z: 0.006195261}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1808919243
 GameObject:
   m_ObjectHideFlags: 0
@@ -6306,6 +6370,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1892294451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1892294452}
+  m_Layer: 0
+  m_Name: BuildPanelSpawnPoint01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1892294452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892294451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -25.6, y: 2.73, z: 0.006195261}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1938489214
 GameObject:
   m_ObjectHideFlags: 3
@@ -6428,11 +6523,11 @@ RectTransform:
   - {fileID: 1692649333}
   - {fileID: 101068284}
   m_Father: {fileID: 971828655}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.74, y: 1.13}
+  m_AnchoredPosition: {x: -15.1, y: 1.13}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1985311199
@@ -6479,9 +6574,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1248535476}
-        m_TargetAssemblyTypeName: ClickArchPoint, Assembly-CSharp
-        m_MethodName: OpenBuildPanel03
+      - m_Target: {fileID: 971828656}
+        m_TargetAssemblyTypeName: UIInstantiateManager, Assembly-CSharp
+        m_MethodName: SpawnBuildPanel02
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

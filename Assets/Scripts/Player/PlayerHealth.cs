@@ -15,6 +15,8 @@ public class PlayerHealth : MonoBehaviour
     public int healthThreshold = 6;
     public bool healthChecked = false;
     public GameObject[] ArchPointbuttons; // 三个要显示的按钮
+
+    // public GameObject buildPanel;
     void Start()
     {
         
@@ -27,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
             button.SetActive(false);//游戏开始是关着的
             Debug.Log("ArchPoints are Closed");
         }
+        // buildPanel.SetActive(false);
 
 
     }
