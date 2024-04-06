@@ -10,13 +10,14 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     
     public GameObject SelectionUI;
-    //public GameObject shadowOfPrinto;
-    // public GameObject shadowOfArch;
     public int healthThreshold = 6;
     public bool healthChecked = false;
     public GameObject[] ArchPointbuttons; // 三个要显示的按钮
 
     public GameObject buildOverlayPanel;
+
+    private GameObject selectionPanelTrigger;
+    private bool isTrigger = false;
     void Start()
     {
         
@@ -32,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
 
         buildOverlayPanel.SetActive(false);
 
-
+        selectionPanelTrigger = GameObject.FindGameObjectWithTag("selectionPanel");//通过标签，找到该对象身上的Dialogue.
     }
 
     void Update()
@@ -52,6 +53,16 @@ public class PlayerHealth : MonoBehaviour
         {
             SelectionUI.SetActive(true);
             healthChecked = true;//�Ѿ�������ֵ�ˣ�����Ҫÿ֡�����
+            if (!isTrigger && selectionPanelTrigger != null)
+            {
+                // 获取游戏对象上的 DialogueTrigger 组件
+                DialogueTrigger dialogueTrigger = selectionPanelTrigger.GetComponent<DialogueTrigger>();
+                if(dialogueTrigger != null)
+                {                 
+                    dialogueTrigger.TriggerDialogue();
+                    isTrigger = true;
+                }              
+            }          
         }
         if(!(currentHealth % healthThreshold == 0))
         {

@@ -996,6 +996,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Girl
       objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: cbfac4e5eb67c7542a788215f6e96b28, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: -8198117796170703288, guid: cbfac4e5eb67c7542a788215f6e96b28, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -1971,7 +1975,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.316267, y: 0.33399963, z: -10}
+  m_LocalPosition: {x: -5.316267, y: 0.3339994, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2147,6 +2151,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529559339}
   m_CullTransparentMesh: 1
+--- !u!1 &623277612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 623277614}
+  - component: {fileID: 623277615}
+  m_Layer: 0
+  m_Name: selectionDialogueTrigger
+  m_TagString: selectionPanel
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &623277614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623277612}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.657786, y: 1.8316216, z: 0.4450338}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &623277615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623277612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72944eeb818366e41b9f6a0d8f80ec33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Oversser
+    sentences:
+    - Now you have the ability to print something; it might bring you some surprises.
 --- !u!1 &636689927
 GameObject:
   m_ObjectHideFlags: 0
@@ -3739,6 +3791,7 @@ GameObject:
   - component: {fileID: 1008906264}
   - component: {fileID: 1008906268}
   - component: {fileID: 1008906270}
+  - component: {fileID: 1008906271}
   m_Layer: 5
   m_Name: ButtonArch.
   m_TagString: Untagged
@@ -3849,6 +3902,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1008906271}
+        m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
+        m_MethodName: TriggerDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &1008906265
 Animator:
   serializedVersion: 5
@@ -3938,6 +4003,22 @@ MonoBehaviour:
   - {fileID: 1248535471}
   - {fileID: 1985311197}
   - {fileID: 1280410183}
+--- !u!114 &1008906271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008906262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72944eeb818366e41b9f6a0d8f80ec33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: OverSeer
+    sentences:
+    - Congratulations! You will be able to find a place to print one Arch.
 --- !u!1 &1013057681
 GameObject:
   m_ObjectHideFlags: 0
@@ -4990,7 +5071,6 @@ GameObject:
   - component: {fileID: 1248535474}
   - component: {fileID: 1248535473}
   - component: {fileID: 1248535476}
-  - component: {fileID: 1248535477}
   m_Layer: 5
   m_Name: ArchPointButton01
   m_TagString: ArchPoint
@@ -5166,23 +5246,6 @@ CircleCollider2D:
   m_Offset: {x: -1.9554454, y: 0}
   serializedVersion: 2
   m_Radius: 82.049355
---- !u!114 &1248535477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248535471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72944eeb818366e41b9f6a0d8f80ec33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: OverSeer
-    sentences:
-    - Dosen't make sense.
-  playerIsClose: 0
 --- !u!1 &1253050232
 GameObject:
   m_ObjectHideFlags: 0
@@ -5397,7 +5460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262652085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.316267, y: 0.33399963, z: -10}
+  m_LocalPosition: {x: -5.316267, y: 0.3339994, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5623,7 +5686,6 @@ GameObject:
   - component: {fileID: 1280410186}
   - component: {fileID: 1280410185}
   - component: {fileID: 1280410188}
-  - component: {fileID: 1280410189}
   m_Layer: 5
   m_Name: ArchPointButton03
   m_TagString: ArchPoint
@@ -5799,24 +5861,6 @@ CircleCollider2D:
   m_Offset: {x: 0.00010431705, y: -1.3500539}
   serializedVersion: 2
   m_Radius: 79.44357
---- !u!114 &1280410189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280410183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72944eeb818366e41b9f6a0d8f80ec33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: OverSeer
-    sentences:
-    - Deepo, you can look around to find a site to print Archs, but remeber your
-      power just limit you to print one.
-  playerIsClose: 0
 --- !u!1 &1303948338
 GameObject:
   m_ObjectHideFlags: 0
@@ -7563,7 +7607,6 @@ GameObject:
   - component: {fileID: 1985311200}
   - component: {fileID: 1985311199}
   - component: {fileID: 1985311202}
-  - component: {fileID: 1985311203}
   m_Layer: 5
   m_Name: ArchPointButton02
   m_TagString: ArchPoint
@@ -7739,23 +7782,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 1.9830998}
   serializedVersion: 2
   m_Radius: 93.705154
---- !u!114 &1985311203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1985311197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72944eeb818366e41b9f6a0d8f80ec33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: OverSeer
-    sentences:
-    - That's weird.
-  playerIsClose: 0
 --- !u!1 &2023684705
 GameObject:
   m_ObjectHideFlags: 0
@@ -8219,7 +8245,6 @@ MonoBehaviour:
     sentences:
     - Deepo, you are the PrintBot. You will collect garbage from the sea and convert
       it into power to create wonders.
-  playerIsClose: 0
 --- !u!1 &2104677056
 GameObject:
   m_ObjectHideFlags: 0
