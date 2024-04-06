@@ -8,6 +8,7 @@ TagManager:
   - Seafloor
   - printedObjects
   - Ground
+  - ArchPoint
   layers:
   - Default
   - TransparentFX

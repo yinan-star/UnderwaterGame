@@ -4,20 +4,21 @@ using UnityEngine;
 public class RandomMovement : MonoBehaviour
 {
     [SerializeField]
-    float minSpeed; // 最小速度
+    float minSpeed; 
     [SerializeField]
-    float maxSpeed; // 最大速度
+    float maxSpeed; 
     [SerializeField]
     float range;
-    [SerializeField]
-    float maxDistance;
-    
 
-    Vector2 wayPoint;//随机路点
-    Vector3 initialScale;//翻转用
+    GameObject bg;
+
+
+    Vector2 wayPoint;
+    Vector3 initialScale;
 
     void Start()
     {
+        bg = GameObject.FindWithTag("Ground");
         initialScale = transform.localScale;
         SetNewDestination();
        
@@ -41,10 +42,19 @@ public class RandomMovement : MonoBehaviour
         //NewDest
         if (Vector2.Distance(transform.position, wayPoint) < range)
             SetNewDestination();
+
     }
     void SetNewDestination()
     {
-        wayPoint = new Vector2(Random.Range(-maxDistance, maxDistance), Random.Range(-maxDistance, maxDistance));
+        Vector3 bgPosition = bg.transform.position;
+        float bgWidth = bg.GetComponent<SpriteRenderer>().bounds.size.x;
+        float bgHeight = bg.GetComponent<SpriteRenderer>().bounds.size.y;
+
+        float bgLeft = bgPosition.x - bgWidth / 2f;//??????
+        float bgRight = bgPosition.x + bgWidth / 2f;//??????
+        float bgBottom = bgPosition.y - bgHeight / 2f;//??????
+        float bgTop = bgPosition.y + bgHeight / 2f;//??
+        wayPoint = new Vector2(Random.Range(bgLeft, bgRight), Random.Range(bgBottom, bgTop));
     }
    
 }

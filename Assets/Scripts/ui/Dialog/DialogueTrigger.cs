@@ -5,12 +5,53 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-    //public void TiggerDialogue()
-    //{
-    //    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);//找DialogueManager去触发对话
-    //}
+    public bool playerIsClose = false;
+
+    private void Update()
+    {
+        if (playerIsClose)//????ArchPonit
+        {
+            TiggerDialogue();
+        }
+    }
+
+    public void TiggerDialogue()
+    {
+        if(dialogue != null)
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);//??DialogueManager??????????
+        }
+        
+    }
+   
+    private void OnTriggerEnter2D(Collider2D other)//????ArchPoint,???,???.
+    {
+        if (other.CompareTag("ArchPoint"))
+        {      
+            playerIsClose = true;
+            Debug.Log("FindArchPoint,IsClose");
+        }
+        else
+        {
+            Debug.Log("Can'tFindTag");
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)//????ArchPoint,???,???.
+    {
+        if (other.CompareTag("ArchPoint"))
+        {
+            playerIsClose = false;
+            Debug.Log("FindArchPoint,NotCloseYet");
+        }
+        else
+        {
+            Debug.Log("Can'tFindTag");
+        }
+
+    }
+
     private void Start()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);//找DialogueManager去触发对话
+        TiggerDialogue();
     }
 }

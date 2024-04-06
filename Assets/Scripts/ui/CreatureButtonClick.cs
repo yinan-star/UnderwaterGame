@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class CreatureButtonClick : MonoBehaviour
 {
-    public GameObject buildUIPanel; // �µ� UI ����
+    //public GameObject buildOvelayPanel; // �µ� UI ����
     private PlayerHealth playerHealth; // ���� PlayerHealth ���
-    public GameObject shadowOfPufferFish;//������Ӱ����
+    //public GameObject shadowOfPufferFish;//������Ӱ����
 
  
     void Awake()
@@ -16,7 +16,7 @@ public class CreatureButtonClick : MonoBehaviour
         // //buildUIPanel.SetActive(false);
         Button button = GetComponent<Button>();
         button.onClick.AddListener(OpenNewUIPanel);
-        shadowOfPufferFish.SetActive(false);
+        //shadowOfPufferFish.SetActive(false);
 
         // ��ȡ PlayerHealth ���
         playerHealth = FindObjectOfType<PlayerHealth>();
@@ -30,12 +30,12 @@ public class CreatureButtonClick : MonoBehaviour
             playerHealth.SelectionUI.SetActive(false);
         }
 
-        buildUIPanel.SetActive(true);
-       
+        //buildOvelayPanel.SetActive(true);
+
     }
-    public void ActivePufferFish()
-    {
-        shadowOfPufferFish.SetActive(true);
-    }
+    //public void ActivePufferFish()
+    //{
+    //    shadowOfPufferFish.SetActive(true);
+    //}
   
 }

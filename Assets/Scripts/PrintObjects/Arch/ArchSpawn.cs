@@ -4,36 +4,47 @@ using UnityEngine;
 
 public class ArchSpawn : MonoBehaviour
 {
-    public GameObject[] spawnArchs; //获得彩打建筑的组
+    public GameObject[] spawnArchs; //彩打建筑的组
     private ShadowArchManager shadowArchManager; // 获取Arch当前所选择的Arch的信息
     public GameObject spawnedArch; //存当前Instantiate的建筑,在别的脚本里掉
     public bool rigidBodyEnabled; //生成物体的时候他的rigidBody2D要默认是关的
 
+    //拿新生成的ShadowArchs身上的Transfrom组件
+    private ShadowInstantiatManager shadowInstantiatManager;
+    private Transform shadowArchsTransform;
 
-    void Update()
+    private void Start()
     {
-        shadowArchManager = FindObjectOfType<ShadowArchManager>();          
+        shadowInstantiatManager = FindObjectOfType<ShadowInstantiatManager>();
     }
-    public void SpawnSelectedArch()
-    {      
 
+    public void SpawnSelectedArch()
+    {
+        shadowArchManager = FindObjectOfType<ShadowArchManager>();
         if (shadowArchManager != null)
         {
-            int selectedArchIndex = shadowArchManager.selectedArch; 
-            Debug.Log("selectedArch 的值是：" + selectedArchIndex);
+            int selectedArchIndex = shadowArchManager.selectedArch;
             GameObject selectedArchPrefab = spawnArchs[selectedArchIndex];
-            if (selectedArchPrefab == null)
-            {
-                Debug.LogError("Selected creature prefab is null.");
-                return;
-            }
-            spawnedArch = Instantiate(selectedArchPrefab, selectedArchPrefab.transform.position, Quaternion.identity);
 
-            rigidBodyEnabled = false;
+            //这个位置应该是新生成的shadowArchClone的位置
+            if(shadowInstantiatManager != null)
+            {
+                GameObject shadowArchsClone = shadowInstantiatManager.shadowArchsClone;
+                if(shadowArchsClone != null)
+                {
+                    shadowArchsTransform = shadowArchsClone.transform;
+                    spawnedArch = Instantiate(selectedArchPrefab, shadowArchsTransform.position, Quaternion.identity);
+                    rigidBodyEnabled = false;
+                }              
+            }
+            
 
         }
+        else
+        {
+            Debug.Log("shadowArchManager == null");
+        }
 
-  
 
     }
 }

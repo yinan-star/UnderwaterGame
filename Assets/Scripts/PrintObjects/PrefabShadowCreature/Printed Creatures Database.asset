@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28c1fcfede5178846b826b1cc3966cf6, type: 3}
-  m_Name: New Printed Objects Database
+  m_Name: Printed Creatures Database
   m_EditorClassIdentifier: 
   printo:
   - printedSprite: {fileID: 21300000, guid: 72ac3bc6fafa8b041b827a4a830bdd89, type: 3}

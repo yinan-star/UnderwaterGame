@@ -9,6 +9,7 @@ public class SpriteProgress : MonoBehaviour
     private UIInstantiateManager uIInstantiateManager;
 
     private GameObject buildPanelClone;
+    public GameObject buildOverlayPanel;
 
     public float currentFill;
 
@@ -38,6 +39,21 @@ public class SpriteProgress : MonoBehaviour
                     currentFill = progress;
                     buildCircle.Fill(currentFill);
                 }
+            }
+        }
+        if(build != null)
+        {
+            float progress = build.GetAnimationProgress();//把SpriteMask动画的进度给BuildCircle的Fill.
+            buildCircle = buildOverlayPanel.GetComponent<BuildCircle>();
+            if (progress >= 2f)
+            {
+                currentFill = 2f;
+                buildCircle.Fill(currentFill);
+            }
+            else
+            {
+                currentFill = progress;
+                buildCircle.Fill(currentFill);
             }
         }
     }

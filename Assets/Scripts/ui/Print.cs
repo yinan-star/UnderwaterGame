@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Print : MonoBehaviour
 {
@@ -8,15 +9,17 @@ public class Print : MonoBehaviour
     private string currentAnimation = "";
     public bool isBuildButtonPressed = false;
 
-    public GameObject shadowOfPrinto;//�ص���Ӱ
+    //public GameObject shadowOfPrinto;//�ص���Ӱ
 
     private bool isCreatureButtonPressed = false;
     private bool isArchButtonPressed = false;
+
+   
     //private void OnMouseOver()
     //{
-        
-    //}
 
+    //}
+   
     void Update()
     {
         //Input.mousePosition
@@ -30,21 +33,20 @@ public class Print : MonoBehaviour
         //else
         //{
         //    animator.speed = 0;
-        //}
-      
-        
-        if (isBuildButtonPressed)//&& isPrintedAllowed
+        //}  
+
+        if (isBuildButtonPressed)
         {
 
             ChangeAnimationState("PufferFishPrint");
-            animator.speed = 1;         
+            animator.speed = 1;
         }
         else
         {
             animator.speed = 0;
         }
 
-        GetAnimationProgress();      
+        GetAnimationProgress();
         RestartAnimation();
 
     }
@@ -86,10 +88,10 @@ public class Print : MonoBehaviour
         }
     }
 
-    public void DestroyShadowOfPrinto()
-    {
-        shadowOfPrinto.SetActive(false);
-    }
+    //public void DestroyShadowOfPrinto()
+    //{
+    //    shadowOfPrinto.SetActive(false);
+    //}
 
     public float GetAnimationProgress()
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShadowArchManager : MonoBehaviour
 {
+    //选择ShadowArchs
     public ArchDatabase archData;
     public SpriteRenderer selectedArchSprite;
 

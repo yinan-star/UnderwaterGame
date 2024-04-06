@@ -27,6 +27,14 @@ public class ShadowInstantiatManager : MonoBehaviour
         shadowArchsClone = Instantiate(shadowArchs, transforms[2].position, Quaternion.identity);//在transforms的第一个索引的位置生成新的Shadow.       
 
     }
+    public void CloseShadowInstantiate()
+    {
+        if(shadowArchsClone != null)
+        {
+            shadowArchsClone.SetActive(false);
+        }
+        
+    }
 
 
 
