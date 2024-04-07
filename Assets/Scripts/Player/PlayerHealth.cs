@@ -17,8 +17,9 @@ public class PlayerHealth : MonoBehaviour
 
     public GameObject buildOverlayPanel;
 
-    private GameObject selectionPanelTrigger;
-    private bool isTrigger = false;
+    //public GameObject selectionPanelTrigger;
+
+    //private bool isTrigger = false;
 
     void Start()
     {
@@ -34,14 +35,16 @@ public class PlayerHealth : MonoBehaviour
 
         buildOverlayPanel.SetActive(false);
 
-        selectionPanelTrigger = GameObject.FindGameObjectWithTag("selectionPanel");//通过标签，找到该对象身上的Dialogue.
+        //selectionPanelTrigger = GameObject.FindGameObjectWithTag("selectionPanel");//通过标签，找到该对象身上的Dialogue.
+        //prefaceDialogueTrigger= GameObject.FindGameObjectWithTag("prefaceTrigger");
+
 
 
     }
 
     void Update()
     {
-
+        //StartDialogue();
         if (findClosest != null)
         {
             currentHealth = findClosest.debrisCount;
@@ -59,16 +62,16 @@ public class PlayerHealth : MonoBehaviour
 
             healthChecked = true;//�Ѿ�������ֵ�ˣ�����Ҫÿ֡�����
 
-            if (!isTrigger && selectionPanelTrigger != null)
-            {
-                // 获取游戏SelectionButton对象上的 DialogueTrigger 组件
-                DialogueTrigger dialogueTrigger = selectionPanelTrigger.GetComponent<DialogueTrigger>();
-                if (dialogueTrigger != null)
-                {
-                    dialogueTrigger.TriggerDialogue();
-                    isTrigger = true;//已经弹过不要重复弹
-                }
-            }
+            //if (!isTrigger && selectionPanelTrigger != null)
+            //{
+            //    // 获取游戏SelectionButton对象上的 DialogueTrigger 组件
+            //    DialogueManager selectionManager = selectionPanelTrigger.GetComponent<DialogueManager>();
+            //    if (selectionManager != null)
+            //    {
+            //        selectionManager.StartCoroutine(selectionManager.Type());
+            //        isTrigger = true;//已经弹过不要重复弹
+            //    }
+            //}
         }
         if (!(currentHealth % healthThreshold == 0))
         {
@@ -76,6 +79,23 @@ public class PlayerHealth : MonoBehaviour
         }
 
     }
+    //public void StartDialogue()
+    //{
+    //    if(currentHealth == 0)
+    //    {         
+    //        if (prefaceDialogueTrigger != null && !isTrigger)
+    //        {
+               
+    //            DialogueTrigger prefaceDialogue = prefaceDialogueTrigger.GetComponent<DialogueTrigger>();
+    //            if (prefaceDialogue != null)
+    //            {              
+    //                prefaceDialogue.TriggerDialogue();
+    //            }
+    //        }
+           
+    //    }
+
+    //}
 
 
 }

@@ -586,10 +586,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: OverSeer
+  m_text: Overseer
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d57b6cdd14b186c44998934e1cdf4923, type: 2}
-  m_sharedMaterial: {fileID: 6559163621454809053, guid: d57b6cdd14b186c44998934e1cdf4923, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 421b5bc4ed47f0d429806c2f38b525cd, type: 2}
+  m_sharedMaterial: {fileID: -5354224473434327970, guid: 421b5bc4ed47f0d429806c2f38b525cd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -619,7 +619,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -903,7 +903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &163269551
 RectTransform:
   m_ObjectHideFlags: 0
@@ -970,7 +970,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2037052988}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
-        m_MethodName: DisplayNextSentence
+        m_MethodName: NextSentence
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2108,7 +2108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.316267, y: 0.33399963, z: -10}
+  m_LocalPosition: {x: -5.316267, y: 0.3339994, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2293,7 +2293,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 623277614}
-  - component: {fileID: 623277615}
   m_Layer: 0
   m_Name: selectionDialogueTrigger
   m_TagString: selectionPanel
@@ -2316,22 +2315,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &623277615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623277612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72944eeb818366e41b9f6a0d8f80ec33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: Oversser
-    sentences:
-    - Now you have the ability to print something; it might bring you some surprises.
 --- !u!1 &636689927
 GameObject:
   m_ObjectHideFlags: 0
@@ -3142,7 +3125,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hi, I'm just a Transit Station, you can find me on other gameObjects.!
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2624ddebf0093d949a6a2f9d9894cea2, type: 2}
   m_sharedMaterial: {fileID: 8254885929563753388, guid: 2624ddebf0093d949a6a2f9d9894cea2, type: 2}
@@ -3234,10 +3217,10 @@ RectTransform:
   m_Father: {fileID: 689330945}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 2, y: -2}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: -1088, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &919391360
 GameObject:
@@ -4149,10 +4132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72944eeb818366e41b9f6a0d8f80ec33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    name: OverSeer
-    sentences:
-    - Congratulations! You will be able to find a place to print one Arch.
+  dialogue: {fileID: 0}
 --- !u!1 &1013057681
 GameObject:
   m_ObjectHideFlags: 0
@@ -5594,7 +5574,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262652085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.316267, y: 0.33399963, z: -10}
+  m_LocalPosition: {x: -5.316267, y: 0.3339994, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8127,12 +8107,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ab6987a1848924898ab1b010f3d3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textDisplay: {fileID: 915609872}
   nameText: {fileID: 91064412}
-  dialogueText: {fileID: 915609872}
-  textSpeed: 0.05
-  animator: {fileID: 689330948}
-  dialogCloseDelay: 1
+  sentences:
+  - Welcome to your first day at the Underwater Program.
+  - It appears you're well-versed in your role, but let's refine it a bit more.
+  - You are the 4D Print Robot, fueled by the ocean's plastic pollution.
+  - Your primary task is to scour the waters, gathering floating debris and transforming
+    it into advanced marvels.
+  typingSpeed: 0.02
   continueButton: {fileID: 163269550}
+  animator: {fileID: 689330948}
 --- !u!4 &2037052989
 Transform:
   m_ObjectHideFlags: 0
@@ -8235,7 +8220,6 @@ GameObject:
   - component: {fileID: 2102945350}
   - component: {fileID: 2102945351}
   - component: {fileID: 2102945352}
-  - component: {fileID: 2102945353}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -8363,23 +8347,6 @@ MonoBehaviour:
   fill: {fileID: 1111529993}
   hpIndicator: {fileID: 1095083252}
   health: {fileID: 280361248}
---- !u!114 &2102945353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102945349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72944eeb818366e41b9f6a0d8f80ec33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: Overseer
-    sentences:
-    - "Deepo, you are the PrintBot. \nYou will collect garbage from the sea and convert
-      it into power to create wonders."
 --- !u!1 &2104677056
 GameObject:
   m_ObjectHideFlags: 0

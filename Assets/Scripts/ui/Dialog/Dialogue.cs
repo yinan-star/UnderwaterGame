@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-[System.Serializable]
-public class Dialogue//��DialogueTriggerչʾ��������������ϡ�HealthBar
+public class Dialogue: MonoBehaviour
 {
-    public string name;
-    [TextArea(3, 10)]
-    public string[] sentences;
+    //public TextMeshProUGUI textDisplay;
+    //public string nameText;
+    ////[TextArea(3, 10)]
+    //public string[] sentences;
+    //private int index;
 }

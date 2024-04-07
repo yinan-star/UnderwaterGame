@@ -6,78 +6,62 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    public TextMeshProUGUI textDisplay;
     public TextMeshProUGUI nameText;
-    public TextMeshProUGUI dialogueText;
-    public float textSpeed;
-    private Queue<string> sentences;//Like a list.
+    public string[] sentences;
+    private int index;
+    public float typingSpeed;
+    
 
-    public Animator animator;
-    public float dialogCloseDelay;
+   
+
     public static bool isActive = false;
 
     public GameObject continueButton;
+    public Animator animator;
 
 
     void Start()
     {
-        sentences = new Queue<string>();
-    }
-
-    public void StartDialogue(Dialogue dialog)
-    {
-
-        
+        StartCoroutine(Type());
         animator.SetBool("IsOpen", true);
-        nameText.text = dialog.name;
-        sentences.Clear();//清理之前的
-        isActive = true;//在播放动画期间,停止player移动
-        foreach (string sentence in dialog.sentences)
-        {
-            sentences.Enqueue(sentence);//添加新的句子到队列
-        }
-        
-        DisplayNextSentence();
-
     }
-    //continue
-    public void DisplayNextSentence()
+
+    private void Update()
     {
-        if (sentences.Count == 0)
-        {
-            EndDialog();
-            return;
-        }
-        if (sentences.Count == 1 && continueButton != null)
-        {
-            continueButton.SetActive(false);
-        }
-        else if (continueButton != null)
+        if(textDisplay.text == sentences[index])
         {
             continueButton.SetActive(true);
-        }
-        
-        string sentence = sentences.Dequeue();
-        StopAllCoroutines();//如果之前的弹窗未播放完直接
-        StartCoroutine(TypeSentence(sentence));//切换到新的弹窗
+        }   
     }
-    //Text In and Out seperately
-    IEnumerator TypeSentence(string sentence)
-    {
-        dialogueText.text = "";
-        foreach (char letter in sentence.ToCharArray())
-        {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(textSpeed);
-        }
 
-        yield return new WaitForSeconds(dialogCloseDelay);
-        EndDialog();
-    }
-    void EndDialog()
+    public void NextSentence()
     {
-        animator.SetBool("IsOpen", false);
-        isActive = false;
-        Debug.Log("EndPlz");
+        
+       continueButton.SetActive(false);//开始前隐藏
+       if(index < sentences.Length - 1)
+        {
+            index++;
+            textDisplay.text = "";
+            StartCoroutine(Type());
+        }
+        else
+        {
+            textDisplay.text = "";
+            animator.SetBool("IsOpen", false); 
+        }
+        continueButton.SetActive(false);//结束隐藏
+        
+        
+    }
+
+    public IEnumerator Type()
+    {           
+        foreach (char letter in sentences[index].ToCharArray())
+        {
+            textDisplay.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }          
     }
 
 }

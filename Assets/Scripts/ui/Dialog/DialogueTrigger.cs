@@ -6,15 +6,9 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
 
+    //public void TriggerDialogue()
+    //{
+    //    FindObjectOfType<DialogueManager>().StartCoroutine(); ;
+    //}
 
-    public void TriggerDialogue()
-    {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-    }
-
-    // private void Start()
-    // {
-    //     TriggerDialogue();
-
-    // }
 }
