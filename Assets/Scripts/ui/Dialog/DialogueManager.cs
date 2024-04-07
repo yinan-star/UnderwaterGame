@@ -9,12 +9,14 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public float textSpeed;
-    private Queue<string> sentences;
+    private Queue<string> sentences;//Like a list.
 
     public Animator animator;
     public float dialogCloseDelay;
     public static bool isActive = false;
- 
+
+    public GameObject continueButton;
+
 
     void Start()
     {
@@ -23,19 +25,42 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialog)
     {
-        if (dialog != null)
+
+        
+        animator.SetBool("IsOpen", true);
+        nameText.text = dialog.name;
+        sentences.Clear();//清理之前的
+        isActive = true;//在播放动画期间,停止player移动
+        foreach (string sentence in dialog.sentences)
         {
-            isActive = true;
-            animator.SetBool("IsOpen", true);
-            nameText.text = dialog.name;
-            sentences.Clear();
-            sentences.Enqueue(dialog.sentences[0]);
-            StartCoroutine(TypeSentence(sentences.Dequeue()));
+            sentences.Enqueue(sentence);//添加新的句子到队列
         }
-   
+        
+        DisplayNextSentence();
+
     }
-    
-    
+    //continue
+    public void DisplayNextSentence()
+    {
+        if (sentences.Count == 0)
+        {
+            EndDialog();
+            return;
+        }
+        if (sentences.Count == 1 && continueButton != null)
+        {
+            continueButton.SetActive(false);
+        }
+        else if (continueButton != null)
+        {
+            continueButton.SetActive(true);
+        }
+        
+        string sentence = sentences.Dequeue();
+        StopAllCoroutines();//如果之前的弹窗未播放完直接
+        StartCoroutine(TypeSentence(sentence));//切换到新的弹窗
+    }
+    //Text In and Out seperately
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
@@ -48,11 +73,11 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(dialogCloseDelay);
         EndDialog();
     }
-    public void EndDialog()
+    void EndDialog()
     {
         animator.SetBool("IsOpen", false);
         isActive = false;
         Debug.Log("EndPlz");
     }
-   
+
 }

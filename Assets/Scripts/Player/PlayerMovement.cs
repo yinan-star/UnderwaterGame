@@ -19,7 +19,8 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        
+
+
         Move();
         Flip();
         CheckAnimation();
@@ -37,12 +38,16 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
         if (DialogueManager.isActive == true)
+        {
+            rb.velocity = Vector2.zero;//停止移动
             return;
+        }
 
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed) * Time.deltaTime;
+
+        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
 
         if (Input.GetKey(KeyCode.LeftShift))
-        {        
+        {
             moveSpeed *= 1.03f;
         }
         else
@@ -53,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Flip()
     {
+
         if (isFaceingLeft && moveDirection.x > 0f || !isFaceingLeft && moveDirection.x < 0f)
         {
             isFaceingLeft = !isFaceingLeft;
@@ -66,12 +72,12 @@ public class PlayerMovement : MonoBehaviour
     //Animation
     void CheckAnimation()
     {
-        if (moveDirection.x != 0f || moveDirection.y != 0f)
+        if (moveDirection.x != 0f || moveDirection.y != 0f && !DialogueManager.isActive)
         {
             ChangeAnimationState("Swim");
-        }         
+        }
         else
-            ChangeAnimationState("Idle");      
+            ChangeAnimationState("Idle");
     }
     void ChangeAnimationState(string animation, float crossfade = 0.1f)
     {
@@ -82,4 +88,4 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    }
+}

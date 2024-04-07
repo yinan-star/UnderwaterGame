@@ -9,16 +9,12 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        if(dialogue != null)
-        {
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        }
-        
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 
-    private void Start()
-    {
-        TriggerDialogue();
+    // private void Start()
+    // {
+    //     TriggerDialogue();
 
-    }
+    // }
 }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Dialogue//靠DialogueTrigger展示在相关联的物体上。HealthBar
+public class Dialogue//锟斤拷DialogueTrigger展示锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷稀锟紿ealthBar
 {
     public string name;
-    [TextArea(3, 10)]//就是写的地方会大一点把
+    [TextArea(3, 10)]
     public string[] sentences;
 }
