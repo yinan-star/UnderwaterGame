@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
 
     public Animator animator;
     public float dialogCloseDelay;
+    public static bool isActive = false;
  
 
     void Start()
@@ -22,20 +23,25 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialog)
     {
-        animator.SetBool("IsOpen", true);
-        nameText.text = dialog.name;
-        sentences.Clear();
-        sentences.Enqueue(dialog.sentences[0]);
-        StartCoroutine(TypeSentence(sentences.Dequeue())); 
+        if (dialog != null)
+        {
+            isActive = true;
+            animator.SetBool("IsOpen", true);
+            nameText.text = dialog.name;
+            sentences.Clear();
+            sentences.Enqueue(dialog.sentences[0]);
+            StartCoroutine(TypeSentence(sentences.Dequeue()));
+        }
+   
     }
     
     
     IEnumerator TypeSentence(string sentence)
     {
-        dialogueText.text = "";//??????????
-        foreach (char letter in sentence.ToCharArray())//ToCharArry????????????????????????????????
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
         {
-            dialogueText.text += letter;//????????????????????????????dialogueText????
+            dialogueText.text += letter;
             yield return new WaitForSeconds(textSpeed);
         }
 
@@ -45,6 +51,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialog()
     {
         animator.SetBool("IsOpen", false);
+        isActive = false;
         Debug.Log("EndPlz");
     }
    

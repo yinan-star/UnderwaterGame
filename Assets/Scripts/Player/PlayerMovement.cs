@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
+        
         Move();
         Flip();
         CheckAnimation();
@@ -35,7 +36,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        if (DialogueManager.isActive == true)
+            return;
+
+        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed) * Time.deltaTime;
 
         if (Input.GetKey(KeyCode.LeftShift))
         {        

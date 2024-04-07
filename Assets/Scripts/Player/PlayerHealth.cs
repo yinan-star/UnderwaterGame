@@ -23,8 +23,7 @@ public class PlayerHealth : MonoBehaviour
         
         SelectionUI.SetActive(false);
         findClosest = GetComponent<FindClosest>();
-        //shadowOfPrinto.SetActive(false);
-        // shadowOfArch.SetActive(false);
+      
         foreach (GameObject button in ArchPointbuttons)
         {
             button.SetActive(false);//游戏开始是关着的
@@ -60,7 +59,7 @@ public class PlayerHealth : MonoBehaviour
                 if(dialogueTrigger != null)
                 {                 
                     dialogueTrigger.TriggerDialogue();
-                    isTrigger = true;
+                    isTrigger = true;//已经弹过不要重复弹
                 }              
             }          
         }
