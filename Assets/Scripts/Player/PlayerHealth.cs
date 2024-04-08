@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
 
     public GameObject SelectionUI;
-    public int healthThreshold = 6;
+    public int healthThreshold = 9;
     public bool healthChecked = false;
     public GameObject[] ArchPointbuttons; // 三个要显示的按钮
 
@@ -21,6 +21,8 @@ public class PlayerHealth : MonoBehaviour
     //弹窗达到条件后只执行一次
     private bool isPrefaceTrigger = false;
     private bool isSelectionTrigger = false;
+
+   
 
     void Start()
     {
@@ -53,7 +55,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (currentHealth >= healthThreshold && currentHealth % healthThreshold == 0 && !healthChecked)
         {
-            SelectionUI.SetActive(true);
+            SelectionUI.SetActive(true);//弹UI
             healthChecked = true;//�Ѿ�������ֵ�ˣ�����Ҫÿ֡�����
             GameObject selectionPanelTrigger = GameObject.FindGameObjectWithTag("selectionPanel");
             if (!isSelectionTrigger)
@@ -68,13 +70,15 @@ public class PlayerHealth : MonoBehaviour
                 }
                 isSelectionTrigger = true;//已经弹过不要重复弹
             }
+            
         }
         if (!(currentHealth % healthThreshold == 0))
         {
             healthChecked = false;
-        }
+        }     
 
     }
+    
     public void StartDialogue()
     {
         if (currentHealth == 0)
@@ -92,6 +96,7 @@ public class PlayerHealth : MonoBehaviour
 
         }
     }
+   
 
 
 }

@@ -29,7 +29,7 @@ public class DialogueManager : MonoBehaviour
     void Update()
     {
         //更新句子
-        if (Input.GetKeyDown(KeyCode.Space) && isActive == true)
+        if (Input.GetKeyDown(KeyCode.X) && isActive == true)
         {
             NextSentence();
         }

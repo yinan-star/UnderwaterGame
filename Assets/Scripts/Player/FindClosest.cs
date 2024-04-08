@@ -11,7 +11,7 @@ public class FindClosest : MonoBehaviour
     void Update()
     {
         FindClosestObject();
-        if (pickUpAllowed && Input.GetKeyDown(KeyCode.E))
+        if (pickUpAllowed && Input.GetKeyDown(KeyCode.N))
         {
             if (DialogueManager.isActive == true)
             {

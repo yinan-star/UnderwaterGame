@@ -18,6 +18,8 @@ public class BuildButtonEnd : MonoBehaviour
     private UIInstantiateManager uIInstantiateManager;
     private GameObject buildPanelClone;
 
+
+ 
     void Start()
     {
 
@@ -63,6 +65,9 @@ public class BuildButtonEnd : MonoBehaviour
                 printScript.isBuildButtonPressed = false;//重置成没按Build
                 Debug.Log("closed");
             }
+        
+       
+
         }
         else
         {
