@@ -58,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Flip()
     {
+        if (DialogueManager.isActive == true)
+        {
+            return;
+        }
+
 
         if (isFaceingLeft && moveDirection.x > 0f || !isFaceingLeft && moveDirection.x < 0f)
         {
@@ -74,6 +79,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveDirection.x != 0f || moveDirection.y != 0f && !DialogueManager.isActive)
         {
+            if (DialogueManager.isActive == true)
+            {
+                return;
+            }
+
             ChangeAnimationState("Swim");
         }
         else

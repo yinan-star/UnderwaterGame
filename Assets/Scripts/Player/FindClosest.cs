@@ -5,7 +5,7 @@ using UnityEngine;
 public class FindClosest : MonoBehaviour
 {
     private bool pickUpAllowed = false;
-    public float pickUpRange = 10.0f;//ÎÒÕ¦¸Ð¾õÕâ¸ö·¶Î§Éè²»Éè¶¼Ó°Ïì²»´óµÄ£¿
+    public float pickUpRange = 10.0f;//ï¿½ï¿½Õ¦ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§ï¿½è²»ï¿½è¶¼Ó°ï¿½ì²»ï¿½ï¿½Ä£ï¿½
     private PickUp closest;
     public int debrisCount;
     void Update()
@@ -13,21 +13,25 @@ public class FindClosest : MonoBehaviour
         FindClosestObject();
         if (pickUpAllowed && Input.GetKeyDown(KeyCode.E))
         {
-            Pickup();           
+            if (DialogueManager.isActive == true)
+            {
+                return;
+            }
+            Pickup();
         }
-                 
+
     }
 
-    //ÕÒµ½×î½üµÄÎïÌå
+    //ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     void FindClosestObject()
     {
-        float distanceToClosest = pickUpRange;//¼ÙÉè×î½üµÄ¾àÀëÊÇ·¶Î§ÁÙ½çÖµ
-        closest = null;//¼ÙÉè»¹Ã»ÓÐ×î½üµÄÎïÌå
+        float distanceToClosest = pickUpRange;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Î§ï¿½Ù½ï¿½Öµ
+        closest = null;//ï¿½ï¿½ï¿½è»¹Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         PickUp[] pickups = FindObjectsOfType<PickUp>();
         foreach (PickUp p in pickups)
         {
             float distance = Vector2.Distance(p.transform.position, transform.position);
-            if(distance < distanceToClosest)
+            if (distance < distanceToClosest)
             {
                 distanceToClosest = distance;
                 closest = p;
@@ -39,18 +43,18 @@ public class FindClosest : MonoBehaviour
         }
     }
 
-    //Ê°È¡ÎïÌå
+    //Ê°È¡ï¿½ï¿½ï¿½ï¿½
     private void Pickup()
     {
         if (closest != null)
         {
             Destroy(closest.gameObject);
-            pickUpAllowed = false; // Ê°È¡ºó¼ÇµÃÖØÖÃÊ°È¡ÔÊÐí×´Ì¬£¡£¡£¡£¡
+            pickUpAllowed = false; // Ê°È¡ï¿½ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½Ê°È¡ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             PickupItem();
         }
     }
 
-    //¼ÆËãÊ°È¡ÎïÌåµÄÊýÁ¿
+    //ï¿½ï¿½ï¿½ï¿½Ê°È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public void PickupItem()
     {
         debrisCount++;

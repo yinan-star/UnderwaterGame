@@ -17,9 +17,10 @@ public class PlayerHealth : MonoBehaviour
 
     public GameObject buildOverlayPanel;
 
-    //public GameObject selectionPanelTrigger;
 
-    //private bool isTrigger = false;
+    //弹窗达到条件后只执行一次
+    private bool isPrefaceTrigger = false;
+    private bool isSelectionTrigger = false;
 
     void Start()
     {
@@ -35,16 +36,11 @@ public class PlayerHealth : MonoBehaviour
 
         buildOverlayPanel.SetActive(false);
 
-        //selectionPanelTrigger = GameObject.FindGameObjectWithTag("selectionPanel");//通过标签，找到该对象身上的Dialogue.
-        //prefaceDialogueTrigger= GameObject.FindGameObjectWithTag("prefaceTrigger");
-
-
-
     }
 
     void Update()
     {
-        //StartDialogue();
+        StartDialogue();
         if (findClosest != null)
         {
             currentHealth = findClosest.debrisCount;
@@ -58,20 +54,20 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth >= healthThreshold && currentHealth % healthThreshold == 0 && !healthChecked)
         {
             SelectionUI.SetActive(true);
-
-
             healthChecked = true;//�Ѿ�������ֵ�ˣ�����Ҫÿ֡�����
-
-            //if (!isTrigger && selectionPanelTrigger != null)
-            //{
-            //    // 获取游戏SelectionButton对象上的 DialogueTrigger 组件
-            //    DialogueManager selectionManager = selectionPanelTrigger.GetComponent<DialogueManager>();
-            //    if (selectionManager != null)
-            //    {
-            //        selectionManager.StartCoroutine(selectionManager.Type());
-            //        isTrigger = true;//已经弹过不要重复弹
-            //    }
-            //}
+            GameObject selectionPanelTrigger = GameObject.FindGameObjectWithTag("selectionPanel");
+            if (!isSelectionTrigger)
+            {
+                if (selectionPanelTrigger != null)
+                {   // 获取游戏SelectionButton对象上的 DialogueTrigger 组件
+                    DialogueTrigger selectionDialogue = selectionPanelTrigger.GetComponent<DialogueTrigger>();
+                    if (selectionDialogue != null)
+                    {
+                        selectionDialogue.StartDialogue();
+                    }
+                }
+                isSelectionTrigger = true;//已经弹过不要重复弹
+            }
         }
         if (!(currentHealth % healthThreshold == 0))
         {
@@ -79,23 +75,23 @@ public class PlayerHealth : MonoBehaviour
         }
 
     }
-    //public void StartDialogue()
-    //{
-    //    if(currentHealth == 0)
-    //    {         
-    //        if (prefaceDialogueTrigger != null && !isTrigger)
-    //        {
-               
-    //            DialogueTrigger prefaceDialogue = prefaceDialogueTrigger.GetComponent<DialogueTrigger>();
-    //            if (prefaceDialogue != null)
-    //            {              
-    //                prefaceDialogue.TriggerDialogue();
-    //            }
-    //        }
-           
-    //    }
+    public void StartDialogue()
+    {
+        if (currentHealth == 0)
+        {
+            GameObject prefaceDialogueTrigger = GameObject.FindGameObjectWithTag("prefaceTrigger");
+            if (!isPrefaceTrigger && prefaceDialogueTrigger != null)
+            {
+                DialogueTrigger prefaceDialogue = prefaceDialogueTrigger.GetComponent<DialogueTrigger>();
+                if (prefaceDialogue != null)
+                {
+                    prefaceDialogue.StartDialogue();
+                    isPrefaceTrigger = true;//弹一次
+                }
+            }
 
-    //}
+        }
+    }
 
 
 }

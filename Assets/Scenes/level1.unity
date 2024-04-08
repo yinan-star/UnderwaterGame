@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 37723069}
   - component: {fileID: 37723071}
   - component: {fileID: 37723070}
+  - component: {fileID: 37723072}
   m_Layer: 5
   m_Name: ButtonBg
   m_TagString: Untagged
@@ -393,6 +394,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37723068}
   m_CullTransparentMesh: 1
+--- !u!114 &37723072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37723068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05944ed494f0453297a8230560bd3fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonCreature: {fileID: 2134818766}
+  buttonArch: {fileID: 1008906264}
+  buttonFood: {fileID: 1211619956}
 --- !u!1 &72622526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,7 +2124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.316267, y: 0.3339994, z: -10}
+  m_LocalPosition: {x: -5.316267, y: 0.33399963, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2328,9 +2344,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72944eeb818366e41b9f6a0d8f80ec33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sentences: []
-  nameText:
-    nameText: 
+  sentences:
+  - sentence: Pls, don't mess them  up.
+  nameText: Overseer
 --- !u!1 &636689927
 GameObject:
   m_ObjectHideFlags: 0
@@ -4149,8 +4165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences: []
-  nameText:
-    nameText: 
+  nameText: 
 --- !u!1 &1013057681
 GameObject:
   m_ObjectHideFlags: 0
@@ -5592,7 +5607,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262652085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.316267, y: 0.3339994, z: -10}
+  m_LocalPosition: {x: -5.316267, y: 0.33399963, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7738,7 +7753,7 @@ GameObject:
   - component: {fileID: 1938584730}
   m_Layer: 0
   m_Name: PrefaceDialogueTrigger
-  m_TagString: Untagged
+  m_TagString: prefaceTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7756,9 +7771,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - sentence: 
-  nameText:
-    nameText: 
+  - sentence: Hi, whaddaup Fish
+  - sentence: DOn;t you think is more better than that?
+  nameText: Overseer
 --- !u!4 &1938584731
 Transform:
   m_ObjectHideFlags: 0
@@ -8175,11 +8190,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 915609872}
   nameText: {fileID: 91064412}
-  sentences:
-  - 
-  - 
-  - 
-  - 
   typingSpeed: 0.02
   continueButton: {fileID: 163269550}
   animator: {fileID: 689330948}
