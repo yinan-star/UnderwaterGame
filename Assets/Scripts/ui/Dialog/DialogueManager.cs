@@ -11,9 +11,11 @@ public class DialogueManager : MonoBehaviour
     public string[] sentences;
     private int index;
     public float typingSpeed;
-    
 
-   
+    string[] currentSentences;
+    string currentNameText;
+
+
 
     public static bool isActive = false;
 

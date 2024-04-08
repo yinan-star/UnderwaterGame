@@ -2293,6 +2293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 623277614}
+  - component: {fileID: 623277615}
   m_Layer: 0
   m_Name: selectionDialogueTrigger
   m_TagString: selectionPanel
@@ -2315,6 +2316,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &623277615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623277612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72944eeb818366e41b9f6a0d8f80ec33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sentences: []
+  nameText:
+    nameText: 
 --- !u!1 &636689927
 GameObject:
   m_ObjectHideFlags: 0
@@ -4132,7 +4148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72944eeb818366e41b9f6a0d8f80ec33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 0}
+  sentences: []
+  nameText:
+    nameText: 
 --- !u!1 &1013057681
 GameObject:
   m_ObjectHideFlags: 0
@@ -7708,6 +7726,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1938584729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1938584731}
+  - component: {fileID: 1938584730}
+  m_Layer: 0
+  m_Name: PrefaceDialogueTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1938584730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938584729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72944eeb818366e41b9f6a0d8f80ec33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sentences:
+  - sentence: 
+  nameText:
+    nameText: 
+--- !u!4 &1938584731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938584729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 504.27292, y: 521.1015, z: -8.812207}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1985311197
 GameObject:
   m_ObjectHideFlags: 0
@@ -8110,11 +8176,10 @@ MonoBehaviour:
   textDisplay: {fileID: 915609872}
   nameText: {fileID: 91064412}
   sentences:
-  - Welcome to your first day at the Underwater Program.
-  - It appears you're well-versed in your role, but let's refine it a bit more.
-  - You are the 4D Print Robot, fueled by the ocean's plastic pollution.
-  - Your primary task is to scour the waters, gathering floating debris and transforming
-    it into advanced marvels.
+  - 
+  - 
+  - 
+  - 
   typingSpeed: 0.02
   continueButton: {fileID: 163269550}
   animator: {fileID: 689330948}
