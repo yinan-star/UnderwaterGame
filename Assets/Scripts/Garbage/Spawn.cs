@@ -27,6 +27,19 @@ public class Spawn : MonoBehaviour
                  
         }
     }
+
+    // 减少 spawnObjects 数组长度的方法
+    public void ReduceSpawnObjectsArray()
+    {
+        // 如果 spawnObjects 数组长度大于 0，则移除第一个元素
+        if (spawnObjects.Length > 0)
+        {
+            List<GameObject> tempList = new List<GameObject>(spawnObjects);
+            tempList.RemoveAt(0);
+            spawnObjects = tempList.ToArray();
+        }
+    }
+
     Vector2 GetRandomPosition()
     {
         Vector3 bgPosition = bg.transform.position;

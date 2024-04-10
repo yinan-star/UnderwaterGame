@@ -10,12 +10,8 @@ public class DestroyGarbageParticles : MonoBehaviour
     public bool shakeCamera = true;
     void Start()
     {
-        if (shakeCamera)
-        {
-            StartCoroutine(FindObjectOfType<CameraShake>().Shake(2f, 10.0f));
-            Debug.Log("shake already");
-        }
 
+        CameraShake.Instance.ShakeCamera(5f, 0.1f);
         Destroy(gameObject, time);
 
     }

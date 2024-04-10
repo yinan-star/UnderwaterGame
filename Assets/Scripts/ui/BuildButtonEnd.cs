@@ -18,8 +18,13 @@ public class BuildButtonEnd : MonoBehaviour
     private UIInstantiateManager uIInstantiateManager;
     private GameObject buildPanelClone;
 
+    //减少生命值
+    public bool isDecreased = false;
+    private FindClosest findClosest;
 
- 
+
+
+
     void Start()
     {
 
@@ -31,6 +36,8 @@ public class BuildButtonEnd : MonoBehaviour
 
         //拿生成BuildPanel的脚本
         uIInstantiateManager = FindObjectOfType<UIInstantiateManager>();
+
+        findClosest = FindObjectOfType<FindClosest>();
 
     }
 
@@ -45,6 +52,7 @@ public class BuildButtonEnd : MonoBehaviour
             {
                 spawnScript.SpawnObjects();
                 hasSpawnedObjects = true;
+                spawnScript.ReduceSpawnObjectsArray();//生成一次垃圾，垃圾的数组就减1；
             }
             //关掉BuildPanel
             if (!buildPanelClosed && uIInstantiateManager != null)//如果没有关掉BuildPanel,就关掉
@@ -65,8 +73,13 @@ public class BuildButtonEnd : MonoBehaviour
                 printScript.isBuildButtonPressed = false;//重置成没按Build
                 Debug.Log("closed");
             }
-        
-       
+            //减生命值
+            if (!isDecreased)
+            {
+                findClosest.debrisCount -= 3;
+                isDecreased = true;
+            }
+                         
 
         }
         else
@@ -74,6 +87,7 @@ public class BuildButtonEnd : MonoBehaviour
             hasSpawnedObjects = false;
             buildPanelClosed = false;
             buildOverlayPanelClosed = false;
+            isDecreased = false;
         }
     }
 
