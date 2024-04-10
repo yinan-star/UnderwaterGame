@@ -5,12 +5,10 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
     public GameObject[] spawnObjects;
-    //private Vector2 screenBounds;
 
     public GameObject bg;
     void Start()
     {
-        //screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width,Screen.height,Camera.main.transform.position.z));
         SpawnObjects();
     }
 
@@ -24,7 +22,8 @@ public class Spawn : MonoBehaviour
         foreach (GameObject spawnObject in spawnObjects)
         {
             Vector2 randomPosition = GetRandomPosition();
-            Instantiate(spawnObject, randomPosition, Quaternion.identity);
+            GameObject spawnedObject = Instantiate(spawnObject, randomPosition, Quaternion.identity);
+            spawnedObject.transform.parent = transform; // è®¾ç½®ç”Ÿæˆçš„å¯¹è±¡çš„çˆ¶çº§ä¸ºå½“å‰å¯¹è±¡
                  
         }
     }
@@ -38,7 +37,7 @@ public class Spawn : MonoBehaviour
         float bgRight = bgPosition.x + bgWidth / 2f;
         float bgBottom = bgPosition.y - bgHeight / 2f;
         float bgTop = bgPosition.y + bgHeight / 2f;
-        // Éú³ÉËæ»úÎ»ÖÃ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
         return new Vector2(Random.Range(bgLeft, bgRight), Random.Range(bgPosition.y, bgTop));
     }
 }

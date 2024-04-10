@@ -8,6 +8,8 @@ public class FindClosest : MonoBehaviour
     public float pickUpRange = 10.0f;//��զ�о������Χ�費�趼Ӱ�첻��ģ�
     private PickUp closest;
     public int debrisCount;
+
+    public ParticleSystem garbageParticles;
     void Update()
     {
         FindClosestObject();
@@ -18,6 +20,7 @@ public class FindClosest : MonoBehaviour
                 return;
             }
             Pickup();
+
         }
 
     }
@@ -49,10 +52,14 @@ public class FindClosest : MonoBehaviour
         if (closest != null)
         {
             Destroy(closest.gameObject);
+            Instantiate(garbageParticles, closest.gameObject.transform.position, Quaternion.identity);
+           
             pickUpAllowed = false; // ʰȡ��ǵ�����ʰȡ����״̬��������
             PickupItem();
+
         }
     }
+
 
     //����ʰȡ���������
     public void PickupItem()
