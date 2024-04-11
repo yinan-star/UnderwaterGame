@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
     public List<GameObject> spawnObjects;
+    private List<GameObject> initialSpawnObjects;
     public GameObject bg;
     private SelectionUIPopUpManager selectionUIPopUpManager;
     // private List<GameObject> garbageObjects;
@@ -13,6 +14,7 @@ public class Spawn : MonoBehaviour
     {
         // SpawnObjects();
         selectionUIPopUpManager = FindObjectOfType<SelectionUIPopUpManager>();
+        initialSpawnObjects = new List<GameObject>(spawnObjects); // 保存初始数量
         StartCoroutine(SpawnAndCheck());
     }
     void Update(){
@@ -22,6 +24,12 @@ public class Spawn : MonoBehaviour
     public IEnumerator SpawnAndCheck()
     {
         SpawnObjects();
+
+        // 如果 spawnObjects 为空不执行
+        if (spawnObjects.Count == 0)
+        {
+            yield break;
+        }
 
         // 等待场景中垃圾的数量为0
         while (HasGarbage())
@@ -56,7 +64,15 @@ public class Spawn : MonoBehaviour
         if (spawnObjects.Count > 0)
         {
             spawnObjects.RemoveAt(0); // 移除列表的第一个元素
+            StartCoroutine(SpawnAndCheck());//生成新的物体并检查Ui
         }
+    }
+
+    //弹出对话，询问是否继续，还没调...
+    public void SpawnAgain()
+    {
+        spawnObjects = new List<GameObject>(initialSpawnObjects);
+        StartCoroutine(SpawnAndCheck()); // 生成新的物体并检查 UI
     }
 
     Vector2 GetRandomPosition()

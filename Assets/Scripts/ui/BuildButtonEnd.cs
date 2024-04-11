@@ -50,9 +50,7 @@ public class BuildButtonEnd : MonoBehaviour
             //生成垃圾
             if (!hasSpawnedObjects && spawnScript != null)//Instantiate垃圾
             {
-                spawnScript.ReduceSpawnNumber();//生成一次垃圾，垃圾的数组就减1；
-                // spawnScript.SpawnObjects();
-                spawnScript.StartCoroutine(spawnScript.SpawnAndCheck());//生成垃圾并且等到垃圾为0弹出selectionuI;
+                spawnScript.ReduceSpawnNumber();//生成一次垃圾，垃圾的数组就减1，并且等数量为0，打开UI；
                 hasSpawnedObjects = true;
                 
             }
@@ -80,8 +78,7 @@ public class BuildButtonEnd : MonoBehaviour
             {
                 findClosest.debrisCount -= 3;
                 isDecreased = true;
-            }
-                       
+            }                       
 
 
         }
