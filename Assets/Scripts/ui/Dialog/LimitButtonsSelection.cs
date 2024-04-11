@@ -8,6 +8,10 @@ public class LimitButtonsSelection : MonoBehaviour
     public Button buttonCreature;
     public Button buttonArch;
     public Button buttonFood;
+    private PlayerHealth playerHealth;
+    void Start(){
+        playerHealth = FindObjectOfType<PlayerHealth>();
+    }
 
 
     void Update()
@@ -20,14 +24,17 @@ public class LimitButtonsSelection : MonoBehaviour
 
             buttonFood.enabled = false;
         }
-        else
+        else//如果没弹窗
         {
             buttonCreature.enabled = true;
-
-            buttonArch.enabled = true;
-
-            buttonFood.enabled = true;
+            
+            if (playerHealth.currentHealth >= 12)
+            {
+                buttonArch.enabled = true;
+            }
+            // buttonFood.enabled = true;
         }
+
     }
 
 }
