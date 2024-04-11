@@ -7,7 +7,7 @@ public class BuildButtonEnd : MonoBehaviour
     public SpriteProgress spriteProgress;
     public GameObject buildOverlayPanel;  
     private Spawn spawnScript;
-    private bool hasSpawnedObjects = false;
+    private static bool hasSpawnedObjects = false;
     public bool buildPanelClosed = false;
     public bool buildOverlayPanelClosed = false;
     private Print printScript;
@@ -51,7 +51,8 @@ public class BuildButtonEnd : MonoBehaviour
             if (!hasSpawnedObjects && spawnScript != null)//Instantiate垃圾
             {
                 spawnScript.ReduceSpawnNumber();//生成一次垃圾，垃圾的数组就减1；
-                spawnScript.SpawnObjects();
+                // spawnScript.SpawnObjects();
+                spawnScript.StartCoroutine(spawnScript.SpawnAndCheck());//生成垃圾并且等到垃圾为0弹出selectionuI;
                 hasSpawnedObjects = true;
                 
             }
@@ -80,9 +81,7 @@ public class BuildButtonEnd : MonoBehaviour
                 findClosest.debrisCount -= 3;
                 isDecreased = true;
             }
-      
-            
-
+                       
 
 
         }

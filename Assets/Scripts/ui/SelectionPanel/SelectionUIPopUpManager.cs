@@ -4,40 +4,20 @@ using UnityEngine;
 
 public class SelectionUIPopUpManager : MonoBehaviour
 {
-    public GameObject selectionUIPanel; // µ¯³öÑ¡Ôñ½çÃæµÄÃæ°å
-    GameObject garbageObject;
-    public static bool isCheckedGarbageTag = false;
+    public GameObject selectionUIPanel; // ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-    void Update()
+    void Start()
     {
-        // ¼ì²é³¡¾°ÖĞÊÇ·ñ´æÔÚ´øÓĞ "Garbage" ±êÇ©µÄÓÎÏ·¶ÔÏó
-        garbageObject = GameObject.FindWithTag("Garbage");
-        CheckGarbageTag();
-
+        selectionUIPanel.SetActive(false);
     }
-    public void CheckGarbageTag()
+
+    public void OpenSelectionPanel()
     {
-        // Èç¹ûÕÒµ½ÁË´øÓĞ "Garbage" ±êÇ©µÄÓÎÏ·¶ÔÏó
-        if (garbageObject != null)
-        {
-            Debug.Log("Found a game object with 'Garbage' tag.");
-            selectionUIPanel.SetActive(false);
-        }
-        else
-        {
-            Debug.Log("No game object with 'Garbage' tag found.");
-            // µ¯³öÑ¡Ôñ½çÃæ,ÉèÖÃÒ»´ÎÎªtrue
-            if (selectionUIPanel != null && !isCheckedGarbageTag)
-            {
-                selectionUIPanel.SetActive(true);
-                isCheckedGarbageTag = true;
-            }
-        }
+        selectionUIPanel.SetActive(true);//æ‰“å¼€UI
     }
     public void CloseSelectionPanel()
     {
         selectionUIPanel.SetActive(false);
-        isCheckedGarbageTag = false;
     }
 
 
