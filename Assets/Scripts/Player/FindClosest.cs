@@ -11,9 +11,16 @@ public class FindClosest : MonoBehaviour
     public int debrisCount;
 
     [SerializeField]
-    private PickUp[] pickups; // 将 PickUp 数组定义为 SerializeField
+    private PickUp[] pickups; 
+    private ParticlesSpawn particlesSpawnScript; // ParticlesSpawn 脚本的引用
 
     public ParticleSystem garbageParticles;
+    private void Start()
+    {       
+        // 获取 ParticlesSpawn 脚本的引用
+        particlesSpawnScript = FindObjectOfType<ParticlesSpawn>();
+ 
+    }
     void Update()
     {
         FindClosestObject();
@@ -59,11 +66,20 @@ public class FindClosest : MonoBehaviour
         {
             float distanceToClosest = Vector3.Distance(this.transform.position, closest.transform.position);//最近的垃圾和玩家的距离
             if (distanceToClosest < destroyDistanceThreshold)//如果小于阈值
-            {
+            {           
                 //销毁最近的物体
                 Destroy(closest.gameObject);
-                //生成粒子效果
-                Instantiate(garbageParticles, closest.gameObject.transform.position, Quaternion.identity);
+                // 获取closest对象的标签
+                string closestTag = closest.gameObject.tag;
+                foreach(GameObject particle in particlesSpawnScript.spawnParticles)
+                {
+                    if(particle.CompareTag(closestTag))
+                    {
+                        //生成对应的粒子效果
+                        Instantiate(particle, closest.gameObject.transform.position, Quaternion.identity);
+                    }
+                }                                         
+               
                 pickUpAllowed = false; // ʰȡ��ǵ�����ʰȡ����״̬��������
                 //增加垃圾计数
                 PickupItem();

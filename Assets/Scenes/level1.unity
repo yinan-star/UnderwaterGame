@@ -1740,6 +1740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyDistanceThreshold: 4
   debrisCount: 0
+  pickups: []
   garbageParticles: {fileID: 6276820195766679649, guid: df73558bd76bc4a699df9c77a80d8ea4, type: 3}
 --- !u!70 &280361247
 CapsuleCollider2D:
@@ -2124,7 +2125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9526119, y: 0.30780998, z: -10}
+  m_LocalPosition: {x: -1.9526123, y: 0.30780998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3693,6 +3694,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921872363}
   m_CullTransparentMesh: 1
+--- !u!1 &950014929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 950014931}
+  - component: {fileID: 950014930}
+  m_Layer: 0
+  m_Name: ParticlesSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &950014930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950014929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39cef8ed61d092248aaf16a3585f697b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnParticles:
+  - {fileID: 6953741902809029295, guid: c9d3f31579d7fa84f806ad1e0428481e, type: 3}
+  - {fileID: 4354676844713971336, guid: 71637d06a1fdffc43812bf11da33422d, type: 3}
+  - {fileID: 9133156767913684421, guid: cc68b06e4fd49584586bc0d9f51cc9a6, type: 3}
+  - {fileID: 1101448255126846027, guid: b096b6db96f67a14bb23954baa68359d, type: 3}
+  - {fileID: 1472126074834016131, guid: 8f50ce51e87a0984790d786f988e34b0, type: 3}
+  - {fileID: 8428808291155282350, guid: eb3b9d3f01a641149a70e6df28d8f0ec, type: 3}
+  - {fileID: 7299001128619268013, guid: 628bfab61cb012b4fbff098bc8aab836, type: 3}
+  - {fileID: 1143190914899954539, guid: 4a2ef8ea072a89a4cbea3e5270498092, type: 3}
+  - {fileID: 8906684065035375303, guid: 91e05c5722021ff4bae1f42e61823a2c, type: 3}
+--- !u!4 &950014931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950014929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.2534106, y: 1.307755, z: 0.6096578}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &959105970
 GameObject:
   m_ObjectHideFlags: 0
@@ -6366,6 +6421,7 @@ MonoBehaviour:
   - {fileID: 9141036452078516854, guid: ca5bb930106f30546a480be4f4cd496f, type: 3}
   - {fileID: 6478923378649587699, guid: f1d3ccfe7974aa74abcf0cd7d1bcf394, type: 3}
   bg: {fileID: 1196802243}
+  endingDialogueTrigger: {fileID: 1591368247}
 --- !u!4 &1334471210
 Transform:
   m_ObjectHideFlags: 0
@@ -7136,6 +7192,61 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1591368247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1591368248}
+  - component: {fileID: 1591368249}
+  m_Layer: 0
+  m_Name: EndingDialogueTrigger
+  m_TagString: EndingTrigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1591368248
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591368247}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1677320334}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1591368249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591368247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72944eeb818366e41b9f6a0d8f80ec33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sentences:
+  - sentence: The seabed is exposed, revealing an expansive white ocean floor, rough
+      and uneven.
+  - sentence: "As we draw near, it becomes apparent \u2013 a city of robots lies
+      before us."
+  - sentence: Giant 'Transformers' stand at the center of each grouping.
+  - sentence: Every returning 'fish' first deposits a portion of the crude oil it
+      carries on its body to these 'Transformers'.
+  - sentence: ...
+  - sentence: We have forged a civilization.
+  nameText: Overseer
 --- !u!1 &1677320333
 GameObject:
   m_ObjectHideFlags: 0
@@ -7167,6 +7278,7 @@ Transform:
   m_Children:
   - {fileID: 623277614}
   - {fileID: 1938584731}
+  - {fileID: 1591368248}
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

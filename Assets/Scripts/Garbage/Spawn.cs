@@ -10,15 +10,30 @@ public class Spawn : MonoBehaviour
     private SelectionUIPopUpManager selectionUIPopUpManager;
     // private List<GameObject> garbageObjects;
 
+    public GameObject endingDialogueTrigger;
+
     void Start()
     {
         // SpawnObjects();
         selectionUIPopUpManager = FindObjectOfType<SelectionUIPopUpManager>();
         initialSpawnObjects = new List<GameObject>(spawnObjects); // 保存初始数量
         StartCoroutine(SpawnAndCheck());
+        if (!endingDialogueTrigger)
+        {
+            endingDialogueTrigger.GetComponent<DialogueTrigger>().StartDialogue();
+        }
+        else
+        {
+            Debug.Log("endingDialogueTrigger is null");
+        }
+       
     }
     void Update(){
         HasGarbage();
+        if (spawnObjects.Count == 0)
+        {
+            ActiveEndingDialogue();
+        }
     }
 
     public IEnumerator SpawnAndCheck()
@@ -50,11 +65,11 @@ public class Spawn : MonoBehaviour
         }
     }
 
-    //有垃圾
+    //判断场景有无垃圾
     private bool HasGarbage()
     {
-        GameObject[] garbageObjects = GameObject.FindGameObjectsWithTag("Garbage");
-        return garbageObjects.Length > 0;
+        PickUp[] pickUps = FindObjectsOfType<PickUp>();//看场景里有无挂PickUp脚本的垃圾。因为我在particleEffect对应是用了Garbage标签
+        return pickUps.Length > 0;
     }
 
     // 减少 spawnObjects 数组长度的方法
@@ -71,7 +86,7 @@ public class Spawn : MonoBehaviour
     //弹出对话，询问是否继续，还没调...
     public void SpawnAgain()
     {
-        spawnObjects = new List<GameObject>(initialSpawnObjects);
+        spawnObjects = new List<GameObject>(initialSpawnObjects);//初始存的Objects添加给spawnObjects
         StartCoroutine(SpawnAndCheck()); // 生成新的物体并检查 UI
     }
 
@@ -87,5 +102,21 @@ public class Spawn : MonoBehaviour
         float bgTop = bgPosition.y + bgHeight / 2f;
         // �������λ��
         return new Vector2(Random.Range(bgLeft, bgRight), Random.Range(bgPosition.y, bgTop));
+    }
+
+    public void ActiveEndingDialogue()
+    {
+        //GameObject endingDialogueTrigger = GameObject.FindGameObjectWithTag("EndingTrigger");
+        if (!endingDialogueTrigger)
+        {
+            // 获取游戏SelectionButton对象上的 DialogueTrigger 组件
+            endingDialogueTrigger.GetComponent<DialogueTrigger>().StartDialogue();
+
+        }
+        else
+        {
+            Debug.Log("endingDialogueTrigger is null");
+        }
+
     }
 }

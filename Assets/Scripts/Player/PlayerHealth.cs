@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
 
     //public GameObject SelectionUI;
-    public int healthThreshold = 9;
+    public int healthThreshold;
     public bool healthChecked = false;
     public GameObject[] ArchPointbuttons; // 三个要显示的按钮
 

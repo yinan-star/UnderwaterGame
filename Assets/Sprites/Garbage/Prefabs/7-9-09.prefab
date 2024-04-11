@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7600783664924078136}
   m_Layer: 0
   m_Name: 7-9-09
-  m_TagString: Garbage
+  m_TagString: 6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 7600783664924078143}
   m_LocalRotation: {x: -0, y: -0, z: 0.28871158, w: 0.9574161}
   m_LocalPosition: {x: 9.672293, y: 2.1488576, z: -0.050561544}
-  m_LocalScale: {x: 0.57574004, y: 0.57574004, z: 0.57574}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
