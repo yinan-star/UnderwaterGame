@@ -25,7 +25,7 @@ public class CreatureButtonClick : MonoBehaviour
     {
         if (playerHealth != null)
         {
-            playerHealth.SelectionUI.SetActive(false);
+            //playerHealth.SelectionUI.SetActive(false);
         }
 
     }

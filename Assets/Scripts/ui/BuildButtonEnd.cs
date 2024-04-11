@@ -50,9 +50,10 @@ public class BuildButtonEnd : MonoBehaviour
             //生成垃圾
             if (!hasSpawnedObjects && spawnScript != null)//Instantiate垃圾
             {
+                spawnScript.ReduceSpawnNumber();//生成一次垃圾，垃圾的数组就减1；
                 spawnScript.SpawnObjects();
                 hasSpawnedObjects = true;
-                spawnScript.ReduceSpawnObjectsArray();//生成一次垃圾，垃圾的数组就减1；
+                
             }
             //关掉BuildPanel
             if (!buildPanelClosed && uIInstantiateManager != null)//如果没有关掉BuildPanel,就关掉
@@ -79,7 +80,10 @@ public class BuildButtonEnd : MonoBehaviour
                 findClosest.debrisCount -= 3;
                 isDecreased = true;
             }
-                         
+      
+            
+
+
 
         }
         else

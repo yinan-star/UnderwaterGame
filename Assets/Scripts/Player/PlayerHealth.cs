@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public HealthBar healthBar;
     public int currentHealth;
 
-    public GameObject SelectionUI;
+    //public GameObject SelectionUI;
     public int healthThreshold = 9;
     public bool healthChecked = false;
     public GameObject[] ArchPointbuttons; // 三个要显示的按钮
@@ -27,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
 
-        SelectionUI.SetActive(false);
+        //SelectionUI.SetActive(false);
         findClosest = GetComponent<FindClosest>();
 
         foreach (GameObject button in ArchPointbuttons)
@@ -55,8 +55,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (currentHealth >= healthThreshold && currentHealth % healthThreshold == 0 && !healthChecked)
         {
-            SelectionUI.SetActive(true);//弹UI
-            healthChecked = true;//�Ѿ�������ֵ�ˣ�����Ҫÿ֡�����
+            //SelectionUI.SetActive(true);//弹UI
+            //healthChecked = true;//�Ѿ�������ֵ�ˣ�����Ҫÿ֡�����
             GameObject selectionPanelTrigger = GameObject.FindGameObjectWithTag("selectionPanel");
             if (!isSelectionTrigger)
             {
@@ -72,10 +72,10 @@ public class PlayerHealth : MonoBehaviour
             }
             
         }
-        if (!(currentHealth % healthThreshold == 0))
-        {
-            healthChecked = false;
-        }     
+        //if (!(currentHealth % healthThreshold == 0))
+        //{
+        //    healthChecked = false;
+        //}     
 
     }
     

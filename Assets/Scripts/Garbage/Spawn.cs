@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
-    public GameObject[] spawnObjects;
+    public List<GameObject> spawnObjects;
 
     public GameObject bg;
     void Start()
@@ -29,14 +29,12 @@ public class Spawn : MonoBehaviour
     }
 
     // 减少 spawnObjects 数组长度的方法
-    public void ReduceSpawnObjectsArray()
+    public void ReduceSpawnNumber()
     {
         // 如果 spawnObjects 数组长度大于 0，则移除第一个元素
-        if (spawnObjects.Length > 0)
+        if (spawnObjects.Count > 0) 
         {
-            List<GameObject> tempList = new List<GameObject>(spawnObjects);
-            tempList.RemoveAt(0);
-            spawnObjects = tempList.ToArray();
+            spawnObjects.RemoveAt(0); // 移除列表的第一个元素
         }
     }
 
