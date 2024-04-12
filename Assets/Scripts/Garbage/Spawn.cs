@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spawn : MonoBehaviour
 {
@@ -8,32 +9,21 @@ public class Spawn : MonoBehaviour
     private List<GameObject> initialSpawnObjects;
     public GameObject bg;
     private SelectionUIPopUpManager selectionUIPopUpManager;
-    // private List<GameObject> garbageObjects;
+    public GameObject resetButton;
 
-    public GameObject endingDialogueTrigger;
 
     void Start()
     {
-        // SpawnObjects();
         selectionUIPopUpManager = FindObjectOfType<SelectionUIPopUpManager>();
         initialSpawnObjects = new List<GameObject>(spawnObjects); // 保存初始数量
         StartCoroutine(SpawnAndCheck());
-        if (!endingDialogueTrigger)
-        {
-            endingDialogueTrigger.GetComponent<DialogueTrigger>().StartDialogue();
-        }
-        else
-        {
-            Debug.Log("endingDialogueTrigger is null");
-        }
-       
+        resetButton.SetActive(false);
+
+
     }
     void Update(){
         HasGarbage();
-        if (spawnObjects.Count == 0)
-        {
-            ActiveEndingDialogue();
-        }
+        
     }
 
     public IEnumerator SpawnAndCheck()
@@ -43,6 +33,7 @@ public class Spawn : MonoBehaviour
         // 如果 spawnObjects 为空不执行
         if (spawnObjects.Count == 0)
         {
+            ActiveEndingDialogue();
             yield break;
         }
 
@@ -106,17 +97,26 @@ public class Spawn : MonoBehaviour
 
     public void ActiveEndingDialogue()
     {
-        //GameObject endingDialogueTrigger = GameObject.FindGameObjectWithTag("EndingTrigger");
-        if (!endingDialogueTrigger)
-        {
-            // 获取游戏SelectionButton对象上的 DialogueTrigger 组件
-            endingDialogueTrigger.GetComponent<DialogueTrigger>().StartDialogue();
 
+        GameObject endingDialogueTrigger = GameObject.FindGameObjectWithTag("Ending");
+        if (endingDialogueTrigger != null)
+        {
+            DialogueTrigger endingDialogue = endingDialogueTrigger.GetComponent<DialogueTrigger>();
+            if (endingDialogue != null)
+            {
+                endingDialogue.StartDialogue();
+            }
+        }
+        if (DialogueManager.isActive == false)//结束对话的话
+        {
+            resetButton.SetActive(true);
         }
         else
         {
-            Debug.Log("endingDialogueTrigger is null");
+            Debug.Log("DialogueManger.isActive == true");
         }
+
+
 
     }
 }

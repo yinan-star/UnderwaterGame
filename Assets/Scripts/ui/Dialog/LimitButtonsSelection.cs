@@ -9,6 +9,7 @@ public class LimitButtonsSelection : MonoBehaviour
     public Button buttonArch;
     public Button buttonFood;
     private PlayerHealth playerHealth;
+
     void Start(){
         playerHealth = FindObjectOfType<PlayerHealth>();
     }
@@ -33,6 +34,8 @@ public class LimitButtonsSelection : MonoBehaviour
                 buttonArch.enabled = true;
             }
             // buttonFood.enabled = true;
+
+    
         }
 
     }
