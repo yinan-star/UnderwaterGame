@@ -1836,118 +1836,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &328798079
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 328798080}
-  - component: {fileID: 328798083}
-  - component: {fileID: 328798082}
-  - component: {fileID: 328798081}
-  - component: {fileID: 328798084}
-  m_Layer: 5
-  m_Name: Transition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &328798080
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328798079}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1400740701}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &328798081
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328798079}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: debb17d0112d147aa8da5c50f314df02, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &328798082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328798079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.07058824, g: 0.7098039, b: 0.6862745, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &328798083
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328798079}
-  m_CullTransparentMesh: 1
---- !u!114 &328798084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328798079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34770dcf50ff947239c8e643a8bf4493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 328798081}
 --- !u!1 &460991095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,7 +1869,7 @@ RectTransform:
   m_Children:
   - {fileID: 1130333242}
   m_Father: {fileID: 1400740701}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2372,7 +2260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9526119, y: 0.30780998, z: -10}
+  m_LocalPosition: {x: -1.9526123, y: 0.30780998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2590,7 +2478,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1677320334}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &623277615
 MonoBehaviour:
@@ -2605,8 +2493,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - sentence: Pls, don't mess them  up.
-  nameText: Overseer
+  - sentence: I see you're adapting quickly. You can choose what you want to print,
+      provided you have enough power.
+  nameText: Odi
 --- !u!1 &636689927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,7 +2755,7 @@ RectTransform:
   - {fileID: 1511105897}
   - {fileID: 115549502}
   m_Father: {fileID: 1400740701}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2936,7 +2825,7 @@ RectTransform:
   - {fileID: 1032362156}
   - {fileID: 163269551}
   m_Father: {fileID: 1400740701}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -3292,7 +3181,7 @@ RectTransform:
   - {fileID: 1533062345}
   - {fileID: 656514727}
   m_Father: {fileID: 1400740701}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6830,7 +6719,6 @@ MonoBehaviour:
   - {fileID: 6478923378649587699, guid: f1d3ccfe7974aa74abcf0cd7d1bcf394, type: 3}
   bg: {fileID: 1196802243}
   resetButton: {fileID: 460991095}
-  transition: {fileID: 328798079}
 --- !u!4 &1334471210
 Transform:
   m_ObjectHideFlags: 0
@@ -6941,7 +6829,6 @@ RectTransform:
   m_Children:
   - {fileID: 2102945350}
   - {fileID: 37723069}
-  - {fileID: 328798080}
   - {fileID: 689330945}
   - {fileID: 666390861}
   - {fileID: 825094644}
@@ -7633,7 +7520,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1677320334}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1591368249
 MonoBehaviour:
@@ -7648,16 +7535,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - sentence: The seabed is exposed, revealing an expansive white ocean floor, rough
-      and uneven.
-  - sentence: "As we draw near, it becomes apparent \u2013 a city of robots lies
-      before us."
-  - sentence: Giant 'Transformers' stand at the center of each grouping.
-  - sentence: Every returning 'fish' first deposits a portion of the crude oil it
-      carries on its body to these 'Transformers'.
-  - sentence: ...
-  - sentence: We have forged a civilization.
-  nameText: Overseer
+  - sentence: Time rewinds to 2048...
+  - sentence: 'Odi: Dad, I wanna join them!'
+  - sentence: 'Odi''s Dad: Leave them be, my sweet. They''re far more dangerous and
+      complex than you realize. When you grow up, you will know the truth.'
+  nameText: Oveseer
 --- !u!1 &1677320333
 GameObject:
   m_ObjectHideFlags: 0
@@ -7687,8 +7569,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 623277614}
   - {fileID: 1938584731}
+  - {fileID: 623277614}
+  - {fileID: 1912714606}
   - {fileID: 1591368248}
   m_Father: {fileID: 0}
   m_RootOrder: 20
@@ -8537,6 +8420,61 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1912714605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1912714606}
+  - component: {fileID: 1912714607}
+  m_Layer: 0
+  m_Name: NearlyEnding
+  m_TagString: Nearly
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1912714606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912714605}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1677320334}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1912714607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912714605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72944eeb818366e41b9f6a0d8f80ec33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sentences:
+  - sentence: The seabed is exposed, revealing an expansive white ocean floor, rough
+      and uneven.
+  - sentence: "As we draw near, it becomes apparent \u2013 a city of robots lies
+      before us."
+  - sentence: Giant 'Transformers' stand at the center of each grouping.
+  - sentence: Every returning 'fish' first deposits a portion of the crude oil it
+      carries on its body to these 'Transformers'.
+  - sentence: ...
+  - sentence: We have forged a civilization.
+  nameText: Odi
 --- !u!1 &1938489214
 GameObject:
   m_ObjectHideFlags: 3
@@ -8673,9 +8611,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
-  - sentence: Hi, whaddaup Fish
-  - sentence: DOn;t you think is more better than that?
-  nameText: Overseer
+  - sentence: 'Since I was a child, I''ve always dreamt of reaching the depths. '
+  - sentence: 'Standing on the other side of the ocean, I''ve often wondered, ''What
+      lies beyond?'' '
+  - sentence: 'Unfortunately, I lost a choice, but I''m glad to be here. I created
+      you, Deepo. '
+  - sentence: It seems you're well-versed in your role, but let's refine it a bit
+      more.
+  - sentence: 'You are the 4D Print Robot, fueled by the ocean''s plastic pollution. '
+  - sentence: Your primary task is to scour the waters, gathering floating debris
+      and transforming it into advanced marvels.
+  - sentence: I'll keep an eye on you and reach out when needed. Until next time,
+      Deepo.
+  nameText: Odi
 --- !u!4 &1938584731
 Transform:
   m_ObjectHideFlags: 0
@@ -8689,7 +8637,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1677320334}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1985311197
 GameObject:

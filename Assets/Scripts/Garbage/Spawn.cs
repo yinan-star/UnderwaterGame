@@ -12,8 +12,9 @@ public class Spawn : MonoBehaviour
     public GameObject bg;
     private SelectionUIPopUpManager selectionUIPopUpManager;
     public GameObject resetButton;
-    public GameObject transition;
+    //public GameObject transition;
     public static bool isTageWithEnding = false;
+    private static bool isActiveNearlyDialogue = false;
 
     void Start()
     {
@@ -21,18 +22,25 @@ public class Spawn : MonoBehaviour
         initialSpawnObjects = new List<GameObject>(spawnObjects); // 保存初始数量
         StartCoroutine(SpawnAndCheck());
         resetButton.SetActive(false);  
+
         isTageWithEnding = false;
+        isActiveNearlyDialogue = false;
     }
     void Update()
     {
         HasGarbage();
-        // if (spawnObjects.Count == 0)
-        // {
-        //     StartCoroutine(ActivateResetButtonAfterDelay());
-        // }
+
+        if (spawnObjects.Count == 0 && isActiveNearlyDialogue)
+        {
+            StartCoroutine(ActivateEndingDialogueAfterDelay());//每帧判断当前弹窗是否关了，就激活最后的对白
+        }
+        if (isTageWithEnding)
+        {
+            StartCoroutine(ActivateResetButtonAfterDelay());//等几秒，判断最后的弹话是否关了，关了，就激活ResetButton.
+        }
 
     }
-    //等弹话结束,激活ResetButton,还没掉
+    //等弹话结束,激活ResetButton
     IEnumerator ActivateResetButtonAfterDelay()
     {
         // 等待 2 秒钟,检查弹话状态。
@@ -49,6 +57,20 @@ public class Spawn : MonoBehaviour
        
     }
 
+    //等Nearly弹话结束，激活Ending弹话
+    IEnumerator ActivateEndingDialogueAfterDelay()
+    {
+        // 等待 2 秒钟,检查弹话状态。
+        yield return new WaitForSeconds(2f);
+        if (!DialogueManager.isActive)
+        {
+            // 激活最后的对白
+            ActiveEndingDialogue();
+        }
+
+    }
+
+
     public IEnumerator SpawnAndCheck()
     {
         SpawnObjects();
@@ -56,8 +78,10 @@ public class Spawn : MonoBehaviour
         // 如果 spawnObjects 为空不执行
         if (spawnObjects.Count == 0)
         {
-            transition.SetActive(true);//激活这个游戏对象,它会自动播放动画.          
-            ActiveEndingDialogue();   //弹,等打开Transition动画结束后在弹.       
+            ActiveNearlyEndingDialogue();//先马上激活这个
+            //transition.SetActive(true);//激活这个游戏对象,它会自动播放动画.          
+            //ActiveEndingDialogue();   //弹,等打开Transition动画结束后在弹.
+           
             yield break;
         }
 
@@ -70,6 +94,8 @@ public class Spawn : MonoBehaviour
         // 当垃圾数量为0时，打开选择面板
         selectionUIPopUpManager.OpenSelectionPanel();
     }
+  
+
     //生成垃圾
     public void SpawnObjects()
     {
@@ -114,18 +140,40 @@ public class Spawn : MonoBehaviour
         return new Vector2(Random.Range(bgLeft, bgRight), Random.Range(bgPosition.y, bgTop));
     }
 
-    //激活弹窗对话
+    //激活EndingDialogue对话
     public void ActiveEndingDialogue()
     {
-        GameObject endingDialogueTrigger = GameObject.FindGameObjectWithTag("Ending");
-        isTageWithEnding = true;
-        if (endingDialogueTrigger != null)
+        if(!isTageWithEnding)
         {
-            DialogueTrigger endingDialogue = endingDialogueTrigger.GetComponent<DialogueTrigger>();
-            if (endingDialogue != null)
+            GameObject endingDialogueTrigger = GameObject.FindGameObjectWithTag("Ending");
+            isTageWithEnding = true;//只激活一次
+            if (endingDialogueTrigger != null)
             {
-                endingDialogue.StartDialogue();
+                DialogueTrigger endingDialogue = endingDialogueTrigger.GetComponent<DialogueTrigger>();
+                if (endingDialogue != null)
+                {
+                    endingDialogue.StartDialogue();
+                }
             }
         }
+        
+    }
+    //激活NearlyEndingDialogue
+    public void ActiveNearlyEndingDialogue()
+    {
+        if(!isActiveNearlyDialogue)
+        {
+            GameObject nearlyEndingTrigger = GameObject.FindGameObjectWithTag("Nearly");
+            isActiveNearlyDialogue = true;//只激活一次
+            if (nearlyEndingTrigger != null)
+            {
+                DialogueTrigger nearlyEndingDialogue = nearlyEndingTrigger.GetComponent<DialogueTrigger>();
+                if (nearlyEndingDialogue != null)
+                {
+                    nearlyEndingDialogue.StartDialogue();
+                }
+            }
+        }
+        
     }
 }

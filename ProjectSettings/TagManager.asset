@@ -22,6 +22,7 @@ TagManager:
   - 8
   - EndingTrigger
   - Ending
+  - Nearly
   layers:
   - Default
   - TransparentFX
