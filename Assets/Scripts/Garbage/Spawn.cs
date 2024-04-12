@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class Spawn : MonoBehaviour
 {
+    //生成垃圾
+
     public List<GameObject> spawnObjects;
     private List<GameObject> initialSpawnObjects;
     public GameObject bg;
     private SelectionUIPopUpManager selectionUIPopUpManager;
     public GameObject resetButton;
-    public static bool isEndedAll = false;
 
 
     void Start()
@@ -25,11 +26,26 @@ public class Spawn : MonoBehaviour
     void Update()
     {
         HasGarbage();
-        if(isEndedAll && spawnObjects.Count == 0)
+        if (spawnObjects.Count == 0)
         {
-            resetButton.SetActive(true);
+            StartCoroutine(ActivateResetButtonAfterDelay());
         }
 
+    }
+    IEnumerator ActivateResetButtonAfterDelay()
+    {
+        // 等待 2 秒钟,检查弹话状态。
+        yield return new WaitForSeconds(2f);
+        if(!DialogueManager.isActive)
+        {
+            // 激活 resetButton
+            resetButton.SetActive(true);
+        }
+        else
+        {
+            resetButton.SetActive(false);
+        }
+       
     }
 
     public IEnumerator SpawnAndCheck()
@@ -39,8 +55,7 @@ public class Spawn : MonoBehaviour
         // 如果 spawnObjects 为空不执行
         if (spawnObjects.Count == 0)
         {
-            ActiveEndingDialogue();
-            
+            ActiveEndingDialogue();          
             yield break;
         }
 

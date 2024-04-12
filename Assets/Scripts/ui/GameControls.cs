@@ -6,7 +6,7 @@ public class GameControls : MonoBehaviour
 {
     public GameObject dialogueControl;
     public GameObject collectControl;
-    private GameObject[] garbageObjects;
+    private PickUp[] garbageObjects;
 
     void Start()
     {
@@ -16,8 +16,6 @@ public class GameControls : MonoBehaviour
 
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         if (DialogueManager.isActive == true)
@@ -29,8 +27,8 @@ public class GameControls : MonoBehaviour
             dialogueControl.SetActive(false);
         }
 
-        // 检查场景中是否存在带有 "garbage" 标签的对象
-        garbageObjects = GameObject.FindGameObjectsWithTag("Garbage");
+        // 检查场景中是否存在带有 "PickUp" 脚本的对象（垃圾）
+        garbageObjects = FindObjectsOfType<PickUp>();
         if (garbageObjects.Length > 0 && DialogueManager.isActive == false)
         {
             collectControl.SetActive(true);
