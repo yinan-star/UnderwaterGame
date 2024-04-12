@@ -10,6 +10,7 @@ public class Spawn : MonoBehaviour
     public GameObject bg;
     private SelectionUIPopUpManager selectionUIPopUpManager;
     public GameObject resetButton;
+    public static bool isEndedAll = false;
 
 
     void Start()
@@ -21,9 +22,14 @@ public class Spawn : MonoBehaviour
 
 
     }
-    void Update(){
+    void Update()
+    {
         HasGarbage();
-        
+        if(isEndedAll && spawnObjects.Count == 0)
+        {
+            resetButton.SetActive(true);
+        }
+
     }
 
     public IEnumerator SpawnAndCheck()
@@ -34,6 +40,7 @@ public class Spawn : MonoBehaviour
         if (spawnObjects.Count == 0)
         {
             ActiveEndingDialogue();
+            
             yield break;
         }
 
@@ -107,16 +114,5 @@ public class Spawn : MonoBehaviour
                 endingDialogue.StartDialogue();
             }
         }
-        if (DialogueManager.isActive == false)//结束对话的话
-        {
-            resetButton.SetActive(true);
-        }
-        else
-        {
-            Debug.Log("DialogueManger.isActive == true");
-        }
-
-
-
     }
 }

@@ -9,9 +9,11 @@ public class LimitButtonsSelection : MonoBehaviour
     public Button buttonArch;
     public Button buttonFood;
     private PlayerHealth playerHealth;
+   
 
     void Start(){
         playerHealth = FindObjectOfType<PlayerHealth>();
+
     }
 
 
@@ -24,6 +26,7 @@ public class LimitButtonsSelection : MonoBehaviour
             buttonArch.enabled = false;
 
             buttonFood.enabled = false;
+       
         }
         else//如果没弹窗
         {
@@ -34,6 +37,7 @@ public class LimitButtonsSelection : MonoBehaviour
                 buttonArch.enabled = true;
             }
             // buttonFood.enabled = true;
+
 
     
         }

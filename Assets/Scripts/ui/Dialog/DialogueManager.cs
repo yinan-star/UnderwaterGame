@@ -89,8 +89,9 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.Log("Conversation ended");
             textDisplay.text = "";
-            animator.SetBool("IsOpen", false);
+            animator.SetBool("IsOpen", false);//关掉对话
             isActive = false;
+            Spawn.isEndedAll = true;//如果对话结束,就弹ResetButton
             continueButton.SetActive(false);//结束隐藏
         }
         
