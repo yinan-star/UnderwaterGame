@@ -12,26 +12,27 @@ public class Spawn : MonoBehaviour
     public GameObject bg;
     private SelectionUIPopUpManager selectionUIPopUpManager;
     public GameObject resetButton;
-
+    public GameObject transition;
+    public static bool isTageWithEnding = false;
 
     void Start()
     {
         selectionUIPopUpManager = FindObjectOfType<SelectionUIPopUpManager>();
         initialSpawnObjects = new List<GameObject>(spawnObjects); // 保存初始数量
         StartCoroutine(SpawnAndCheck());
-        resetButton.SetActive(false);
-
-
+        resetButton.SetActive(false);  
+        isTageWithEnding = false;
     }
     void Update()
     {
         HasGarbage();
-        if (spawnObjects.Count == 0)
-        {
-            StartCoroutine(ActivateResetButtonAfterDelay());
-        }
+        // if (spawnObjects.Count == 0)
+        // {
+        //     StartCoroutine(ActivateResetButtonAfterDelay());
+        // }
 
     }
+    //等弹话结束,激活ResetButton,还没掉
     IEnumerator ActivateResetButtonAfterDelay()
     {
         // 等待 2 秒钟,检查弹话状态。
@@ -55,7 +56,8 @@ public class Spawn : MonoBehaviour
         // 如果 spawnObjects 为空不执行
         if (spawnObjects.Count == 0)
         {
-            ActiveEndingDialogue();          
+            transition.SetActive(true);//激活这个游戏对象,它会自动播放动画.          
+            ActiveEndingDialogue();   //弹,等打开Transition动画结束后在弹.       
             yield break;
         }
 
@@ -68,6 +70,7 @@ public class Spawn : MonoBehaviour
         // 当垃圾数量为0时，打开选择面板
         selectionUIPopUpManager.OpenSelectionPanel();
     }
+    //生成垃圾
     public void SpawnObjects()
     {
         foreach (GameObject spawnObject in spawnObjects)
@@ -96,13 +99,7 @@ public class Spawn : MonoBehaviour
         }
     }
 
-    //弹出对话，询问是否继续，还没调...
-    public void SpawnAgain()
-    {
-        spawnObjects = new List<GameObject>(initialSpawnObjects);//初始存的Objects添加给spawnObjects
-        StartCoroutine(SpawnAndCheck()); // 生成新的物体并检查 UI
-    }
-
+    // 生成垃圾的位置
     Vector2 GetRandomPosition()
     {
         Vector3 bgPosition = bg.transform.position;
@@ -117,10 +114,11 @@ public class Spawn : MonoBehaviour
         return new Vector2(Random.Range(bgLeft, bgRight), Random.Range(bgPosition.y, bgTop));
     }
 
+    //激活弹窗对话
     public void ActiveEndingDialogue()
     {
-
         GameObject endingDialogueTrigger = GameObject.FindGameObjectWithTag("Ending");
+        isTageWithEnding = true;
         if (endingDialogueTrigger != null)
         {
             DialogueTrigger endingDialogue = endingDialogueTrigger.GetComponent<DialogueTrigger>();

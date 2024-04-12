@@ -20,6 +20,9 @@ public class DialogueManager : MonoBehaviour
     public GameObject continueButton;
     public Animator animator;
 
+    //另一个中间弹窗的动画
+    private AnimMiddleDialogueManager animMiddleDialogueManager;
+
 
     void Start()
     {
@@ -48,9 +51,18 @@ public class DialogueManager : MonoBehaviour
         activeSentence = 0;
         isActive = true;
         DisplaySentence();
-        animator.SetBool("IsOpen", true);
 
-
+        if (Spawn.isTageWithEnding)//如果是是带有ending的标签.就播放这个Middle动画
+        {
+            animMiddleDialogueManager = FindObjectOfType<AnimMiddleDialogueManager>();//那脚本
+            animMiddleDialogueManager.OpenMiddleDialogue();//调中间谈话的方法.
+            Debug.Log("FindEndingTag,PlayMiddleAnim");
+        }
+        else
+        {
+            animator.SetBool("IsOpen", true);
+            Debug.Log("FindEndingTag,PlayMiddleAnim");
+        }
 
     }
 
@@ -89,11 +101,21 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.Log("Conversation ended");
             textDisplay.text = "";
-            animator.SetBool("IsOpen", false);//关掉对话
+
+            if (Spawn.isTageWithEnding)//如果是是带有ending的标签.就播放这个Middle动画
+            {
+                animMiddleDialogueManager = FindObjectOfType<AnimMiddleDialogueManager>();//那脚本
+                animMiddleDialogueManager.CloseTransition();//调中间谈话的方法.
+            }
+            else
+            {
+                animator.SetBool("IsOpen", false);
+            }
+
             isActive = false;
             continueButton.SetActive(false);//结束隐藏
         }
-        
+
 
 
     }
