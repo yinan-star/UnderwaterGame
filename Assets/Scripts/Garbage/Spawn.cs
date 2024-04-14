@@ -137,7 +137,7 @@ public class Spawn : MonoBehaviour
         float bgBottom = bgPosition.y - bgHeight / 2f;
         float bgTop = bgPosition.y + bgHeight / 2f;
         // �������λ��
-        return new Vector2(Random.Range(bgLeft, bgRight), Random.Range(bgPosition.y, bgTop));
+        return new Vector2(Random.Range(bgLeft+5f, bgRight-5f), Random.Range(bgPosition.y, bgTop - 5f));
     }
 
     //激活EndingDialogue对话
