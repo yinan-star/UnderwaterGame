@@ -22,6 +22,8 @@ public class BuildButtonEnd : MonoBehaviour
     public bool isDecreased = false;
     private FindClosest findClosest;
 
+    private MiniArchSpawn miniArchSpawn; 
+
 
 
 
@@ -137,7 +139,13 @@ public class BuildButtonEnd : MonoBehaviour
                     // 启用重力
                     rigidBody.gravityScale = 1f;        
                     archSpawn.rigidBodyEnabled = true;
+
                     //遮罩交互
+                    miniArchSpawn = FindObjectOfType<MiniArchSpawn>();
+                    GameObject spawnedMiniArch = miniArchSpawn.spawnedMiniArch;
+                    SpriteRenderer spriteMiniArchRenderer = spawnedMiniArch.GetComponent<SpriteRenderer>();
+                    spriteMiniArchRenderer.maskInteraction = SpriteMaskInteraction.None;
+
                     foreach (Transform child in children)
                     {
                         SpriteRenderer spriteRenderer = child.GetComponent<SpriteRenderer>();

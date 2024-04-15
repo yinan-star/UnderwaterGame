@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D rb;
     private Vector2 moveDirection;
-    public float moveSpeed = 5.0f;
+    public float moveSpeed = 10.0f;
     private bool isFaceingLeft = true;
 
     public Animator animator;
@@ -46,14 +46,14 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            moveSpeed *= 1.03f;
-        }
-        else
-        {
-            moveSpeed = 5.0f;
-        }
+        // if (Input.GetKey(KeyCode.LeftShift))
+        // {
+        //     moveSpeed *= 1.03f;
+        // }
+        // else
+        // {
+        //     moveSpeed = 5.0f;
+        // }
     }
 
     void Flip()

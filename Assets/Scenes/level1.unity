@@ -1656,7 +1656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 280361242}
-  moveSpeed: 5
+  moveSpeed: 10
   animator: {fileID: 280361244}
 --- !u!50 &280361242
 Rigidbody2D:
@@ -2260,7 +2260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9526123, y: 0.30780998, z: -10}
+  m_LocalPosition: {x: -1.9526119, y: 0.30780998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4437,9 +4437,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1008906271}
-        m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
-        m_MethodName: TriggerDialogue
+      - m_Target: {fileID: 1505536823}
+        m_TargetAssemblyTypeName: MiniArchUIManager, Assembly-CSharp
+        m_MethodName: OpenBuildOverlayPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7116,8 +7116,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1505536821}
+  - component: {fileID: 1505536822}
+  - component: {fileID: 1505536823}
   m_Layer: 0
-  m_Name: SpawnMini
+  m_Name: MiniArchSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7131,13 +7133,44 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505536820}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 946.0028, y: 658.6082, z: -6.1874804}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1505536822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505536820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b4fda4e1f514241a4d7651685edb6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnMiniArchs:
+  - {fileID: 5023194806173002145, guid: e22fe92ac87d0451a9c3f790d2f4c68d, type: 3}
+  - {fileID: 3068242954308984458, guid: 17d7d42ecd41043fd8b6c8489526b2b3, type: 3}
+  - {fileID: 7072387663507843952, guid: a30a3336a62aa4348b4042ca6ebaf2aa, type: 3}
+  spawnedMiniArch: {fileID: 0}
+  rigidBodyEnabled: 0
+--- !u!114 &1505536823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505536820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202c48705f9244fefac6dcf3a3ffb9c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  archButton: {fileID: 1008906264}
 --- !u!1 &1511105896
 GameObject:
   m_ObjectHideFlags: 0
@@ -9003,6 +9036,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1505536823}
+        m_TargetAssemblyTypeName: MiniArchUIManager, Assembly-CSharp
+        m_MethodName: SpawnMiniArch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2023684708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9352,7 +9397,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2108836662
 GameObject:
@@ -9954,7 +9999,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4450118440751741411
 MonoBehaviour:
