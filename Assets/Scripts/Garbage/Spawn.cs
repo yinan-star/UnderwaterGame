@@ -74,6 +74,7 @@ public class Spawn : MonoBehaviour
     public IEnumerator SpawnAndCheck()
     {
         SpawnObjects();
+        SpawnObjects();
 
         // 如果 spawnObjects 为空不执行
         if (spawnObjects.Count == 0)
@@ -137,7 +138,7 @@ public class Spawn : MonoBehaviour
         float bgBottom = bgPosition.y - bgHeight / 2f;
         float bgTop = bgPosition.y + bgHeight / 2f;
         // �������λ��
-        return new Vector2(Random.Range(bgLeft+5f, bgRight-5f), Random.Range(bgPosition.y, bgTop - 5f));
+        return new Vector2(Random.Range(bgLeft+5f, bgRight-5f), Random.Range(bgPosition.y, bgTop - 2f));
     }
 
     //激活EndingDialogue对话

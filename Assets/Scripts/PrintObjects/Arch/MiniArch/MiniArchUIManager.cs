@@ -5,15 +5,14 @@ using UnityEngine.UI;
 public class MiniArchUIManager : MonoBehaviour
 {
     private ArchPointManager archPointManager;//调activeArchPointButtonsList
-    private BuildOverlayManager buildOverlayManager;//调打开BuildPanel组件
+    public GameObject buildOverlayManager;//调打开BuildPanel组件
     private List<GameObject> activeArchPointButtonList;
     public Button archButton;
     private bool isArchPointListZero = false;
     void Start()
     {
         // 初始化 activeArchPointButtonList
-        activeArchPointButtonList = new List<GameObject>();
-        buildOverlayManager = FindObjectOfType<BuildOverlayManager>();
+        activeArchPointButtonList = new List<GameObject>();   
         isArchPointListZero = false;
     }
 
@@ -50,8 +49,10 @@ public class MiniArchUIManager : MonoBehaviour
     {
         if (isArchPointListZero)
         {
-            buildOverlayManager.OpenBuildOverlayPanel();
+           buildOverlayManager.SetActive(true);
+           //buildOverlayManager.GetComponent<BuildOverlayManager>().OpenBuildOverlayPanel();
         }
+
     }
 }
 

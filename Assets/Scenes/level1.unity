@@ -1772,7 +1772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2102945352}
   currentHealth: 0
-  healthThreshold: 9
+  healthThreshold: 18
   healthChecked: 0
   ArchPointbuttons:
   - {fileID: 1248535471}
@@ -2260,7 +2260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9526119, y: 0.30780998, z: -10}
+  m_LocalPosition: {x: -1.9526123, y: 0.30780998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7170,6 +7170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202c48705f9244fefac6dcf3a3ffb9c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildOverlayManager: {fileID: 666390860}
   archButton: {fileID: 1008906264}
 --- !u!1 &1511105896
 GameObject:

@@ -6,29 +6,29 @@ using UnityEngine.UI;
 public class CreatureButtonClick : MonoBehaviour
 {
 
-    private PlayerHealth playerHealth; 
+    //private PlayerHealth playerHealth; 
 
 
  
     void Awake()
     {
-        Button button = GetComponent<Button>();
-        button.onClick.AddListener(OpenNewUIPanel);
+        //Button button = GetComponent<Button>();
+        //button.onClick.AddListener(OpenNewUIPanel);
     
 
         // ��ȡ PlayerHealth ���
-        playerHealth = FindObjectOfType<PlayerHealth>();
+        //playerHealth = FindObjectOfType<PlayerHealth>();
 
     }
 
-    public void OpenNewUIPanel()
-    {
-        if (playerHealth != null)
-        {
-            //playerHealth.SelectionUI.SetActive(false);
-        }
+    //public void OpenNewUIPanel()
+    //{
+    //    if (playerHealth != null)
+    //    {
+    //        //playerHealth.SelectionUI.SetActive(false);
+    //    }
 
-    }
+    //}
 
   
 }

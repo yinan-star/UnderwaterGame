@@ -49,7 +49,7 @@ public class MiniArchSpawn : MonoBehaviour
             //生成数组里面的任意一个对象
             int randomIndex = Random.Range(0, spawnMiniArchs.Length);
             GameObject selectedMiniArch = spawnMiniArchs[randomIndex];
-            spawnedMiniArch = Instantiate(selectedMiniArch, worldPosition, Quaternion.identity);// ���ɸö���
+            spawnedMiniArch = Instantiate(selectedMiniArch, worldPosition, Quaternion.identity, transform);// ���ɸö���
 
             // 生成新生物后将 positionSet 重新设置为 false
             positionSet = false;

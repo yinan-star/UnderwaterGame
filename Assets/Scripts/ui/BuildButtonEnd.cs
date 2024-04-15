@@ -80,7 +80,21 @@ public class BuildButtonEnd : MonoBehaviour
             {
                 findClosest.debrisCount -= 3;
                 isDecreased = true;
-            }                       
+            }
+            //设置MiniArch的Spritemask
+            miniArchSpawn = FindObjectOfType<MiniArchSpawn>();
+            if (miniArchSpawn.spawnedMiniArch != null)
+            {
+                Transform[] childrenMini = miniArchSpawn.spawnedMiniArch.GetComponentsInChildren<Transform>();//获取生成的游戏对象的子集
+                foreach (Transform childMini in childrenMini)
+                {
+                    SpriteRenderer spriteRendererMini = childMini.GetComponent<SpriteRenderer>();
+                    if (spriteRendererMini != null)
+                    {
+                        spriteRendererMini.maskInteraction = SpriteMaskInteraction.None;
+                    }
+                }
+            }
 
 
         }
@@ -130,8 +144,8 @@ public class BuildButtonEnd : MonoBehaviour
         {
             Rigidbody2D rigidBody = archSpawn.spawnedArch.GetComponent<Rigidbody2D>();
 
-            Transform[] children = archSpawn.spawnedArch.GetComponentsInChildren<Transform>();// 获取所有子对象
-
+            Transform[] children = archSpawn.spawnedArch.GetComponentsInChildren<Transform>();// 获取所有子对象,因为SpriteMask在子对象里
+           
             if (!archSpawn.rigidBodyEnabled)
             {
                 if (rigidBody != null && spriteProgress.currentFill >= 1.5f)
@@ -140,12 +154,7 @@ public class BuildButtonEnd : MonoBehaviour
                     rigidBody.gravityScale = 1f;        
                     archSpawn.rigidBodyEnabled = true;
 
-                    //遮罩交互
-                    miniArchSpawn = FindObjectOfType<MiniArchSpawn>();
-                    GameObject spawnedMiniArch = miniArchSpawn.spawnedMiniArch;
-                    SpriteRenderer spriteMiniArchRenderer = spawnedMiniArch.GetComponent<SpriteRenderer>();
-                    spriteMiniArchRenderer.maskInteraction = SpriteMaskInteraction.None;
-
+                    //遮罩交互                                  
                     foreach (Transform child in children)
                     {
                         SpriteRenderer spriteRenderer = child.GetComponent<SpriteRenderer>();
