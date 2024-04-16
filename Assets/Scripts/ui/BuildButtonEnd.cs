@@ -24,7 +24,6 @@ public class BuildButtonEnd : MonoBehaviour
 
     //miniArchRelated
     private MiniArchSpawn miniArchSpawn;
-    public static bool isCheckOnce = false;
 
 
 
@@ -43,7 +42,7 @@ public class BuildButtonEnd : MonoBehaviour
 
         findClosest = FindObjectOfType<FindClosest>();
 
-        isCheckOnce = false;
+        //isCheckOnce = false;
 
     }
 
@@ -98,13 +97,6 @@ public class BuildButtonEnd : MonoBehaviour
                         spriteRendererMini.maskInteraction = SpriteMaskInteraction.None;
                     }
                 }
-            }
-            //设置ArchButton没有被点击
-            if (!isCheckOnce)
-            {
-                MiniArchUIManager.isArchButtonPressed = false;
-                Debug.Log("isArchButtonPressed = false");
-                isCheckOnce = true;//检查一次,不要总是设为false;
             }
 
 

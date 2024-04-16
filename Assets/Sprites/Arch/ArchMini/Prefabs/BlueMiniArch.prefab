@@ -141,6 +141,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -849890962060719151, guid: 1f9355cd8b3924b0cb483e7bcf8a27a6, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: -849890962060719151, guid: 1f9355cd8b3924b0cb483e7bcf8a27a6, type: 3}
       propertyPath: m_SortingLayerID
       value: -1017908465
       objectReference: {fileID: 0}
@@ -150,7 +154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3349411267191624267, guid: 1f9355cd8b3924b0cb483e7bcf8a27a6, type: 3}
       propertyPath: m_Name
-      value: Curtain
+      value: ZlueCurtain
       objectReference: {fileID: 0}
     - target: {fileID: 6692070031073134168, guid: 1f9355cd8b3924b0cb483e7bcf8a27a6, type: 3}
       propertyPath: m_Name
@@ -162,7 +166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7710765589758327315, guid: 1f9355cd8b3924b0cb483e7bcf8a27a6, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7710765589758327315, guid: 1f9355cd8b3924b0cb483e7bcf8a27a6, type: 3}
       propertyPath: m_SortingLayerID

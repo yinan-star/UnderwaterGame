@@ -141,6 +141,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -849890962060719151, guid: 06f66868df8f54bf3afb1277f7d0224d, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: -849890962060719151, guid: 06f66868df8f54bf3afb1277f7d0224d, type: 3}
       propertyPath: m_SortingLayerID
       value: -1017908465
       objectReference: {fileID: 0}
@@ -150,7 +154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3260033940751955117, guid: 06f66868df8f54bf3afb1277f7d0224d, type: 3}
       propertyPath: m_Name
-      value: Curtain
+      value: YellowCurtain
       objectReference: {fileID: 0}
     - target: {fileID: 4616834632376609481, guid: 06f66868df8f54bf3afb1277f7d0224d, type: 3}
       propertyPath: m_SortingLayer
@@ -158,7 +162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4616834632376609481, guid: 06f66868df8f54bf3afb1277f7d0224d, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4616834632376609481, guid: 06f66868df8f54bf3afb1277f7d0224d, type: 3}
       propertyPath: m_SortingLayerID
