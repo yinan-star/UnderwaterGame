@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuildButtonEnd : MonoBehaviour
 {
     public SpriteProgress spriteProgress;
-    public GameObject buildOverlayPanel;  
+    public GameObject buildOverlayPanel;
     private Spawn spawnScript;
     private static bool hasSpawnedObjects = false;
     public bool buildPanelClosed = false;
@@ -22,7 +22,9 @@ public class BuildButtonEnd : MonoBehaviour
     public bool isDecreased = false;
     private FindClosest findClosest;
 
-    private MiniArchSpawn miniArchSpawn; 
+    //miniArchRelated
+    private MiniArchSpawn miniArchSpawn;
+    public static bool isCheckOnce = false;
 
 
 
@@ -31,7 +33,7 @@ public class BuildButtonEnd : MonoBehaviour
     {
 
         spriteProgress = GetComponent<SpriteProgress>();
-        printScript = GetComponent<Print>(); 
+        printScript = GetComponent<Print>();
         spawnScript = FindObjectOfType<Spawn>();
         creatureSpawn = FindObjectOfType<CreatureSpawn>();
         archSpawn = FindObjectOfType<ArchSpawn>();
@@ -40,6 +42,8 @@ public class BuildButtonEnd : MonoBehaviour
         uIInstantiateManager = FindObjectOfType<UIInstantiateManager>();
 
         findClosest = FindObjectOfType<FindClosest>();
+
+        isCheckOnce = false;
 
     }
 
@@ -54,7 +58,7 @@ public class BuildButtonEnd : MonoBehaviour
             {
                 spawnScript.ReduceSpawnNumber();//生成一次垃圾，垃圾的数组就减1，并且等数量为0，打开UI；
                 hasSpawnedObjects = true;
-                
+
             }
             //关掉BuildPanel
             if (!buildPanelClosed && uIInstantiateManager != null)//如果没有关掉BuildPanel,就关掉
@@ -95,6 +99,14 @@ public class BuildButtonEnd : MonoBehaviour
                     }
                 }
             }
+            //设置ArchButton没有被点击
+            if (!isCheckOnce)
+            {
+                MiniArchUIManager.isArchButtonPressed = false;
+                Debug.Log("isArchButtonPressed = false");
+                isCheckOnce = true;//检查一次,不要总是设为false;
+            }
+
 
 
         }
@@ -107,7 +119,7 @@ public class BuildButtonEnd : MonoBehaviour
         }
     }
 
-    
+
     //检查鱼的随机移动
     private void CheckRandomMovement()
     {
@@ -116,13 +128,13 @@ public class BuildButtonEnd : MonoBehaviour
             RandomMovement randomMovement = creatureSpawn.spawnedCreature.GetComponent<RandomMovement>();
             SpriteRenderer spriteRenderer = creatureSpawn.spawnedCreature.GetComponent<SpriteRenderer>();
             // Vector3 scale = spriteRenderer.transform.localScale;
-            if (!creatureSpawn.randomMovementEnabled) 
+            if (!creatureSpawn.randomMovementEnabled)
             {
                 if (randomMovement != null && spriteProgress.currentFill >= 1.5f)
                 {
                     randomMovement.enabled = true;
-                    creatureSpawn.randomMovementEnabled = true; 
-                    spriteRenderer.maskInteraction = SpriteMaskInteraction.None;                  
+                    creatureSpawn.randomMovementEnabled = true;
+                    spriteRenderer.maskInteraction = SpriteMaskInteraction.None;
 
                 }
                 else
@@ -145,13 +157,13 @@ public class BuildButtonEnd : MonoBehaviour
             Rigidbody2D rigidBody = archSpawn.spawnedArch.GetComponent<Rigidbody2D>();
 
             Transform[] children = archSpawn.spawnedArch.GetComponentsInChildren<Transform>();// 获取所有子对象,因为SpriteMask在子对象里
-           
+
             if (!archSpawn.rigidBodyEnabled)
             {
                 if (rigidBody != null && spriteProgress.currentFill >= 1.5f)
                 {
                     // 启用重力
-                    rigidBody.gravityScale = 1f;        
+                    rigidBody.gravityScale = 1f;
                     archSpawn.rigidBodyEnabled = true;
 
                     //遮罩交互                                  

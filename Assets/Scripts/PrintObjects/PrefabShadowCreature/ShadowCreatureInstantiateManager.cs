@@ -11,13 +11,13 @@ public class ShadowCreatureInstantiateManager : MonoBehaviour
     //拿生成的鱼身上的selectPrintoManager组件,因为鱼是动态生成的,所以直接拿这个脚本的鱼
     private SelectPrintoManager selectPrintoManager;
 
-    
+
     private Vector3 cameraPosition;
     private Quaternion cameraRotation;
     public Vector3 worldPosition;
 
     public void SpawnShadowWithBuildPanel()
-    {            
+    {
         // 生成物体
         shadowCreatureClone = Instantiate(shadowCreatures, worldPosition, Quaternion.identity);
     }
@@ -59,7 +59,11 @@ public class ShadowCreatureInstantiateManager : MonoBehaviour
 
     public void CloseShadowCreature()
     {
-        shadowCreatureClone.SetActive(false);
+        if (shadowCreatureClone != null)
+        {
+            shadowCreatureClone.SetActive(false);
+        }
+
     }
 
 }
