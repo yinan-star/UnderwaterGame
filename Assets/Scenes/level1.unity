@@ -1756,7 +1756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2102945352}
   currentHealth: 0
-  healthThreshold: 18
+  healthThreshold: 16
   healthChecked: 0
   ArchPointbuttons:
   - {fileID: 1248535471}
@@ -2244,7 +2244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9526123, y: 0.30780998, z: -10}
+  m_LocalPosition: {x: -1.9526119, y: 0.30780998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6700,6 +6700,13 @@ MonoBehaviour:
   - {fileID: 4064546685649742256, guid: 0b7932869c1c63b4f90f806e78ab5647, type: 3}
   - {fileID: 9141036452078516854, guid: ca5bb930106f30546a480be4f4cd496f, type: 3}
   - {fileID: 6478923378649587699, guid: f1d3ccfe7974aa74abcf0cd7d1bcf394, type: 3}
+  - {fileID: 3228619090813405557, guid: 965e358b25db24580bcc8007f84b5cca, type: 3}
+  - {fileID: 4249547121912509818, guid: df59babaa7b9e8b4d94b466e1068b0a3, type: 3}
+  - {fileID: 5950425315008789112, guid: cbfdef8208bc00040af05bb3f465c889, type: 3}
+  - {fileID: 4064546685649742256, guid: 0b7932869c1c63b4f90f806e78ab5647, type: 3}
+  - {fileID: 9141036452078516854, guid: ca5bb930106f30546a480be4f4cd496f, type: 3}
+  - {fileID: 8477011005033788524, guid: b0e9d6f722d5d0a4d8611ddf3278b6f1, type: 3}
+  - {fileID: 7600783664924078143, guid: f118f49d4c183e7439dc2a54b9afa05f, type: 3}
   bg: {fileID: 1196802243}
   resetButton: {fileID: 460991095}
 --- !u!4 &1334471210
@@ -7136,7 +7143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnMiniArchs:
-  - {fileID: 5023194806173002145, guid: e22fe92ac87d0451a9c3f790d2f4c68d, type: 3}
+  - {fileID: 7832441213550212526, guid: 46ba98d308e6a4bf084a7587a7a41c94, type: 3}
   - {fileID: 3068242954308984458, guid: 17d7d42ecd41043fd8b6c8489526b2b3, type: 3}
   - {fileID: 7072387663507843952, guid: a30a3336a62aa4348b4042ca6ebaf2aa, type: 3}
   spawnedMiniArch: {fileID: 0}

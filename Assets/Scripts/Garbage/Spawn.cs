@@ -74,7 +74,6 @@ public class Spawn : MonoBehaviour
     public IEnumerator SpawnAndCheck()
     {
         SpawnObjects();
-        SpawnObjects();
 
         // 如果 spawnObjects 为空不执行
         if (spawnObjects.Count == 0)
