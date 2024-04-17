@@ -16,11 +16,11 @@ public class ShadowCreatureInstantiateManager : MonoBehaviour
     private Quaternion cameraRotation;
     public Vector3 worldPosition;
 
-    public void SpawnShadowWithBuildPanel()
-    {
-        // 生成物体
-        shadowCreatureClone = Instantiate(shadowCreatures, worldPosition, Quaternion.identity, transform);
-    }
+    //public void SpawnShadowWithBuildPanel()
+    //{
+    //    // 生成物体
+    //    shadowCreatureClone = Instantiate(shadowCreatures, worldPosition, Quaternion.identity, transform);
+    //}
 
     void Update()
     {
@@ -39,32 +39,32 @@ public class ShadowCreatureInstantiateManager : MonoBehaviour
         }
     }
 
-    public void AddNextButtonEvent()
-    {
-        // 获取 ShadowArchManager 组件
-        selectPrintoManager = FindObjectOfType<SelectPrintoManager>();
-        if (selectPrintoManager != null)
-        {
-            selectPrintoManager.NextPrinto();
-        }
-    }
-    public void AddPrevButtonEvent()
-    {
-        selectPrintoManager = FindObjectOfType<SelectPrintoManager>();
-        if (selectPrintoManager != null)
-        {
-            selectPrintoManager.PreviousPrinto();
-        }
-    }
+    //public void AddNextButtonEvent()
+    //{
+    //    // 获取 ShadowArchManager 组件
+    //    selectPrintoManager = FindObjectOfType<SelectPrintoManager>();
+    //    if (selectPrintoManager != null)
+    //    {
+    //        selectPrintoManager.NextPrinto();
+    //    }
+    //}
+    //public void AddPrevButtonEvent()
+    //{
+    //    selectPrintoManager = FindObjectOfType<SelectPrintoManager>();
+    //    if (selectPrintoManager != null)
+    //    {
+    //        selectPrintoManager.PreviousPrinto();
+    //    }
+    //}
 
-    public void CloseShadowCreature()
-    {
-        if (shadowCreatureClone != null)
-        {
-            // shadowCreatureClone.SetActive(false);
-            Destroy(shadowCreatureClone);
-        }
+    //public void CloseShadowCreature()
+    //{
+    //    if (shadowCreatureClone != null)
+    //    {
+    //        // shadowCreatureClone.SetActive(false);
+    //        Destroy(shadowCreatureClone);
+    //    }
 
-    }
+    //}
 
 }

@@ -11,7 +11,7 @@ public class Print : MonoBehaviour
 
     //public GameObject shadowOfPrinto;//�ص���Ӱ
 
-    private bool isCreatureButtonPressed = false;
+    public static bool isCreatureButtonPressed = false;
     public static  bool isArchButtonPressed = false;
 
    

@@ -5,10 +5,12 @@ using UnityEngine;
 public class BuildOverlayManager : MonoBehaviour
 {
     public GameObject buildOvelayPanel;
-   
+
     public void OpenBuildOverlayPanel()
     {
         buildOvelayPanel.SetActive(true);
+  
+
     }
     public void CloseBuildOverlayPanel()
     {

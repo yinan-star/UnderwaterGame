@@ -15,6 +15,7 @@ public class CreatureSpawn : MonoBehaviour
     private SpriteProgress spriteProgress;
 
     private bool positionSet = false;
+    private bool isPressedCreartue = false;
     private void Start()
     {
         spriteProgress = FindObjectOfType<SpriteProgress>();
@@ -44,13 +45,18 @@ public class CreatureSpawn : MonoBehaviour
         }
      
     }
+    public void IsPressCreatureButton()
+    {
+        isPressedCreartue = true;
+    }
     public void SpawnSelectedCreature()
     {      
 
-        if (printoManager != null)
+        if (spawnCreatures != null && isPressedCreartue)//printoManager != null && 
         {
-            int selectedPrintoIndex = printoManager.selectedPrinto; // ��ȡѡ��Ĵ�ӡ���������
-            GameObject selectedCreaturePrefab = spawnCreatures[selectedPrintoIndex];// ������ֵ�������ҵ�ƥ���Prefab����
+            //int selectedPrintoIndex = printoManager.selectedPrinto; // ��ȡѡ��Ĵ�ӡ���������
+            int randomIndex = Random.Range(0, spawnCreatures.Length);
+            GameObject selectedCreaturePrefab = spawnCreatures[randomIndex];// ������ֵ�������ҵ�ƥ���Prefab����
             if (selectedCreaturePrefab == null)
             {
                 Debug.LogError("Selected creature prefab is null.");
@@ -59,7 +65,8 @@ public class CreatureSpawn : MonoBehaviour
             spawnedCreature = Instantiate(selectedCreaturePrefab, worldPosition, Quaternion.identity, transform);// ���ɸö���
             // 生成新生物后将 positionSet 重新设置为 false
             positionSet = false;
-        
+            isPressedCreartue = false;
+
             randomMovementEnabled = false;
         }
   
