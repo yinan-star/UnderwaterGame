@@ -56,7 +56,7 @@ public class CreatureSpawn : MonoBehaviour
                 Debug.LogError("Selected creature prefab is null.");
                 return;
             }          
-            spawnedCreature = Instantiate(selectedCreaturePrefab, worldPosition, Quaternion.identity);// ���ɸö���
+            spawnedCreature = Instantiate(selectedCreaturePrefab, worldPosition, Quaternion.identity, transform);// ���ɸö���
             // 生成新生物后将 positionSet 重新设置为 false
             positionSet = false;
         

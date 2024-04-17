@@ -10,12 +10,14 @@ public class MiniArchUIManager : MonoBehaviour
     public Button archButton;
     private bool isArchPointListZero = false;
     public static bool isArchButtonPressed = false;
+    public GameObject BuildTarget;
 
     void Start()
     {
         activeArchPointButtonList = new List<GameObject>();
         isArchPointListZero = false;
         isArchButtonPressed = false;
+        BuildTarget.SetActive(false);
     }
 
     void Update()
@@ -46,7 +48,6 @@ public class MiniArchUIManager : MonoBehaviour
             }
             isArchButtonPressed = false;
 
-            Debug.Log("Zero and Press, than Spawn");
         }
 
     }
@@ -54,18 +55,22 @@ public class MiniArchUIManager : MonoBehaviour
     {
         if (isArchPointListZero)
         {
-            buildOverlayManager.SetActive(true); 
+            buildOverlayManager.SetActive(true);
+            BuildTarget.SetActive(true);
         }
 
     }
+    public void CloseBuildTarget()
+    {
+        BuildTarget.SetActive(false);//点击Build后关闭
+    }
     public void PressArchButton()
     {
-        if(activeArchPointButtonList.Count == 0)//因为防止，之前按了Arch，就设置成了true。
+        if (activeArchPointButtonList.Count == 0)//因为防止，之前按了Arch，就设置成了true。
         {
             isArchButtonPressed = true;//按了ArchButton之后，弹出BuildPanel并生成了MiniArch之后，把她重置为false.
-            Debug.Log("PressArchButtonAlready");
         }
-        
+
     }
 }
 

@@ -32,7 +32,7 @@ public class LimitButtonsSelection : MonoBehaviour
         {
             buttonCreature.enabled = true;
             
-            if (playerHealth.currentHealth >= 12)
+            if (playerHealth.currentHealth >= 36)
             {
                 buttonArch.enabled = true;
             }

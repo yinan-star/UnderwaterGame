@@ -34,6 +34,7 @@ public class DialogueManager : MonoBehaviour
         //更新句子
         if (Input.GetKeyDown(KeyCode.X) && isActive == true)
         {
+            StopAllCoroutines();
             NextSentence();
         }
         //更新继续按钮
@@ -73,8 +74,8 @@ public class DialogueManager : MonoBehaviour
         this.nameText.text = currentNameText;// 将名字显示在 TextMeshProUGUI 对象上 
         if (activeSentence == 0)
         {
-            continueButton.SetActive(false);//开始前隐藏
             textDisplay.text = "";//清空句子
+            continueButton.SetActive(false);//开始前隐藏          
             Invoke("StartTyping", 0.6f);//延迟逐字播放
             // StartCoroutine(Type());//逐字播放
             continueButton.SetActive(false);//结束隐藏
@@ -93,8 +94,9 @@ public class DialogueManager : MonoBehaviour
         activeSentence++;//下一句
         if (activeSentence < currentSentences.Length)
         {
-            DisplaySentence();//如果有就显示     
-            textDisplay.text = "";//清空句子
+            
+            DisplaySentence();//如果有就显示  
+            textDisplay.text = "";//清空句子              
             StartCoroutine(Type());//逐字播放
         }
         else

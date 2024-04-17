@@ -19,7 +19,7 @@ public class ShadowCreatureInstantiateManager : MonoBehaviour
     public void SpawnShadowWithBuildPanel()
     {
         // 生成物体
-        shadowCreatureClone = Instantiate(shadowCreatures, worldPosition, Quaternion.identity);
+        shadowCreatureClone = Instantiate(shadowCreatures, worldPosition, Quaternion.identity, transform);
     }
 
     void Update()
@@ -61,7 +61,8 @@ public class ShadowCreatureInstantiateManager : MonoBehaviour
     {
         if (shadowCreatureClone != null)
         {
-            shadowCreatureClone.SetActive(false);
+            // shadowCreatureClone.SetActive(false);
+            Destroy(shadowCreatureClone);
         }
 
     }

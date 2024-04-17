@@ -14,24 +14,25 @@ public class ShadowInstantiatManager : MonoBehaviour
     }
     public void SpawnShadowArchsPoint01()
     {
-        shadowArchsClone = Instantiate(shadowArchs, transforms[0].position, Quaternion.identity);//在transforms的第一个索引的位置生成新的Shadow.       
+        shadowArchsClone = Instantiate(shadowArchs, transforms[0].position, Quaternion.identity, transform);//在transforms的第一个索引的位置生成新的Shadow.       
 
     }
     public void SpawnShadowArchsPoint02()
     {
-        shadowArchsClone = Instantiate(shadowArchs, transforms[1].position, Quaternion.identity);//在transforms的第一个索引的位置生成新的Shadow.       
+        shadowArchsClone = Instantiate(shadowArchs, transforms[1].position, Quaternion.identity, transform);//在transforms的第一个索引的位置生成新的Shadow.       
 
     }
     public void SpawnShadowArchsPoint03()
     {
-        shadowArchsClone = Instantiate(shadowArchs, transforms[2].position, Quaternion.identity);//在transforms的第一个索引的位置生成新的Shadow.       
+        shadowArchsClone = Instantiate(shadowArchs, transforms[2].position, Quaternion.identity, transform);//在transforms的第一个索引的位置生成新的Shadow.       
 
     }
     public void CloseShadowInstantiate()
     {
         if(shadowArchsClone != null)
         {
-            shadowArchsClone.SetActive(false);
+            // shadowArchsClone.SetActive(false);
+            Destroy(shadowArchsClone); // 销毁生成的阴影游戏对象
         }
         
     }

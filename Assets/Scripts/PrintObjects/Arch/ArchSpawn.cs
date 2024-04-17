@@ -33,7 +33,7 @@ public class ArchSpawn : MonoBehaviour
                 if(shadowArchsClone != null)
                 {
                     shadowArchsTransform = shadowArchsClone.transform;
-                    spawnedArch = Instantiate(selectedArchPrefab, shadowArchsTransform.position, Quaternion.identity);
+                    spawnedArch = Instantiate(selectedArchPrefab, shadowArchsTransform.position, Quaternion.identity, transform);
                     rigidBodyEnabled = false;
                 }              
             }

@@ -19,7 +19,7 @@ public class HealthBar : MonoBehaviour
     {
         if (health != null)
         {
-            hpIndicator.SetText($"{health.currentHealth}/{12}");//由于currentHealth每帧都在更新，所以不能放在Awake里。
+            hpIndicator.SetText($"{health.currentHealth}/{150}");//锟斤拷锟斤拷currentHealth每帧锟斤拷锟节革拷锟铰ｏ拷锟斤拷锟皆诧拷锟杰凤拷锟斤拷Awake锟斤。
         }
     }
     public void SetHealth(int health)

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 1093703ab22cf4027921531cca0d83d8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - A-OTF Kakumin Pro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a0e50435b4351064dbccad4683a7dedd, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

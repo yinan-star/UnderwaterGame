@@ -13,6 +13,7 @@ public class FindClosest : MonoBehaviour
     [SerializeField]
     private PickUp[] pickups; 
     private ParticlesSpawn particlesSpawnScript; // ParticlesSpawn 脚本的引用
+    public Transform particleSpawnTrans;//存生成的特效的父物体
 
     public ParticleSystem garbageParticles;
     private void Start()
@@ -76,7 +77,8 @@ public class FindClosest : MonoBehaviour
                     if(particle.CompareTag(closestTag))
                     {
                         //生成对应的粒子效果
-                        Instantiate(particle, closest.gameObject.transform.position, Quaternion.identity);
+                        
+                        Instantiate(particle, closest.gameObject.transform.position, Quaternion.identity, particleSpawnTrans);
                     }
                 }                                         
                
