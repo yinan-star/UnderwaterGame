@@ -9,13 +9,16 @@ public class CreatureSpawn : MonoBehaviour
     public GameObject spawnedCreature; 
     public bool randomMovementEnabled; // Ĭ�Ϲر� RandomMovement
     private ShadowCreatureInstantiateManager shadowCreatureInstantiateManager;
-    //private GameObject shadowCreatureClone;
     private Vector3 worldPosition;
 
     private SpriteProgress spriteProgress;
 
     private bool positionSet = false;
     private bool isPressedCreartue = false;
+
+    public static bool isSpawned;
+
+    
     private void Start()
     {
         spriteProgress = FindObjectOfType<SpriteProgress>();
@@ -35,7 +38,6 @@ public class CreatureSpawn : MonoBehaviour
                 {
                     // 更新物体的位置为主摄像机的位置
                     spawnedCreature.transform.position = Vector3.Lerp(spawnedCreature.transform.position, worldPosition, Time.deltaTime * 5f);
-
                 }
             }
             else
@@ -64,9 +66,11 @@ public class CreatureSpawn : MonoBehaviour
             }          
             spawnedCreature = Instantiate(selectedCreaturePrefab, worldPosition, Quaternion.identity, transform);// ���ɸö���
             // 生成新生物后将 positionSet 重新设置为 false
+            //生成的新物体调用身上的shake脚本
+            isSpawned = true;
+            
             positionSet = false;
             isPressedCreartue = false;
-
             randomMovementEnabled = false;
         }
   

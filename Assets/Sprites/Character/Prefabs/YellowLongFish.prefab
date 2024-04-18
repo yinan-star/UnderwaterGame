@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1961334409114328204}
   - component: {fileID: 3849066644401349568}
   - component: {fileID: 1387574349381681052}
+  - component: {fileID: -7106531828295194174}
   m_Layer: 0
   m_Name: YellowLongFish
   m_TagString: Untagged
@@ -100,3 +101,17 @@ MonoBehaviour:
   minSpeed: 0.5
   maxSpeed: 2
   range: 3
+--- !u!114 &-7106531828295194174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8337413661959514958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87aeed55ab56440e3a142ae86c8f132a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeAmount: 0.03
+  shakeSpeed: 70

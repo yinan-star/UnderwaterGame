@@ -25,7 +25,8 @@ public class BuildButtonEnd : MonoBehaviour
     //miniArchRelated
     private MiniArchSpawn miniArchSpawn;
 
-
+    //设置一次shake的关机
+    // public static bool isShaked = false;
 
 
     void Start()
@@ -43,6 +44,10 @@ public class BuildButtonEnd : MonoBehaviour
         findClosest = FindObjectOfType<FindClosest>();
 
         //isCheckOnce = false;
+
+        // isShaked = false;
+
+
 
     }
 
@@ -99,6 +104,15 @@ public class BuildButtonEnd : MonoBehaviour
                 }
             }
 
+            // //设置关一次Shake
+            // if (!isShaked && CreatureSpawn.shakeShake)//如果已经shake了
+            // {
+            //     archSpawn.shakeShake = false;//鱼不能shake
+            //     isShaked = true;
+            // }
+            
+            //限制生成的物体的shake
+            CreatureSpawn.isSpawned = false;
 
 
         }
@@ -108,6 +122,7 @@ public class BuildButtonEnd : MonoBehaviour
             buildPanelClosed = false;
             buildOverlayPanelClosed = false;
             isDecreased = false;
+            // isShaked = false;
         }
     }
 
@@ -149,6 +164,7 @@ public class BuildButtonEnd : MonoBehaviour
             Rigidbody2D rigidBody = archSpawn.spawnedArch.GetComponent<Rigidbody2D>();
 
             Transform[] children = archSpawn.spawnedArch.GetComponentsInChildren<Transform>();// 获取所有子对象,因为SpriteMask在子对象里
+
 
             if (!archSpawn.rigidBodyEnabled)
             {

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ShadowCreatureInstantiateManager : MonoBehaviour
 {
-    [SerializeField] private GameObject shadowCreatures;//要生成的原物体
-    public GameObject shadowCreatureClone;//在别的脚本里要调新生成的
-    public RectTransform BuildPanelOverlayPosition;
+    // [SerializeField] private GameObject shadowCreatures;//要生成的原物体
+    // public GameObject shadowCreatureClone;//在别的脚本里要调新生成的
+    // public RectTransform BuildPanelOverlayPosition;
     public Camera mainCamera; // 主摄像机
     //拿生成的鱼身上的selectPrintoManager组件,因为鱼是动态生成的,所以直接拿这个脚本的鱼
-    private SelectPrintoManager selectPrintoManager;
+    // private SelectPrintoManager selectPrintoManager;
 
 
     private Vector3 cameraPosition;
@@ -32,11 +32,11 @@ public class ShadowCreatureInstantiateManager : MonoBehaviour
 
         worldPosition = cameraPosition + cameraRotation * Vector3.forward * distanceFromCamera;
 
-        if (shadowCreatureClone != null)
-        {
-            // 更新物体的位置为主摄像机的位置并使之更加平滑
-            shadowCreatureClone.transform.position = Vector3.Lerp(shadowCreatureClone.transform.position, worldPosition, Time.deltaTime * 5f);
-        }
+        // if (shadowCreatureClone != null)
+        // {
+        //     // 更新物体的位置为主摄像机的位置并使之更加平滑
+        //     shadowCreatureClone.transform.position = Vector3.Lerp(shadowCreatureClone.transform.position, worldPosition, Time.deltaTime * 5f);
+        // }
     }
 
     //public void AddNextButtonEvent()
