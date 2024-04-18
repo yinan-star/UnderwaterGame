@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &321074210184645928
+--- !u!1 &8473734516485688634
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6895924902809423380}
-  - component: {fileID: 1447380750799331256}
-  - component: {fileID: 1490120428262219085}
-  - component: {fileID: -6366914834078194583}
+  - component: {fileID: 1239376090853953408}
+  - component: {fileID: 4996783382429761743}
+  - component: {fileID: 3015685379334835499}
+  - component: {fileID: 7596399006463945276}
   m_Layer: 0
-  m_Name: BlueSmallFIsh
+  m_Name: PurpleSmallFish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6895924902809423380
+--- !u!4 &1239376090853953408
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 321074210184645928}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1.56, y: 0.44, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_GameObject: {fileID: 8473734516485688634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!212 &1447380750799331256
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &4996783382429761743
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 321074210184645928}
+  m_GameObject: {fileID: 8473734516485688634}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,25 +74,25 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1017908465
   m_SortingLayer: 3
-  m_SortingOrder: 25
-  m_Sprite: {fileID: 21300000, guid: 16c9fcfea871354459121f07f4877301, type: 3}
+  m_SortingOrder: 30
+  m_Sprite: {fileID: 21300000, guid: c3840b48f9c97e84e9d7e3972cf6468f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.7916665, y: 3.8333333}
+  m_Size: {x: 5.4357142, y: 4.4214287}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
---- !u!114 &1490120428262219085
+--- !u!114 &3015685379334835499
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 321074210184645928}
+  m_GameObject: {fileID: 8473734516485688634}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4e169d8b54e4b044aad699130504d60, type: 3}
@@ -101,13 +101,13 @@ MonoBehaviour:
   minSpeed: 2
   maxSpeed: 3
   range: 3
---- !u!114 &-6366914834078194583
+--- !u!114 &7596399006463945276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 321074210184645928}
+  m_GameObject: {fileID: 8473734516485688634}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87aeed55ab56440e3a142ae86c8f132a, type: 3}

@@ -13,6 +13,9 @@ public class ArchSpawn : MonoBehaviour
     private ShadowInstantiatManager shadowInstantiatManager;
     private Transform shadowArchsTransform;
 
+    public static bool isSpawned;
+
+
     private void Start()
     {
         shadowInstantiatManager = FindObjectOfType<ShadowInstantiatManager>();
@@ -27,18 +30,20 @@ public class ArchSpawn : MonoBehaviour
             GameObject selectedArchPrefab = spawnArchs[selectedArchIndex];
 
             //这个位置应该是新生成的shadowArchClone的位置
-            if(shadowInstantiatManager != null)
+            if (shadowInstantiatManager != null)
             {
                 GameObject shadowArchsClone = shadowInstantiatManager.shadowArchsClone;
-                if(shadowArchsClone != null)
+                if (shadowArchsClone != null)
                 {
                     shadowArchsTransform = shadowArchsClone.transform;
-                    spawnedArch = Instantiate(selectedArchPrefab, shadowArchsTransform.position, Quaternion.identity, transform); 
-                    rigidBodyEnabled = false;                   
+                    spawnedArch = Instantiate(selectedArchPrefab, shadowArchsTransform.position, Quaternion.identity, transform);
+                    rigidBodyEnabled = false;
+                    //生成的新物体调用身上的shake脚本
+                    isSpawned = true;//生成了,可以shake                 
                 }
-                             
+
             }
-        
+
         }
         else
         {

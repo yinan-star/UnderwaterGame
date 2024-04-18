@@ -111,8 +111,9 @@ public class BuildButtonEnd : MonoBehaviour
             //     isShaked = true;
             // }
 
-            //限制生成的物体的shake
+            //不要shake了
             CreatureSpawn.isSpawned = false;
+            ArchSpawn.isSpawned = false;
 
 
         }

@@ -4432,6 +4432,8 @@ MonoBehaviour:
   - {fileID: 7508461593254245985, guid: 897a29a6d127e954eb9d3ac28da7a6aa, type: 3}
   - {fileID: 8337413661959514958, guid: 4b0975b60ab7f7644819c9d81295b7ee, type: 3}
   - {fileID: 321074210184645928, guid: 55b5fbd5e99161d4491c8e7ffd95611a, type: 3}
+  - {fileID: 8473734516485688634, guid: c56b340bcb98a4b359f624304093eb2b, type: 3}
+  - {fileID: 2936803345501920712, guid: 395cd4d2943f3415ba9678d58ba0fe67, type: 3}
   spawnedCreature: {fileID: 0}
   randomMovementEnabled: 0
 --- !u!4 &1089812722
@@ -6550,8 +6552,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnMiniArchs:
   - {fileID: 7832441213550212526, guid: 46ba98d308e6a4bf084a7587a7a41c94, type: 3}
-  - {fileID: 3068242954308984458, guid: 17d7d42ecd41043fd8b6c8489526b2b3, type: 3}
-  - {fileID: 7072387663507843952, guid: a30a3336a62aa4348b4042ca6ebaf2aa, type: 3}
+  - {fileID: 7196691584139099021, guid: 17d7d42ecd41043fd8b6c8489526b2b3, type: 3}
+  - {fileID: 2668881687407416312, guid: a30a3336a62aa4348b4042ca6ebaf2aa, type: 3}
   spawnedMiniArch: {fileID: 0}
   rigidBodyEnabled: 0
   sortingLayerName: Print

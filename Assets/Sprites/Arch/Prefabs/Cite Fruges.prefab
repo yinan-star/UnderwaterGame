@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6040616524482764551}
   - component: {fileID: 7227828843989159626}
   - component: {fileID: 52100811391846932}
+  - component: {fileID: -2376440815321351615}
   m_Layer: 0
   m_Name: Cite Fruges
   m_TagString: Untagged
@@ -94,6 +95,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e90b2d00329e6418575ef39e3cba33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2376440815321351615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3692928413739619906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87aeed55ab56440e3a142ae86c8f132a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeAmount: 0.001
+  shakeSpeed: 80
 --- !u!1001 &4731554995510574454
 PrefabInstance:
   m_ObjectHideFlags: 0
