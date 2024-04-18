@@ -5,19 +5,20 @@ using UnityEngine.UI;
 public class MiniArchUIManager : MonoBehaviour
 {
     private ArchPointManager archPointManager;//调activeArchPointButtonsList
-    public GameObject buildOverlayManager;//调打开BuildPanel组件
+    //public GameObject buildOverlayManager;//调打开BuildPanel组件
     private List<GameObject> activeArchPointButtonList;
     public Button archButton;
     private bool isArchPointListZero = false;
     public static bool isArchButtonPressed = false;
-    public GameObject BuildTarget;
+    //public GameObject BuildTarget;
+    public BuildOverlayManager overlayManager;
 
     void Start()
     {
         activeArchPointButtonList = new List<GameObject>();
         isArchPointListZero = false;
         isArchButtonPressed = false;
-        BuildTarget.SetActive(false);
+        //BuildTarget.SetActive(false);
     }
 
     void Update()
@@ -55,14 +56,19 @@ public class MiniArchUIManager : MonoBehaviour
     {
         if (isArchPointListZero)
         {
-            buildOverlayManager.SetActive(true);
-            BuildTarget.SetActive(true);
+            if (overlayManager != null)
+            {
+                overlayManager.OpenBuildOverlayPanel();
+            }
+            //buildOverlayManager.SetActive(true);//打开BuilPverlayPanel组件
+            //BuildTarget.SetActive(true);
         }
 
     }
     public void CloseBuildTarget()
     {
-        BuildTarget.SetActive(false);//点击Build后关闭
+        overlayManager.CloseBuildTarget();
+        //BuildTarget.SetActive(false);//点击Build后关闭
     }
     public void PressArchButton()
     {

@@ -2790,6 +2790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildOvelayPanel: {fileID: 666390860}
+  buildTargetPanel: {fileID: 1024921885}
 --- !u!1 &689330944
 GameObject:
   m_ObjectHideFlags: 0
@@ -6988,9 +6989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202c48705f9244fefac6dcf3a3ffb9c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildOverlayManager: {fileID: 666390860}
   archButton: {fileID: 1008906264}
-  BuildTarget: {fileID: 1024921885}
+  overlayManager: {fileID: 666390863}
 --- !u!1 &1511105896
 GameObject:
   m_ObjectHideFlags: 0
@@ -8746,8 +8746,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1505536823}
-        m_TargetAssemblyTypeName: MiniArchUIManager, Assembly-CSharp
+      - m_Target: {fileID: 666390863}
+        m_TargetAssemblyTypeName: BuildOverlayManager, Assembly-CSharp
         m_MethodName: CloseBuildTarget
         m_Mode: 1
         m_Arguments:
