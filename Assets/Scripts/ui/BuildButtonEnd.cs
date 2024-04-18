@@ -26,7 +26,7 @@ public class BuildButtonEnd : MonoBehaviour
     private MiniArchSpawn miniArchSpawn;
 
     //设置一次shake的关机
-    // public static bool isShaked = false;
+    public static bool isShaked = false;
 
 
     void Start()
@@ -110,7 +110,7 @@ public class BuildButtonEnd : MonoBehaviour
             //     archSpawn.shakeShake = false;//鱼不能shake
             //     isShaked = true;
             // }
-            
+
             //限制生成的物体的shake
             CreatureSpawn.isSpawned = false;
 
