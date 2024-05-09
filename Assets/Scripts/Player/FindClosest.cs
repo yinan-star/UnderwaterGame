@@ -16,6 +16,9 @@ public class FindClosest : MonoBehaviour
     public Transform particleSpawnTrans;//存生成的特效的父物体
 
     public ParticleSystem garbageParticles;
+
+    //调音乐
+    AudioManager audioManager;
     private void Start()
     {       
         // 获取 ParticlesSpawn 脚本的引用
@@ -77,7 +80,8 @@ public class FindClosest : MonoBehaviour
                     if(particle.CompareTag(closestTag))
                     {
                         //生成对应的粒子效果
-                        
+                        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+                        audioManager.PlaySFX(audioManager.pickUp);
                         Instantiate(particle, closest.gameObject.transform.position, Quaternion.identity, particleSpawnTrans);
                     }
                 }                                         

@@ -14,6 +14,9 @@ public class BuildButtonEnd : MonoBehaviour
     private CreatureSpawn creatureSpawn;
     private ArchSpawn archSpawn;
 
+    //调音乐
+    AudioManager audioManager;
+
     //拿BuildPanel
     private UIInstantiateManager uIInstantiateManager;
     private GameObject buildPanelClone;
@@ -43,12 +46,6 @@ public class BuildButtonEnd : MonoBehaviour
 
         findClosest = FindObjectOfType<FindClosest>();
 
-        //isCheckOnce = false;
-
-        // isShaked = false;
-
-
-
     }
 
     private void Update()
@@ -73,6 +70,9 @@ public class BuildButtonEnd : MonoBehaviour
                     buildPanelClone.SetActive(false);
                     buildPanelClosed = true;
                     printScript.isBuildButtonPressed = false;//重置成没按Build
+                    audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+                    audioManager.PlaySFX(audioManager.PrintEnd);
+
                 }
             }
             //关掉BuildPanelOverlay
@@ -81,6 +81,8 @@ public class BuildButtonEnd : MonoBehaviour
                 buildOverlayPanel.SetActive(false);
                 buildOverlayPanelClosed = true;//关了就不要每帧设置成false
                 printScript.isBuildButtonPressed = false;//重置成没按Build
+                audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+                audioManager.PlaySFX(audioManager.PrintEnd);
                 Debug.Log("closed");
             }
             //减生命值
@@ -103,13 +105,6 @@ public class BuildButtonEnd : MonoBehaviour
                     }
                 }
             }
-
-            // //设置关一次Shake
-            // if (!isShaked && CreatureSpawn.shakeShake)//如果已经shake了
-            // {
-            //     archSpawn.shakeShake = false;//鱼不能shake
-            //     isShaked = true;
-            // }
 
             //不要shake了
             CreatureSpawn.isSpawned = false;

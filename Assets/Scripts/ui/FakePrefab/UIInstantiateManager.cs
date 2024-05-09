@@ -19,28 +19,28 @@ public class UIInstantiateManager : MonoBehaviour
         // buildPanelClone = Instantiate(buildPanel, this.transform);//在canvas的位置生成新的Build.
         buildPanelClone = null;//假设他就是null
 
-       
+
+
     }
     public void SpawnBuildPanel01()
     {
-
         buildPanelClone = Instantiate(buildPanel, transforms[0].position, Quaternion.identity);//在transforms的第一个索引的位置生成新的Build.       
         SetCanvasAsParent();
-       
+
     }
     public void SpawnBuildPanel02()
     {
-
         buildPanelClone = Instantiate(buildPanel, transforms[1].position, Quaternion.identity);            
         SetCanvasAsParent();
-     
+
+
     }
     public void SpawnBuildPanel03()
     {
-
         buildPanelClone = Instantiate(buildPanel, transforms[2].position, Quaternion.identity);      
         SetCanvasAsParent();
-    
+   
+
 
     }
 
@@ -74,6 +74,7 @@ public class UIInstantiateManager : MonoBehaviour
             shadowArchManager.PreviousPrinto();
         }
     }
+    
 
 
 }

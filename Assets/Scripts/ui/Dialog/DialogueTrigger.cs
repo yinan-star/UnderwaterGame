@@ -7,8 +7,13 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Sentence[] sentences;//对象上的句子组
     public string nameText;
+
+    //调音乐
+    AudioManager audioManager;
     public void StartDialogue()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        audioManager.PlaySFX(audioManager.dialogue);
         FindObjectOfType<DialogueManager>().OpenDialogue(sentences, nameText);//把当前存的给Trigger
     }
 

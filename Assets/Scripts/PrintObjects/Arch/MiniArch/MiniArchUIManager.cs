@@ -8,7 +8,7 @@ public class MiniArchUIManager : MonoBehaviour
     //public GameObject buildOverlayManager;//调打开BuildPanel组件
     private List<GameObject> activeArchPointButtonList;
     public Button archButton;
-    private bool isArchPointListZero = false;
+    public static bool isArchPointListZero = false;
     public static bool isArchButtonPressed = false;
     //public GameObject BuildTarget;
     public BuildOverlayManager overlayManager;

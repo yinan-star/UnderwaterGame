@@ -23,6 +23,7 @@ TagManager:
   - EndingTrigger
   - Ending
   - Nearly
+  - Audio
   layers:
   - Default
   - TransparentFX
